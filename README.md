@@ -5,8 +5,6 @@
 ![Bruno](https://img.shields.io/badge/Bruno-Collection-orange)
 ![Databricks](https://img.shields.io/badge/Databricks-API-FF3621?logo=databricks&logoColor=white)
 ![Made with Bash](https://img.shields.io/badge/Made%20with-Bash-1f425f?logo=gnu-bash&logoColor=white)
-![jq](https://img.shields.io/badge/requires-jq-blue)
-![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=github-actions&logoColor=white)
 
 Tools and reference docs for enumerating valid Databricks workspace settings
 across the two parallel APIs:
