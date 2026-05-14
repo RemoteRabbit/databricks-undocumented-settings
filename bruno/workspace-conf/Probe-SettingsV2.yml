@@ -1,0 +1,69 @@
+info:
+  name: Probe SettingsV2
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{host}}/api/2.1/settings/{{name}}"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        if (!bru.getVar('__v2_results')) {
+          bru.setVar('__v2_results', JSON.stringify({ ok: {}, denied: [], notfound: [], errors: [] }));
+        }
+    - type: after-response
+      code: |-
+        const name = bru.runner.iterationData.get('name') || bru.getVar('name');
+        const status = res.getStatus();
+        const body = res.getBody();
+        const acc = JSON.parse(bru.getVar('__v2_results'));
+
+        if (status === 200) {
+          acc.ok[name] = body;
+          console.log(`[OK ]  ${name}`);
+        } else if (status === 403) {
+          acc.denied.push(name);
+          console.log(`[403]  ${name}`);
+        } else if (status === 404) {
+          acc.notfound.push(name);
+          console.log(`[404]  ${name}`);
+        } else {
+          acc.errors.push({ name, status });
+          console.log(`[${status}]  ${name}`);
+        }
+
+        bru.setVar('__v2_results', JSON.stringify(acc));
+    - type: tests
+      code: |-
+        const name = bru.runner.iterationData.get('name') || bru.getVar('name');
+        const status = res.getStatus();
+        // 200 = setting has a value; 404 = recognized but not yet enrolled/set.
+        // Both confirm the metadata name is valid for this workspace.
+        // 400/403/5xx = real failure (invalid name, no permission, server error).
+        test(`${name} is recognized (200 or 404)`, function() {
+          expect([200, 404]).to.include(status);
+        });
+
+docs: |-
+  Per-name probe for the new settingsv2 surface.
+
+  Runner setup:
+    1. Open the Runner.
+    2. Select only this request.
+    3. Attach data file: workspace-conf/data/settingsv2_candidates.json
+    4. Run.
+
+  Each iteration substitutes {{name}} from the JSON row.
+  Aggregated results live in the __v2_results collection var.

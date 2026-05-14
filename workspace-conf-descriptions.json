@@ -1,0 +1,49 @@
+{
+  "_comment": "Hand-maintained descriptions for legacy /api/2.0/workspace-conf keys. The legacy API exposes no metadata endpoint, so this file is the source of truth. Add/correct entries as you learn more.",
+
+  "enableIpAccessLists":              { "values": "true | false",      "description": "Enables the IP access list feature. Required before creating databricks_ip_access_list resources. Premium/Enterprise tier only - on Free Edition the API returns 404 because the feature isn't provisioned, not because the key is invalid." },
+  "enableTokensConfig":               { "values": "true | false",      "description": "Enable or disable personal access token (PAT) creation for this workspace." },
+  "maxTokenLifetimeDays":             { "values": "integer (1–730)",   "description": "Maximum lifetime for new PATs, in days. Existing tokens are unaffected. 0 = unlimited (where allowed)." },
+  "enableServicePrincipalOauthTokens":{ "values": "true | false",      "description": "Enable OAuth tokens for service principals." },
+
+  "enableDeprecatedClusterNamedInitScripts": { "values": "true | false", "description": "Enable legacy cluster-named (DBFS) init scripts." },
+  "enableDeprecatedGlobalInitScripts":       { "values": "true | false", "description": "Enable legacy DBFS-based global init scripts (use the global init scripts API instead)." },
+  "enableLibraryAndInitScriptOnSharedCluster": { "values": "true | false", "description": "Allow installing libraries and using init scripts on Shared access mode clusters." },
+  "enableDcs":                        { "values": "true | false",      "description": "Enable Databricks Container Services for clusters." },
+  "enableGp3":                        { "values": "true | false",      "description": "Use AWS gp3 EBS volumes (instead of gp2) for cluster nodes." },
+
+  "enableProjectsAllowList":          { "values": "true | false",      "description": "Enforce the Repos Git URL allow-list (configured via projectsAllowList)." },
+  "projectsAllowList":                { "values": "comma-separated URL prefixes", "description": "Allow-list of Git URL prefixes that Repos may commit/push to. Empty = block all repos." },
+  "enableWorkspaceFilesystem":        { "values": "true | false | dbr8.4+ | dbr11.0+", "description": "Files in Repos / Workspace Files. Choose minimum DBR version that supports arbitrary file access." },
+
+  "enableExportNotebook":             { "values": "true | false",      "description": "Allow users to export notebooks (HTML/IPYNB/source/DBC)." },
+  "enableUploadDataUis":              { "values": "true | false",      "description": "Allow the Upload Data UI in the workspace (e.g. importing local files into tables)." },
+  "enableResultsDownloading":         { "values": "true | false",      "description": "Allow users to download query/notebook cell results to their local machine." },
+  "enableVerboseAuditLogs":           { "values": "true | false",      "description": "Enable verbose mode for workspace audit logs (more event detail at higher volume)." },
+  "enableDbfsFileBrowser":            { "values": "true | false",      "description": "Enable the DBFS file browser UI in the workspace." },
+  "enableWebTerminal":                { "values": "true | false",      "description": "Enable the Web Terminal in clusters/notebooks." },
+  "enableSafeSparkUi":                { "values": "true | false",      "description": "Restrict Spark UI access (sanitized view) to limit data exposure." },
+  "storeInteractiveNotebookResultsInCustomerAccount": { "values": "true | false", "description": "AWS-only. Store interactive notebook results in the customer's S3 root bucket instead of the Databricks-managed location." },
+  "rstudioUserHomeBaseDirectory":     { "values": "absolute Unix path", "description": "Default base directory for RStudio Server user homes (applies cluster-wide)." },
+
+  "enableHsts":                       { "values": "true | false",      "description": "Send HTTP Strict-Transport-Security headers from the workspace." },
+  "enable-X-Frame-Options":           { "values": "true | false",      "description": "Send 'X-Frame-Options: sameorigin' to prevent third-party iframing." },
+  "enable-X-Content-Type-Options":    { "values": "true | false",      "description": "Send 'X-Content-Type-Options: nosniff' to disable MIME sniffing." },
+  "enable-X-XSS-Protection":          { "values": "true | false",      "description": "Send 'X-XSS-Protection: 1; mode=block' (legacy browser XSS filter)." },
+  "enable-sso-default-link-from-account-console": { "values": "true | false", "description": "Show/use the default SSO link from the account console for this workspace." },
+
+  "enforceWorkspaceViewAcls":         { "values": "true | false",      "description": "Enforce workspace object view ACLs (notebooks/folders/etc.)." },
+  "enableJobViewAcls":                { "values": "true | false",      "description": "Hide jobs from users who don't have access (job view ACLs)." },
+  "enableWorkspaceAcl":               { "values": "true | false",      "description": "Enable workspace object access control. Premium+ tier." },
+  "enforceWorkspaceAcl":              { "values": "true | false",      "description": "Enforce workspace object access control. Premium+ tier." },
+  "enableClusterAcl":                 { "values": "true | false",      "description": "Enable cluster access control. Premium+ tier." },
+  "enforceClusterAcl":                { "values": "true | false",      "description": "Enforce cluster access control. Premium+ tier." },
+  "enablePoolAcl":                    { "values": "true | false",      "description": "Enable instance pool access control. Premium+ tier." },
+  "enforcePoolAcl":                   { "values": "true | false",      "description": "Enforce instance pool access control. Premium+ tier." },
+  "enableJobAcl":                     { "values": "true | false",      "description": "Enable job access control. Premium+ tier." },
+  "enforceJobAcl":                    { "values": "true | false",      "description": "Enforce job access control. Premium+ tier." },
+  "enableSqlEndpointAcl":             { "values": "true | false",      "description": "Enable SQL warehouse / endpoint access control. Premium+ tier." },
+
+  "mlflowModelServingEndpointCreationEnabled": { "values": "true | false", "description": "Allow creation of MLflow Model Serving endpoints in this workspace." },
+  "mlflowModelRegistryEmailNotificationsEnabled": { "values": "true | false", "description": "Enable email notifications for MLflow Model Registry events." }
+}

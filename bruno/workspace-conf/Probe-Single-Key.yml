@@ -1,0 +1,67 @@
+info:
+  name: Probe Single Key
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{host}}/api/2.0/workspace-conf?keys={{key}}"
+  params:
+    - name: keys
+      value: "{{key}}"
+      type: query
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        if (!bru.getVar('__discovery_results')) {
+          bru.setVar('__discovery_results', JSON.stringify({ valid: {}, invalid: [], errors: [] }));
+        }
+    - type: after-response
+      code: |-
+        const key = bru.getVar('key');
+        const status = res.getStatus();
+        const body = res.getBody();
+        const acc = JSON.parse(bru.getVar('__discovery_results'));
+
+        if (status === 200 && body && typeof body === 'object') {
+          acc.valid[key] = body[key] !== undefined ? body[key] : null;
+          console.log(`[OK]    ${key} = ${JSON.stringify(body[key])}`);
+        } else if (status === 400 && body && /Invalid keys/.test(body.message || '')) {
+          acc.invalid.push(key);
+          console.log(`[BAD]   ${key}`);
+        } else {
+          acc.errors.push({ key, status, body });
+          console.log(`[ERR ${status}] ${key}`);
+        }
+
+        bru.setVar('__discovery_results', JSON.stringify(acc));
+    - type: tests
+      code: |-
+        const key = bru.getVar('key');
+        test(`${key} is a valid workspace-conf key`, function() {
+          expect(res.getStatus()).to.equal(200);
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Per-key probe designed for the Bruno Runner with a data file:
+    1. Open the Runner.
+    2. Select this request only.
+    3. Attach data file: workspace-conf/data/candidates.json
+    4. Run.
+
+  Each iteration substitutes {{key}} from the data row. The post-response
+  script accumulates results into the collection var __discovery_results,
+  which you can inspect after the run.
+
+  To reset between runs, clear the __discovery_results var in the env panel.

@@ -1,0 +1,31 @@
+# Secrets / local env
+.env
+.env.*
+*.pem
+*.key
+
+# Databricks CLI / auth artifacts
+.databrickscfg
+
+# Bruno runtime
+node_modules/
+.bruno/
+bruno-*.log
+
+# Probe outputs (regenerated every run; only the markdown is committed)
+results.json
+results-v2.json
+results*.html
+settingsv2-metadata.json
+bruno/workspace-conf/data/settingsv2_candidates.json
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

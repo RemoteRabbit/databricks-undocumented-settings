@@ -1,0 +1,7 @@
+name: free
+variables:
+  - name: host
+    value: https://your-workspace.cloud.databricks.com
+  - name: token
+    value: ""
+    secret: true

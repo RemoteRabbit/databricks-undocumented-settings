@@ -1,0 +1,116 @@
+[
+  {
+    "key": "enableIpAccessLists"
+  },
+  {
+    "key": "enableTokensConfig"
+  },
+  {
+    "key": "maxTokenLifetimeDays"
+  },
+  {
+    "key": "enableServicePrincipalOauthTokens"
+  },
+  {
+    "key": "enableDeprecatedClusterNamedInitScripts"
+  },
+  {
+    "key": "enableDeprecatedGlobalInitScripts"
+  },
+  {
+    "key": "enableLibraryAndInitScriptOnSharedCluster"
+  },
+  {
+    "key": "enableDcs"
+  },
+  {
+    "key": "enableGp3"
+  },
+  {
+    "key": "enableProjectsAllowList"
+  },
+  {
+    "key": "projectsAllowList"
+  },
+  {
+    "key": "enableWorkspaceFilesystem"
+  },
+  {
+    "key": "enableExportNotebook"
+  },
+  {
+    "key": "enableUploadDataUis"
+  },
+  {
+    "key": "enableResultsDownloading"
+  },
+  {
+    "key": "enableVerboseAuditLogs"
+  },
+  {
+    "key": "enableDbfsFileBrowser"
+  },
+  {
+    "key": "enableWebTerminal"
+  },
+  {
+    "key": "enableSafeSparkUi"
+  },
+  {
+    "key": "storeInteractiveNotebookResultsInCustomerAccount"
+  },
+  {
+    "key": "rstudioUserHomeBaseDirectory"
+  },
+  {
+    "key": "enable-X-Frame-Options"
+  },
+  {
+    "key": "enable-X-Content-Type-Options"
+  },
+  {
+    "key": "enable-X-XSS-Protection"
+  },
+  {
+    "key": "enableHsts"
+  },
+  {
+    "key": "enable-sso-default-link-from-account-console"
+  },
+  {
+    "key": "mlflowModelServingEndpointCreationEnabled"
+  },
+  {
+    "key": "mlflowModelRegistryEmailNotificationsEnabled"
+  },
+  {
+    "key": "enableSqlEndpointAcl"
+  },
+  {
+    "key": "enforceWorkspaceViewAcls"
+  },
+  {
+    "key": "enableJobViewAcls"
+  },
+  {
+    "key": "enableWorkspaceAcl"
+  },
+  {
+    "key": "enforceWorkspaceAcl"
+  },
+  {
+    "key": "enableClusterAcl"
+  },
+  {
+    "key": "enforceClusterAcl"
+  },
+  {
+    "key": "enablePoolAcl"
+  },
+  {
+    "key": "enforcePoolAcl"
+  },
+  {
+    "key": "enableJobAcl"
+  }
+]
