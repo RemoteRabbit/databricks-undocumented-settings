@@ -138,7 +138,7 @@ probe_file=results-v2.json
     | sort_by(.name)
     | .[]
     | . as $m
-    | "| [`\($m.name)`](#\($m.name | ascii_downcase | gsub("[^a-z0-9]"; "-"))) | \($m.preview_phase // "GA") | \(badge($status[$m.name] // 0)) | \(($m.display_name // "-") | gsub("\\|"; "\\|")) |"
+    | "| [`\($m.name)`](#\($m.name | ascii_downcase | gsub("[^a-z0-9_]"; "-"))) | \($m.preview_phase // "GA") | \(badge($status[$m.name] // 0)) | \(($m.display_name // "-") | gsub("\\|"; "\\|")) |"
   ' settingsv2-metadata.json
   echo
   echo "## Details"
