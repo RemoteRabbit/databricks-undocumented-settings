@@ -1,6 +1,6 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-05-14T00:17:34Z._
+_Auto-generated on 2026-05-14T00:33:19Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
 _109 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
@@ -18,115 +18,115 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 
 | Name | Phase | Status | Display Name |
 |---|---|---|---|
-| [`agent_monitoring`](#agent-monitoring) | BETA | ✅ 200 | Production Monitoring for MLflow |
-| [`agents_obo`](#agents-obo) | PUBLIC_PREVIEW | ✅ 200 | Agent Framework: On-Behalf-Of-User Authorization |
-| [`ai_classify`](#ai-classify) | PUBLIC_PREVIEW | ✅ 200 | AI Classify |
-| [`ai_extract`](#ai-extract) | PUBLIC_PREVIEW | ✅ 200 | AI Extract |
-| [`ai_parse_document`](#ai-parse-document) | GA | ✅ 200 | AI ParseDocument |
-| [`ai_prep_search`](#ai-prep-search) | BETA | 🟡 404 | AI Prep Search |
-| [`ai_runtime_beta_features`](#ai-runtime-beta-features) | BETA | 🟡 404 | AI Runtime Beta Features |
-| [`air_interactive`](#air-interactive) | BETA | ✅ 200 | Serverless GPU Compute |
-| [`alerts_v2`](#alerts-v2) | GA | ✅ 200 | SQL Alerts V2 |
-| [`alertv2_job_task`](#alertv2-job-task) | PUBLIC_PREVIEW | ✅ 200 | Alert Job Task |
+| [`agent_monitoring`](#agent_monitoring) | BETA | ✅ 200 | Production Monitoring for MLflow |
+| [`agents_obo`](#agents_obo) | PUBLIC_PREVIEW | ✅ 200 | Agent Framework: On-Behalf-Of-User Authorization |
+| [`ai_classify`](#ai_classify) | PUBLIC_PREVIEW | ✅ 200 | AI Classify |
+| [`ai_extract`](#ai_extract) | PUBLIC_PREVIEW | ✅ 200 | AI Extract |
+| [`ai_parse_document`](#ai_parse_document) | GA | ✅ 200 | AI ParseDocument |
+| [`ai_prep_search`](#ai_prep_search) | BETA | 🟡 404 | AI Prep Search |
+| [`ai_runtime_beta_features`](#ai_runtime_beta_features) | BETA | 🟡 404 | AI Runtime Beta Features |
+| [`air_interactive`](#air_interactive) | BETA | ✅ 200 | Serverless GPU Compute |
+| [`alerts_v2`](#alerts_v2) | GA | ✅ 200 | SQL Alerts V2 |
+| [`alertv2_job_task`](#alertv2_job_task) | PUBLIC_PREVIEW | ✅ 200 | Alert Job Task |
 | [`allowedAppsUserApiScopes`](#allowedappsuserapiscopes) | GA | ✅ 200 | - |
-| [`anomaly_detection_ws`](#anomaly-detection-ws) | PUBLIC_PREVIEW | ✅ 200 | Data quality monitoring with anomaly detection (workspace level) |
-| [`apps_otel`](#apps-otel) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry for Databricks Apps |
-| [`apps_v2_ui`](#apps-v2-ui) | GA | 🟡 404 | Databricks Apps V2 |
-| [`authoring_context`](#authoring-context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
-| [`cld_to_volumes`](#cld-to-volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
-| [`cloudfiles_excel`](#cloudfiles-excel) | GA | ✅ 200 | Excel File Format Support |
-| [`confluence_connector`](#confluence-connector) | GA | ✅ 200 | Lakeflow Connect for Confluence |
-| [`conn_cdc_col_select`](#conn-cdc-col-select) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Column Selection for Database Sources |
-| [`custom_apps_preview`](#custom-apps-preview) | GA | ✅ 200 | Databricks Apps |
+| [`anomaly_detection_ws`](#anomaly_detection_ws) | PUBLIC_PREVIEW | ✅ 200 | Data quality monitoring with anomaly detection (workspace level) |
+| [`apps_otel`](#apps_otel) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry for Databricks Apps |
+| [`apps_v2_ui`](#apps_v2_ui) | GA | 🟡 404 | Databricks Apps V2 |
+| [`authoring_context`](#authoring_context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
+| [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
+| [`cloudfiles_excel`](#cloudfiles_excel) | GA | ✅ 200 | Excel File Format Support |
+| [`confluence_connector`](#confluence_connector) | GA | ✅ 200 | Lakeflow Connect for Confluence |
+| [`conn_cdc_col_select`](#conn_cdc_col_select) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Column Selection for Database Sources |
+| [`custom_apps_preview`](#custom_apps_preview) | GA | ✅ 200 | Databricks Apps |
 | [`customerApprovedWSLoginExpirationTime`](#customerapprovedwsloginexpirationtime) | GA | ✅ 200 | - |
-| [`dabs_templates`](#dabs-templates) | BETA | ✅ 200 | Custom bundle templates in the workspace |
-| [`dabs_visual_edit`](#dabs-visual-edit) | BETA | ✅ 200 | Visual authoring: UI <> YAML Sync for DABs in the Workspace |
-| [`dashboard_authoring_agent`](#dashboard-authoring-agent) | PUBLIC_PREVIEW | 🟡 404 | Genie Code for dashboard authoring |
-| [`databricks_one`](#databricks-one) | GA | ✅ 200 | Databricks One |
+| [`dabs_templates`](#dabs_templates) | BETA | ✅ 200 | Custom bundle templates in the workspace |
+| [`dabs_visual_edit`](#dabs_visual_edit) | BETA | ✅ 200 | Visual authoring: UI <> YAML Sync for DABs in the Workspace |
+| [`dashboard_authoring_agent`](#dashboard_authoring_agent) | PUBLIC_PREVIEW | 🟡 404 | Genie Code for dashboard authoring |
+| [`databricks_one`](#databricks_one) | GA | ✅ 200 | Databricks One |
 | [`dataclassificationws`](#dataclassificationws) | GA | ✅ 200 | Data Classification |
-| [`datascience_agent`](#datascience-agent) | GA | ✅ 200 | Genie Code |
-| [`dbsql_5xl_pro`](#dbsql-5xl-pro) | PUBLIC_PREVIEW | ✅ 200 | 5XL PRO SQL Warehouse |
-| [`dbsql_5xl_serverless`](#dbsql-5xl-serverless) | PUBLIC_PREVIEW | ✅ 200 | 5XL Serverless SQL Warehouse |
-| [`dbt_cloud_task`](#dbt-cloud-task) | BETA | ✅ 200 | dbt platform task |
-| [`dc_custom_tags`](#dc-custom-tags) | BETA | 🟡 404 | Extend Data Classification with Custom Classifiers |
-| [`default_wh_setting`](#default-wh-setting) | GA | ✅ 200 | Default warehouse setting |
+| [`datascience_agent`](#datascience_agent) | GA | ✅ 200 | Genie Code |
+| [`dbsql_5xl_pro`](#dbsql_5xl_pro) | PUBLIC_PREVIEW | ✅ 200 | 5XL PRO SQL Warehouse |
+| [`dbsql_5xl_serverless`](#dbsql_5xl_serverless) | PUBLIC_PREVIEW | ✅ 200 | 5XL Serverless SQL Warehouse |
+| [`dbt_cloud_task`](#dbt_cloud_task) | BETA | ✅ 200 | dbt platform task |
+| [`dc_custom_tags`](#dc_custom_tags) | BETA | 🟡 404 | Extend Data Classification with Custom Classifiers |
+| [`default_wh_setting`](#default_wh_setting) | GA | ✅ 200 | Default warehouse setting |
 | [`designer`](#designer) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Designer |
-| [`disable_legacy_access`](#disable-legacy-access) | GA | ✅ 200 | - |
-| [`disable_legacy_dbfs`](#disable-legacy-dbfs) | GA | ✅ 200 | - |
-| [`discover_page`](#discover-page) | BETA | ✅ 200 | Discover Page |
-| [`ds_v2_join_pushdown`](#ds-v2-join-pushdown) | PUBLIC_PREVIEW | ✅ 200 | Join Pushdown for Federated Queries |
-| [`dynamics_connector`](#dynamics-connector) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect for Dynamics 365 |
-| [`embedded_genie`](#embedded-genie) | BETA | 🟡 404 | Embed Genie as an iframe |
-| [`enable_dlmv_aibi`](#enable-dlmv-aibi) | PUBLIC_PREVIEW | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
-| [`enable_lakeview_tags`](#enable-lakeview-tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
-| [`enable_obo_user_apps`](#enable-obo-user-apps) | GA_SOON | ✅ 200 | Databricks Apps - On-Behalf-Of User Authorization |
+| [`disable_legacy_access`](#disable_legacy_access) | GA | ✅ 200 | - |
+| [`disable_legacy_dbfs`](#disable_legacy_dbfs) | GA | ✅ 200 | - |
+| [`discover_page`](#discover_page) | BETA | ✅ 200 | Discover Page |
+| [`ds_v2_join_pushdown`](#ds_v2_join_pushdown) | PUBLIC_PREVIEW | ✅ 200 | Join Pushdown for Federated Queries |
+| [`dynamics_connector`](#dynamics_connector) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect for Dynamics 365 |
+| [`embedded_genie`](#embedded_genie) | BETA | 🟡 404 | Embed Genie as an iframe |
+| [`enable_dlmv_aibi`](#enable_dlmv_aibi) | PUBLIC_PREVIEW | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
+| [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
+| [`enable_obo_user_apps`](#enable_obo_user_apps) | GA_SOON | ✅ 200 | Databricks Apps - On-Behalf-Of User Authorization |
 | [`enforceGitAppDeployments`](#enforcegitappdeployments) | GA | ✅ 200 | - |
-| [`excel_connector_flip`](#excel-connector-flip) | PUBLIC_PREVIEW | 🟡 404 | Excel Add-In |
-| [`exp_sp_token_notif`](#exp-sp-token-notif) | BETA | ✅ 200 | Expiring service principal access token notifications |
-| [`external_access_to_managed_delta`](#external-access-to-managed-delta) | BETA | 🟡 404 | External Access to Unity Catalog Managed Delta Table |
-| [`filebrowser_tree`](#filebrowser-tree) | PUBLIC_PREVIEW | ✅ 200 | Tree view of the side panel file browser |
-| [`fmapi_qwen3_instruct`](#fmapi-qwen3-instruct) | PUBLIC_PREVIEW | ✅ 200 | Enable Extended Models (Qwen) |
-| [`fstore_decl_fw`](#fstore-decl-fw) | BETA | ✅ 200 | Feature Store Declarative Framework (Batch) |
-| [`gdrive_connector`](#gdrive-connector) | BETA | ✅ 200 | Lakeflow Connect for Google Drive |
-| [`genie_chat_sharing`](#genie-chat-sharing) | BETA | ✅ 200 | Genie Chat Sharing |
-| [`genie_deep_research`](#genie-deep-research) | PUBLIC_PREVIEW | ✅ 200 | Genie Agent |
-| [`genie_inspect_answer`](#genie-inspect-answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
-| [`genie_unstructured_files_in_deepresearch_mode`](#genie-unstructured-files-in-deepresearch-mode) | BETA | 🟡 404 | Upload Local PDFs to Genie Spaces |
-| [`google_ads_connector`](#google-ads-connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
-| [`hspot_mktg_connector`](#hspot-mktg-connector) | GA | ✅ 200 | Lakeflow Connect for HubSpot |
+| [`excel_connector_flip`](#excel_connector_flip) | PUBLIC_PREVIEW | 🟡 404 | Excel Add-In |
+| [`exp_sp_token_notif`](#exp_sp_token_notif) | BETA | ✅ 200 | Expiring service principal access token notifications |
+| [`external_access_to_managed_delta`](#external_access_to_managed_delta) | BETA | 🟡 404 | External Access to Unity Catalog Managed Delta Table |
+| [`filebrowser_tree`](#filebrowser_tree) | PUBLIC_PREVIEW | ✅ 200 | Tree view of the side panel file browser |
+| [`fmapi_qwen3_instruct`](#fmapi_qwen3_instruct) | PUBLIC_PREVIEW | ✅ 200 | Enable Extended Models (Qwen) |
+| [`fstore_decl_fw`](#fstore_decl_fw) | BETA | ✅ 200 | Feature Store Declarative Framework (Batch) |
+| [`gdrive_connector`](#gdrive_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Drive |
+| [`genie_chat_sharing`](#genie_chat_sharing) | BETA | ✅ 200 | Genie Chat Sharing |
+| [`genie_deep_research`](#genie_deep_research) | PUBLIC_PREVIEW | ✅ 200 | Genie Agent |
+| [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
+| [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | 🟡 404 | Upload Local PDFs to Genie Spaces |
+| [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
+| [`hspot_mktg_connector`](#hspot_mktg_connector) | GA | ✅ 200 | Lakeflow Connect for HubSpot |
 | [`icebergv3`](#icebergv3) | PUBLIC_PREVIEW | ✅ 200 | Iceberg V3 |
-| [`ip_functions`](#ip-functions) | BETA | 🟡 404 | Ip Functions |
-| [`jdbc_connector`](#jdbc-connector) | PUBLIC_PREVIEW | ✅ 200 | Custom JDBC on UC Compute |
-| [`jira_connector`](#jira-connector) | BETA | ✅ 200 | Lakeflow Connect for Jira |
-| [`jobs_disabled_tasks`](#jobs-disabled-tasks) | GA | ✅ 200 | Disabled tasks in Lakeflow Jobs |
-| [`jobs_serverless_managed_base_environments`](#jobs-serverless-managed-base-environments) | BETA | 🟡 404 | Serverless workspace base environment support in Jobs |
-| [`lakebase_accel_sync`](#lakebase-accel-sync) | PRIVATE_PREVIEW | ✅ 200 | Lakebase Accelerated Sync |
-| [`lakebase_cdf`](#lakebase-cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakehouse Sync |
-| [`lakebase_otel_integration`](#lakebase-otel-integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
-| [`lakeflow_new_jobs_ui`](#lakeflow-new-jobs-ui) | GA | ✅ 200 | Lakeflow Jobs UI |
-| [`lakeflow_qbc`](#lakeflow-qbc) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Query Based Connectors |
-| [`lakeflow_runs_list`](#lakeflow-runs-list) | PUBLIC_PREVIEW | ✅ 200 | Unified Runs List |
-| [`lf_pipelines_auth`](#lf-pipelines-auth) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Pipelines Editor |
-| [`llm_proxy_partner_powered`](#llm-proxy-partner-powered) | GA | ✅ 200 | - |
-| [`managed_mcp_servers`](#managed-mcp-servers) | PUBLIC_PREVIEW | ✅ 200 | Managed MCP Servers |
-| [`meta_ads_connector`](#meta-ads-connector) | BETA | ✅ 200 | Lakeflow Connect for Meta Ads |
-| [`mlflow_logged_models`](#mlflow-logged-models) | PUBLIC_PREVIEW | ✅ 200 | Models in Unity Catalog: Deployment Jobs |
+| [`ip_functions`](#ip_functions) | BETA | 🟡 404 | Ip Functions |
+| [`jdbc_connector`](#jdbc_connector) | PUBLIC_PREVIEW | ✅ 200 | Custom JDBC on UC Compute |
+| [`jira_connector`](#jira_connector) | BETA | ✅ 200 | Lakeflow Connect for Jira |
+| [`jobs_disabled_tasks`](#jobs_disabled_tasks) | GA | ✅ 200 | Disabled tasks in Lakeflow Jobs |
+| [`jobs_serverless_managed_base_environments`](#jobs_serverless_managed_base_environments) | BETA | 🟡 404 | Serverless workspace base environment support in Jobs |
+| [`lakebase_accel_sync`](#lakebase_accel_sync) | PRIVATE_PREVIEW | ✅ 200 | Lakebase Accelerated Sync |
+| [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakehouse Sync |
+| [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
+| [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
+| [`lakeflow_qbc`](#lakeflow_qbc) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Query Based Connectors |
+| [`lakeflow_runs_list`](#lakeflow_runs_list) | PUBLIC_PREVIEW | ✅ 200 | Unified Runs List |
+| [`lf_pipelines_auth`](#lf_pipelines_auth) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Pipelines Editor |
+| [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | - |
+| [`managed_mcp_servers`](#managed_mcp_servers) | PUBLIC_PREVIEW | ✅ 200 | Managed MCP Servers |
+| [`meta_ads_connector`](#meta_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Meta Ads |
+| [`mlflow_logged_models`](#mlflow_logged_models) | PUBLIC_PREVIEW | ✅ 200 | Models in Unity Catalog: Deployment Jobs |
 | [`mst`](#mst) | PUBLIC_PREVIEW | ✅ 200 | Transactions |
-| [`multiple_git_creds`](#multiple-git-creds) | GA | ✅ 200 | Multiple Git Credentials |
-| [`new_policy_form`](#new-policy-form) | GA | ✅ 200 | New compute policy form |
-| [`oltp_database`](#oltp-database) | GA | ✅ 200 | Lakebase Postgres |
-| [`one_chat`](#one-chat) | PUBLIC_PREVIEW | ✅ 200 | New chat experience in Genie |
-| [`otel_collector`](#otel-collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
-| [`otel_model_serving`](#otel-model-serving) | BETA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
-| [`pkg_repo_api_cluster`](#pkg-repo-api-cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via API |
-| [`pkg_repo_dlt`](#pkg-repo-dlt) | GA_SOON | ✅ 200 | Default Python package repositories in Spark Declarative Pipelines |
-| [`pkg_repo_ui_cluster`](#pkg-repo-ui-cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via UI |
-| [`power_bi_task`](#power-bi-task) | PUBLIC_PREVIEW | ✅ 200 | Power BI task type |
-| [`remote_query_tvf`](#remote-query-tvf) | PUBLIC_PREVIEW | ✅ 200 | Enables remote query table-valued function (remote_query). |
-| [`scoped_pat`](#scoped-pat) | GA | ✅ 200 | Scoped personal access tokens |
-| [`serverless_jar_jobs`](#serverless-jar-jobs) | PUBLIC_PREVIEW | ✅ 200 | Serverless JARs |
-| [`sfdc_file_sharing`](#sfdc-file-sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
-| [`sftp_connector`](#sftp-connector) | PUBLIC_PREVIEW | ✅ 200 | SFTP Connector |
-| [`sharepoint_connector`](#sharepoint-connector) | BETA | ✅ 200 | Lakeflow Connect for Sharepoint |
-| [`sql_cond_triggers`](#sql-cond-triggers) | GA | 🟡 404 | - |
-| [`standalone_mv_st_on_serverless_gc`](#standalone-mv-st-on-serverless-gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
-| [`supervisor_api`](#supervisor-api) | BETA | 🟡 404 | Supervisor API |
-| [`system_managed_job`](#system-managed-job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
-| [`tabular_subscription_attachments`](#tabular-subscription-attachments) | GA | 🟡 404 | Widget Data Attachments for Dashboard Subscriptions |
-| [`third_party_agent_connectors`](#third-party-agent-connectors) | BETA | 🟡 404 | Third Party Connectors for Agents |
-| [`tiktok_ads_connector`](#tiktok-ads-connector) | BETA | ✅ 200 | Lakeflow Connect for TikTok Ads |
-| [`tiles_platform`](#tiles-platform) | BETA | ✅ 200 | Mosaic AI Agent Bricks Preview |
-| [`ucmr_prompt_registry`](#ucmr-prompt-registry) | BETA | ✅ 200 | Managed MLflow Prompt Registry |
-| [`variant_shredding`](#variant-shredding) | BETA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
-| [`vector_search_rerank`](#vector-search-rerank) | GA | ✅ 200 | Vector Search Reranker |
-| [`vectorsearch_highqps`](#vectorsearch-highqps) | PUBLIC_PREVIEW | ✅ 200 | Vector Search High QPS |
-| [`vs_autoeval`](#vs-autoeval) | BETA | 🟡 404 | Vector Search AutoEval |
-| [`vs_full_text`](#vs-full-text) | BETA | ✅ 200 | Vector Search Full Text |
-| [`wday_hcm_connector`](#wday-hcm-connector) | BETA | ✅ 200 | Lakeflow Connect for Workday HCM |
-| [`wh_activity_details`](#wh-activity-details) | BETA | ✅ 200 | Warehouse Activity Details |
-| [`wsfs_git_cli`](#wsfs-git-cli) | BETA | ✅ 200 | Git CLI support for Git folders |
-| [`zdesk_supt_connector`](#zdesk-supt-connector) | GA | ✅ 200 | Lakeflow Connect for Zendesk Support |
-| [`zerobus_ingest_core`](#zerobus-ingest-core) | GA | ✅ 200 | Lakeflow Connect Zerobus Ingest |
+| [`multiple_git_creds`](#multiple_git_creds) | GA | ✅ 200 | Multiple Git Credentials |
+| [`new_policy_form`](#new_policy_form) | GA | ✅ 200 | New compute policy form |
+| [`oltp_database`](#oltp_database) | GA | ✅ 200 | Lakebase Postgres |
+| [`one_chat`](#one_chat) | PUBLIC_PREVIEW | ✅ 200 | New chat experience in Genie |
+| [`otel_collector`](#otel_collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
+| [`otel_model_serving`](#otel_model_serving) | BETA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
+| [`pkg_repo_api_cluster`](#pkg_repo_api_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via API |
+| [`pkg_repo_dlt`](#pkg_repo_dlt) | GA_SOON | ✅ 200 | Default Python package repositories in Spark Declarative Pipelines |
+| [`pkg_repo_ui_cluster`](#pkg_repo_ui_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via UI |
+| [`power_bi_task`](#power_bi_task) | PUBLIC_PREVIEW | ✅ 200 | Power BI task type |
+| [`remote_query_tvf`](#remote_query_tvf) | PUBLIC_PREVIEW | ✅ 200 | Enables remote query table-valued function (remote_query). |
+| [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
+| [`serverless_jar_jobs`](#serverless_jar_jobs) | PUBLIC_PREVIEW | ✅ 200 | Serverless JARs |
+| [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
+| [`sftp_connector`](#sftp_connector) | PUBLIC_PREVIEW | ✅ 200 | SFTP Connector |
+| [`sharepoint_connector`](#sharepoint_connector) | BETA | ✅ 200 | Lakeflow Connect for Sharepoint |
+| [`sql_cond_triggers`](#sql_cond_triggers) | GA | 🟡 404 | - |
+| [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
+| [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
+| [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
+| [`tabular_subscription_attachments`](#tabular_subscription_attachments) | GA | 🟡 404 | Widget Data Attachments for Dashboard Subscriptions |
+| [`third_party_agent_connectors`](#third_party_agent_connectors) | BETA | 🟡 404 | Third Party Connectors for Agents |
+| [`tiktok_ads_connector`](#tiktok_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for TikTok Ads |
+| [`tiles_platform`](#tiles_platform) | BETA | ✅ 200 | Mosaic AI Agent Bricks Preview |
+| [`ucmr_prompt_registry`](#ucmr_prompt_registry) | BETA | ✅ 200 | Managed MLflow Prompt Registry |
+| [`variant_shredding`](#variant_shredding) | BETA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
+| [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
+| [`vectorsearch_highqps`](#vectorsearch_highqps) | PUBLIC_PREVIEW | ✅ 200 | Vector Search High QPS |
+| [`vs_autoeval`](#vs_autoeval) | BETA | 🟡 404 | Vector Search AutoEval |
+| [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | Vector Search Full Text |
+| [`wday_hcm_connector`](#wday_hcm_connector) | BETA | ✅ 200 | Lakeflow Connect for Workday HCM |
+| [`wh_activity_details`](#wh_activity_details) | BETA | ✅ 200 | Warehouse Activity Details |
+| [`wsfs_git_cli`](#wsfs_git_cli) | BETA | ✅ 200 | Git CLI support for Git folders |
+| [`zdesk_supt_connector`](#zdesk_supt_connector) | GA | ✅ 200 | Lakeflow Connect for Zendesk Support |
+| [`zerobus_ingest_core`](#zerobus_ingest_core) | GA | ✅ 200 | Lakeflow Connect Zerobus Ingest |
 
 ## Details
 

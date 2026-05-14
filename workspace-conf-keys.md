@@ -1,6 +1,6 @@
 # Databricks `workspace-conf` keys (legacy /api/2.0/workspace-conf)
 
-_Auto-generated on 2026-05-14T00:17:34Z._
+_Auto-generated on 2026-05-14T00:33:19Z._
 _Discovered against a Databricks host. Some keys may be valid on other tiers but rejected here._
 _Descriptions are hand-maintained in [`workspace-conf-descriptions.json`](workspace-conf-descriptions.json)._
 
@@ -8,6 +8,9 @@ _Descriptions are hand-maintained in [`workspace-conf-descriptions.json`](worksp
 
 | Key | Current value | Accepted values | Description |
 |---|---|---|---|
+| `enable-X-Content-Type-Options` | `-` | true \| false | Send 'X-Content-Type-Options: nosniff' to disable MIME sniffing. |
+| `enable-X-Frame-Options` | `-` | true \| false | Send 'X-Frame-Options: sameorigin' to prevent third-party iframing. |
+| `enable-X-XSS-Protection` | `-` | true \| false | Send 'X-XSS-Protection: 1; mode=block' (legacy browser XSS filter). |
 | `enableDbfsFileBrowser` | `-` | true \| false | Enable the DBFS file browser UI in the workspace. |
 | `enableDcs` | `-` | true \| false | Enable Databricks Container Services for clusters. |
 | `enableDeprecatedClusterNamedInitScripts` | `false` | true \| false | Enable legacy cluster-named (DBFS) init scripts. |
@@ -23,9 +26,6 @@ _Descriptions are hand-maintained in [`workspace-conf-descriptions.json`](worksp
 | `enableVerboseAuditLogs` | `-` | true \| false | Enable verbose mode for workspace audit logs (more event detail at higher volume). |
 | `enableWebTerminal` | `true` | true \| false | Enable the Web Terminal in clusters/notebooks. |
 | `enableWorkspaceFilesystem` | `true` | true \| false \| dbr8.4+ \| dbr11.0+ | Files in Repos / Workspace Files. Choose minimum DBR version that supports arbitrary file access. |
-| `enable-X-Content-Type-Options` | `-` | true \| false | Send 'X-Content-Type-Options: nosniff' to disable MIME sniffing. |
-| `enable-X-Frame-Options` | `-` | true \| false | Send 'X-Frame-Options: sameorigin' to prevent third-party iframing. |
-| `enable-X-XSS-Protection` | `-` | true \| false | Send 'X-XSS-Protection: 1; mode=block' (legacy browser XSS filter). |
 | `enforceWorkspaceViewAcls` | `true` | true \| false | Enforce workspace object view ACLs (notebooks/folders/etc.). |
 | `maxTokenLifetimeDays` | `730` | integer (1–730) | Maximum lifetime for new PATs, in days. Existing tokens are unaffected. 0 = unlimited (where allowed). |
 | `mlflowModelRegistryEmailNotificationsEnabled` | `-` | true \| false | Enable email notifications for MLflow Model Registry events. |
@@ -39,6 +39,7 @@ _Likely Premium/Enterprise-tier-only on this workspace, deprecated, or unknown t
 
 | Key | Description |
 |---|---|
+| `enable-sso-default-link-from-account-console` | Show/use the default SSO link from the account console for this workspace. |
 | `enableClusterAcl` | Enable cluster access control. Premium+ tier. |
 | `enableHsts` | Send HTTP Strict-Transport-Security headers from the workspace. |
 | `enableJobAcl` | Enable job access control. Premium+ tier. |
@@ -46,7 +47,6 @@ _Likely Premium/Enterprise-tier-only on this workspace, deprecated, or unknown t
 | `enableSafeSparkUi` | Restrict Spark UI access (sanitized view) to limit data exposure. |
 | `enableServicePrincipalOauthTokens` | Enable OAuth tokens for service principals. |
 | `enableSqlEndpointAcl` | Enable SQL warehouse / endpoint access control. Premium+ tier. |
-| `enable-sso-default-link-from-account-console` | Show/use the default SSO link from the account console for this workspace. |
 | `enableWorkspaceAcl` | Enable workspace object access control. Premium+ tier. |
 | `enforceClusterAcl` | Enforce cluster access control. Premium+ tier. |
 | `enforcePoolAcl` | Enforce instance pool access control. Premium+ tier. |
