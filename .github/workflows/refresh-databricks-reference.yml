@@ -1,0 +1,48 @@
+name: Refresh Databricks settings reference
+
+on:
+  schedule:
+    # Run weekly, Monday 06:00 UTC. Adjust as desired.
+    - cron: '0 6 * * 1'
+  workflow_dispatch: {}     # allow manual runs from the Actions tab
+
+permissions:
+  contents: write           # needed to commit regenerated markdown
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node (for Bruno CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Run probes (legacy + v2)
+        run: ./scripts/run.sh all
+
+      - name: Regenerate markdown
+        run: ./scripts/generate-markdown.sh
+
+      - name: Commit changes if any
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ./*.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore: refresh Databricks settings reference ($(date -u +%Y-%m-%d))"
+            git push
+          fi
