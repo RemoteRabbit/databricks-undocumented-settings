@@ -65,8 +65,8 @@ summarize_legacy() {
   echo
   echo "── workspace-conf summary ─────────────────────────────────"
   echo "Status counts:"
-  jq -r '.[] | .results[] | (.response.status // "skipped") | tostring' "$f" \
-    | sort | uniq -c | sed 's/^/  /'
+  jq -r '.[] | .results[] | (.response.status // "skipped") | tostring' "$f" |
+    sort | uniq -c | sed 's/^/  /'
 
   echo
   echo "✅ VALID (200):"
@@ -98,8 +98,8 @@ summarize_v2() {
   echo
   echo "── settingsv2 summary ─────────────────────────────────────"
   echo "Status counts:"
-  jq -r '.[] | .results[] | (.response.status // "skipped") | tostring' "$f" \
-    | sort | uniq -c | sed 's/^/  /'
+  jq -r '.[] | .results[] | (.response.status // "skipped") | tostring' "$f" |
+    sort | uniq -c | sed 's/^/  /'
 
   echo
   echo "✅ ENABLED / SET (200):"
@@ -127,36 +127,36 @@ summarize_v2() {
 }
 
 case "$mode" in
-  legacy|all)
-    run_probe "Legacy workspace-conf probe" \
-      workspace-conf/Probe-Single-Key.yml \
-      workspace-conf/data/candidates.json \
-      results.json
-    summarize_legacy results.json
-    ;;
+legacy | all)
+  run_probe "Legacy workspace-conf probe" \
+    workspace-conf/Probe-Single-Key.yml \
+    workspace-conf/data/candidates.json \
+    results.json
+  summarize_legacy results.json
+  ;;
 esac
 
 case "$mode" in
-  v2|all)
-    echo "→ Refreshing v2 candidates from live settings-metadata…"
-    curl -fsSL -H "Authorization: Bearer $DATABRICKS_TOKEN" \
-      "$DATABRICKS_HOST/api/2.1/settings-metadata?page_size=1000" \
-      | jq '[.settings_metadata[] | {name, preview_phase, display_name, type: (.type|tostring)}]' \
-      > "$BRUNO_DIR/workspace-conf/data/settingsv2_candidates.json"
-    run_probe "Settings v2 probe" \
-      workspace-conf/Probe-SettingsV2.yml \
-      workspace-conf/data/settingsv2_candidates.json \
-      results-v2.json
-    summarize_v2 results-v2.json
-    ;;
+v2 | all)
+  echo "→ Refreshing v2 candidates from live settings-metadata…"
+  curl -fsSL -H "Authorization: Bearer $DATABRICKS_TOKEN" \
+    "$DATABRICKS_HOST/api/2.1/settings-metadata?page_size=1000" |
+    jq '[.settings_metadata[] | {name, preview_phase, display_name, type: (.type|tostring)}]' \
+      >"$BRUNO_DIR/workspace-conf/data/settingsv2_candidates.json"
+  run_probe "Settings v2 probe" \
+    workspace-conf/Probe-SettingsV2.yml \
+    workspace-conf/data/settingsv2_candidates.json \
+    results-v2.json
+  summarize_v2 results-v2.json
+  ;;
 esac
 
 case "$mode" in
-  legacy|v2|all) ;;
-  *)
-    echo "Unknown mode: $mode (use legacy | v2 | all)" >&2
-    exit 2
-    ;;
+legacy | v2 | all) ;;
+*)
+  echo "Unknown mode: $mode (use legacy | v2 | all)" >&2
+  exit 2
+  ;;
 esac
 
 echo

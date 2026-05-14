@@ -1,14 +1,23 @@
 #!/usr/bin/env bash
-# Regenerates *.md at the repo root from results.json, results-v2.json, and the
-# settings-v2 metadata snapshot. Run after scripts/run.sh has produced the
-# JSON files.
+# Regenerates the reference markdown files at the repo root from the JSON
+# probe output and the settings-v2 metadata snapshot. Run this after
+# scripts/run.sh has produced results.json and results-v2.json.
 #
-# Layout:
-#   <repo-root>/
-#     ├── results.json results-v2.json   produced by scripts/run.sh
-#     ├── settingsv2-metadata.json       cached metadata (refreshed here)
-#     ├── workspace-conf-descriptions.json   hand-maintained legacy docs
-#     └── *.md                           output markdown
+# Outputs (overwrites in place):
+#   workspace-conf-keys.md   Legacy /api/2.0/workspace-conf probe results.
+#   settings-v2.md           Settings v2 catalog plus per-name probe status.
+#
+# Inputs (all at repo root):
+#   results.json                       produced by scripts/run.sh legacy
+#   results-v2.json                    produced by scripts/run.sh v2
+#   settingsv2-metadata.json           refreshed at the top of this script
+#   workspace-conf-descriptions.json   hand-maintained legacy key docs
+#
+# Env vars:
+#   DATABRICKS_HOST    workspace URL (used to refresh settings-v2 metadata)
+#   DATABRICKS_TOKEN   bearer token (PAT or OAuth access_token)
+#
+# Requires: jq, curl.
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -46,7 +55,7 @@ if [[ -f results.json ]]; then
       | ($r.request.url | capture("keys=(?<k>[^&]+)").k) as $key
       | ($r.response.data // {}) as $body
       | ($desc[$key] // {}) as $info
-      | "| `\($key)` | `\($body[$key] // "-" | tostring)` | \($info.values // "-") | \($info.description // "-" | gsub("\\|"; "\\\\|")) |"
+      | "| `\($key)` | `\($body[$key] // "-" | tostring)` | \(($info.values // "-") | gsub("\\|"; "\\|")) | \($info.description // "-" | gsub("\\|"; "\\|")) |"
     ' results.json | sort
     echo
     echo "## ❌ Invalid keys (HTTP 400 \"Invalid keys\")"
@@ -61,7 +70,7 @@ if [[ -f results.json ]]; then
       | select((.response.status // 0) == 400 and (.request.url // "") != "")
       | (.request.url | capture("keys=(?<k>[^&]+)").k) as $key
       | ($desc[$key] // {}) as $info
-      | "| `\($key)` | \($info.description // "-" | gsub("\\|"; "\\\\|")) |"
+      | "| `\($key)` | \($info.description // "-" | gsub("\\|"; "\\|")) |"
     ' results.json | sort
     echo
     other=$(jq -r --slurpfile d "$desc_file" '
@@ -72,7 +81,7 @@ if [[ -f results.json ]]; then
             and (.request.url // "") != "")
       | (.request.url | capture("keys=(?<k>[^&]+)").k) as $key
       | ($desc[$key] // {}) as $info
-      | "| `\($key)` | \(.response.status) | \($info.description // "-" | gsub("\\|"; "\\\\|")) |"
+      | "| `\($key)` | \(.response.status) | \($info.description // "-" | gsub("\\|"; "\\|")) |"
     ' results.json | sort)
     if [[ -n "$other" ]]; then
       echo "## ⚠️ Other (404/etc.)"
@@ -104,12 +113,11 @@ probe_file=results-v2.json
     | .[]
     | "- **\(.[0].preview_phase // "GA")**: \(length) settings"' settingsv2-metadata.json
   echo
-  echo "## All settings"
+  echo "## Summary"
   echo
-  echo "| Name | Display Name | Phase | Status | Type | Description |"
-  echo "|---|---|---|---|---|---|"
+  echo "| Name | Phase | Status | Display Name |"
+  echo "|---|---|---|---|"
   jq -r --slurpfile p "$probe_file" '
-    # Build name -> status map from probe results
     ( ($p[0] // [])
       | map(.results // [])
       | add // []
@@ -130,7 +138,38 @@ probe_file=results-v2.json
     | sort_by(.name)
     | .[]
     | . as $m
-    | "| `\($m.name)` | \($m.display_name // "-") | \($m.preview_phase // "GA") | \(badge($status[$m.name] // 0)) | `\($m.type | gsub("\\|"; "\\\\|"))` | \((($m.description // "-") | gsub("\n"; " ") | gsub("\\|"; "\\\\|"))) |"
+    | "| [`\($m.name)`](#\($m.name | ascii_downcase | gsub("[^a-z0-9]"; "-"))) | \($m.preview_phase // "GA") | \(badge($status[$m.name] // 0)) | \(($m.display_name // "-") | gsub("\\|"; "\\|")) |"
+  ' settingsv2-metadata.json
+  echo
+  echo "## Details"
+  echo
+  jq -r --slurpfile p "$probe_file" '
+    ( ($p[0] // [])
+      | map(.results // [])
+      | add // []
+      | map(select((.request.url // "") != ""))
+      | map({
+          key:   (.request.url | capture("/settings/(?<n>[^?]+)").n),
+          value: (.response.status // 0)
+        })
+      | from_entries
+    ) as $status |
+    def badge(s):
+      if   s == 200 then "✅ 200"
+      elif s == 404 then "🟡 404"
+      elif s == 0   then "-"
+      else "❌ \(s)"
+      end;
+    .settings_metadata
+    | sort_by(.name)
+    | .[]
+    | . as $m
+    | "### `\($m.name)`\n\n"
+      + "- **Display name:** \($m.display_name // "-")\n"
+      + "- **Phase:** \($m.preview_phase // "GA")\n"
+      + "- **Status:** \(badge($status[$m.name] // 0))\n\n"
+      + "\($m.description // "_No description._")\n\n"
+      + "```json\n\($m.type)\n```\n"
   ' settingsv2-metadata.json
 } > settings-v2.md
 
