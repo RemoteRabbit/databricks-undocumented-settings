@@ -1,6 +1,6 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-05-14T00:33:19Z._
+_Auto-generated on 2026-05-18T07:24:05Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
 _109 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
@@ -8,11 +8,11 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 
 ## Index by preview phase
 
-- **BETA**: 37 settings
-- **GA**: 30 settings
+- **BETA**: 36 settings
+- **GA**: 32 settings
 - **GA_SOON**: 4 settings
 - **PRIVATE_PREVIEW**: 1 settings
-- **PUBLIC_PREVIEW**: 37 settings
+- **PUBLIC_PREVIEW**: 36 settings
 
 ## Summary
 
@@ -81,7 +81,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`jobs_disabled_tasks`](#jobs_disabled_tasks) | GA | ✅ 200 | Disabled tasks in Lakeflow Jobs |
 | [`jobs_serverless_managed_base_environments`](#jobs_serverless_managed_base_environments) | BETA | 🟡 404 | Serverless workspace base environment support in Jobs |
 | [`lakebase_accel_sync`](#lakebase_accel_sync) | PRIVATE_PREVIEW | ✅ 200 | Lakebase Accelerated Sync |
-| [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakehouse Sync |
+| [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakebase CDF |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
 | [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
 | [`lakeflow_qbc`](#lakeflow_qbc) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Query Based Connectors |
@@ -96,6 +96,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`new_policy_form`](#new_policy_form) | GA | ✅ 200 | New compute policy form |
 | [`oltp_database`](#oltp_database) | GA | ✅ 200 | Lakebase Postgres |
 | [`one_chat`](#one_chat) | PUBLIC_PREVIEW | ✅ 200 | New chat experience in Genie |
+| [`operationalEmailCustomRecipient`](#operationalemailcustomrecipient) | GA | ✅ 200 | - |
 | [`otel_collector`](#otel_collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
 | [`otel_model_serving`](#otel_model_serving) | BETA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
 | [`pkg_repo_api_cluster`](#pkg_repo_api_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via API |
@@ -106,10 +107,9 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
 | [`serverless_jar_jobs`](#serverless_jar_jobs) | PUBLIC_PREVIEW | ✅ 200 | Serverless JARs |
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
-| [`sftp_connector`](#sftp_connector) | PUBLIC_PREVIEW | ✅ 200 | SFTP Connector |
+| [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
 | [`sharepoint_connector`](#sharepoint_connector) | BETA | ✅ 200 | Lakeflow Connect for Sharepoint |
 | [`sql_cond_triggers`](#sql_cond_triggers) | GA | 🟡 404 | - |
-| [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
 | [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
 | [`tabular_subscription_attachments`](#tabular_subscription_attachments) | GA | 🟡 404 | Widget Data Attachments for Dashboard Subscriptions |
@@ -400,7 +400,7 @@ This preview enables admins to set up custom templates that users can use to get
 - **Phase:** BETA
 - **Status:** ✅ 200
 
-This preview enables users to edit resources (Jobs, Pipelines) in the UI and have YAML automatically sync when using Databricks Asset Bundles in the Workspace. Users can set up their resources for CI/CD without explicit knowledge of asset bundles.
+This preview enables users to edit resources (Jobs, Pipelines) in the UI and have YAML automatically sync when using Declarative Automation Bundles in the Workspace. Users can set up their resources for CI/CD without explicit knowledge of asset bundles.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -888,7 +888,7 @@ Uses parallelized load directly into object storage for faster initial load and 
 
 ### `lakebase_cdf`
 
-- **Display name:** Lakehouse Sync
+- **Display name:** Lakebase CDF
 - **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
@@ -1066,6 +1066,18 @@ Chat with Databricks agents and third-party data sources from a single conversat
 {"boolean_val": {"value": true}}
 ```
 
+### `operationalEmailCustomRecipient`
+
+- **Display name:** -
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Additional recipient for this workspace's operational emails. When set, Databricks delivers these emails to both the workspace admins and this address. Available on AWS and GCP.
+
+```json
+{"email": "sample_string"}
+```
+
 ### `otel_collector`
 
 - **Display name:** OpenTelemetry on Databricks
@@ -1189,7 +1201,7 @@ Query data from Salesforce Data Cloud using the zero-copy direct file access app
 ### `sftp_connector`
 
 - **Display name:** SFTP Connector
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Ingest files from SFTP server using Auto Loader. Requires DBR 17.3+.
@@ -1217,18 +1229,6 @@ Ingest Sharepoint data with a simple and efficient connector. Available via API.
 - **Status:** 🟡 404
 
 Controls whether users within the workspace are allowed to configure SQL conditions for triggers. This feature helps users to trigger job runs when business conditions are met and improves observability. By default, this setting is disabled (set to `false`)
-
-```json
-{"boolean_val": {"value": true}}
-```
-
-### `standalone_mv_st_on_serverless_gc`
-
-- **Display name:** MV and ST in Serverless Notebooks and Jobs
-- **Phase:** BETA
-- **Status:** 🟡 404
-
-Feature preview to enable creating and refreshing SDP Materialized Views and Streaming Tables in Serverless Notebooks and Jobs using Serverless Generic Compute. 
 
 ```json
 {"boolean_val": {"value": true}}
