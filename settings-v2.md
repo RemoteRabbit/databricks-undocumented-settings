@@ -1,18 +1,18 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-05-18T07:24:05Z._
+_Auto-generated on 2026-05-25T07:35:00Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_109 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_115 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 36 settings
-- **GA**: 32 settings
-- **GA_SOON**: 4 settings
+- **BETA**: 40 settings
+- **GA**: 34 settings
+- **GA_SOON**: 5 settings
 - **PRIVATE_PREVIEW**: 1 settings
-- **PUBLIC_PREVIEW**: 36 settings
+- **PUBLIC_PREVIEW**: 35 settings
 
 ## Summary
 
@@ -38,6 +38,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`confluence_connector`](#confluence_connector) | GA | ✅ 200 | Lakeflow Connect for Confluence |
 | [`conn_cdc_col_select`](#conn_cdc_col_select) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Column Selection for Database Sources |
 | [`custom_apps_preview`](#custom_apps_preview) | GA | ✅ 200 | Databricks Apps |
+| [`custom_llm_serving`](#custom_llm_serving) | BETA | ✅ 200 | Custom LLM Serving for Databricks Model Serving |
 | [`customerApprovedWSLoginExpirationTime`](#customerapprovedwsloginexpirationtime) | GA | ✅ 200 | - |
 | [`dabs_templates`](#dabs_templates) | BETA | ✅ 200 | Custom bundle templates in the workspace |
 | [`dabs_visual_edit`](#dabs_visual_edit) | BETA | ✅ 200 | Visual authoring: UI <> YAML Sync for DABs in the Workspace |
@@ -49,6 +50,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`dbsql_5xl_serverless`](#dbsql_5xl_serverless) | PUBLIC_PREVIEW | ✅ 200 | 5XL Serverless SQL Warehouse |
 | [`dbt_cloud_task`](#dbt_cloud_task) | BETA | ✅ 200 | dbt platform task |
 | [`dc_custom_tags`](#dc_custom_tags) | BETA | 🟡 404 | Extend Data Classification with Custom Classifiers |
+| [`default_base_envs`](#default_base_envs) | GA | ✅ 200 | Workspace base environments for serverless compute |
 | [`default_wh_setting`](#default_wh_setting) | GA | ✅ 200 | Default warehouse setting |
 | [`designer`](#designer) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Designer |
 | [`disable_legacy_access`](#disable_legacy_access) | GA | ✅ 200 | - |
@@ -67,7 +69,9 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`filebrowser_tree`](#filebrowser_tree) | PUBLIC_PREVIEW | ✅ 200 | Tree view of the side panel file browser |
 | [`fmapi_qwen3_instruct`](#fmapi_qwen3_instruct) | PUBLIC_PREVIEW | ✅ 200 | Enable Extended Models (Qwen) |
 | [`fstore_decl_fw`](#fstore_decl_fw) | BETA | ✅ 200 | Feature Store Declarative Framework (Batch) |
+| [`full_text_search_index`](#full_text_search_index) | BETA | 🟡 404 | SQL: Full-Text Search Index for UC managed tables |
 | [`gdrive_connector`](#gdrive_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Drive |
+| [`genie_bi_migration`](#genie_bi_migration) | BETA | 🟡 404 | Import from External BI to AI/BI |
 | [`genie_chat_sharing`](#genie_chat_sharing) | BETA | ✅ 200 | Genie Chat Sharing |
 | [`genie_deep_research`](#genie_deep_research) | PUBLIC_PREVIEW | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
@@ -85,7 +89,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
 | [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
 | [`lakeflow_qbc`](#lakeflow_qbc) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Query Based Connectors |
-| [`lakeflow_runs_list`](#lakeflow_runs_list) | PUBLIC_PREVIEW | ✅ 200 | Unified Runs List |
+| [`lakeflow_runs_list`](#lakeflow_runs_list) | GA | ✅ 200 | Unified Runs List |
 | [`lf_pipelines_auth`](#lf_pipelines_auth) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Pipelines Editor |
 | [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | - |
 | [`managed_mcp_servers`](#managed_mcp_servers) | PUBLIC_PREVIEW | ✅ 200 | Managed MCP Servers |
@@ -95,7 +99,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`multiple_git_creds`](#multiple_git_creds) | GA | ✅ 200 | Multiple Git Credentials |
 | [`new_policy_form`](#new_policy_form) | GA | ✅ 200 | New compute policy form |
 | [`oltp_database`](#oltp_database) | GA | ✅ 200 | Lakebase Postgres |
-| [`one_chat`](#one_chat) | PUBLIC_PREVIEW | ✅ 200 | New chat experience in Genie |
+| [`one_chat`](#one_chat) | GA_SOON | ✅ 200 | New chat experience in Genie |
 | [`operationalEmailCustomRecipient`](#operationalemailcustomrecipient) | GA | ✅ 200 | - |
 | [`otel_collector`](#otel_collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
 | [`otel_model_serving`](#otel_model_serving) | BETA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
@@ -103,8 +107,10 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`pkg_repo_dlt`](#pkg_repo_dlt) | GA_SOON | ✅ 200 | Default Python package repositories in Spark Declarative Pipelines |
 | [`pkg_repo_ui_cluster`](#pkg_repo_ui_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via UI |
 | [`power_bi_task`](#power_bi_task) | PUBLIC_PREVIEW | ✅ 200 | Power BI task type |
+| [`remote_ds_writes`](#remote_ds_writes) | PUBLIC_PREVIEW | ✅ 200 | Remote data sources write support on serverless compute |
 | [`remote_query_tvf`](#remote_query_tvf) | PUBLIC_PREVIEW | ✅ 200 | Enables remote query table-valued function (remote_query). |
 | [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
+| [`secondary_index`](#secondary_index) | BETA | 🟡 404 | SQL: Secondary Index |
 | [`serverless_jar_jobs`](#serverless_jar_jobs) | PUBLIC_PREVIEW | ✅ 200 | Serverless JARs |
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
@@ -121,7 +127,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
 | [`vectorsearch_highqps`](#vectorsearch_highqps) | PUBLIC_PREVIEW | ✅ 200 | Vector Search High QPS |
 | [`vs_autoeval`](#vs_autoeval) | BETA | 🟡 404 | Vector Search AutoEval |
-| [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | Vector Search Full Text |
+| [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | Vector Search: Full-Text Search |
 | [`wday_hcm_connector`](#wday_hcm_connector) | BETA | ✅ 200 | Lakeflow Connect for Workday HCM |
 | [`wh_activity_details`](#wh_activity_details) | BETA | ✅ 200 | Warehouse Activity Details |
 | [`wsfs_git_cli`](#wsfs_git_cli) | BETA | ✅ 200 | Git CLI support for Git folders |
@@ -370,6 +376,18 @@ Databricks Apps is the fastest way for data developers to build secure and gover
 {"boolean_val": {"value": true}}
 ```
 
+### `custom_llm_serving`
+
+- **Display name:** Custom LLM Serving for Databricks Model Serving
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enable serving custom LLMs in model serving endpoints.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `customerApprovedWSLoginExpirationTime`
 
 - **Display name:** -
@@ -497,6 +515,18 @@ The dbt platform task lets you run your dbt platform jobs as part of existing da
 - **Status:** 🟡 404
 
 Automatically detect custom/business-specific tags beyond Data Classification’s supported set.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `default_base_envs`
+
+- **Display name:** Workspace base environments for serverless compute
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Workspace base environments ensure that users automatically have a predefined environment version and set of Python packages available in their notebooks.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -718,6 +748,18 @@ Opt in to the new declarative framework for defining batch features in Databrick
 {"boolean_val": {"value": true}}
 ```
 
+### `full_text_search_index`
+
+- **Display name:** SQL: Full-Text Search Index for UC managed tables
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Use the CREATE SEARCH INDEX SQL statement to create full-text search indexes on text columns of UC managed Delta Lake or Iceberg tables. The index accelerates SQL queries with selective, substring and word matching WHERE predicates.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `gdrive_connector`
 
 - **Display name:** Lakeflow Connect for Google Drive
@@ -725,6 +767,18 @@ Opt in to the new declarative framework for defining batch features in Databrick
 - **Status:** ✅ 200
 
 Ingest from Google Drive with a simple and efficient connector. **Requires DBR 17.3+**
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `genie_bi_migration`
+
+- **Display name:** Import from External BI to AI/BI
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+This preview allows users to import data models & dashboards from external BI tools as AI/BI Metric Views and Dashboards via Genie Code
 
 ```json
 {"boolean_val": {"value": true}}
@@ -937,7 +991,7 @@ Enable Lakeflow Connect query based connectors to ingest from Lakehouse federati
 ### `lakeflow_runs_list`
 
 - **Display name:** Unified Runs List
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 You can now view all of your Jobs and Pipeline executions in the updated Runs list. Track all of your pipeline executions in one place and filter by status, time, run-as user, and error codes in real time. Spot trends using the visualization and summary of the current top five error codes.
@@ -1057,7 +1111,7 @@ A new Postgres compute type built for low-latency reads and writes. Autoscaling 
 ### `one_chat`
 
 - **Display name:** New chat experience in Genie
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA_SOON
 - **Status:** ✅ 200
 
 Chat with Databricks agents and third-party data sources from a single conversation in Genie, governed by Unity Catalog.
@@ -1150,6 +1204,18 @@ The Power BI task type in Databricks Workflows allows users to keep Power BI sem
 {"boolean_val": {"value": true}}
 ```
 
+### `remote_ds_writes`
+
+- **Display name:** Remote data sources write support on serverless compute
+- **Phase:** PUBLIC_PREVIEW
+- **Status:** ✅ 200
+
+Enables the write support on serverless compute for the remote data sources. The feature works only for writes through the DataFrame API. This feature doesnt include Lakehouse Federation writes.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `remote_query_tvf`
 
 - **Display name:** Enables remote query table-valued function (remote_query).
@@ -1169,6 +1235,18 @@ Function allows users to execute query in remote engine syntax using credentials
 - **Status:** ✅ 200
 
 Scoped personal access tokens (Scoped PATs) limit which APIs each token can call through specific scopes that define its permissions. The feature helps enforce least-privilege access and reduces risk if a token is compromised. You can configure scopes individually on each token and update them at any time to match the token's intended use—such as connecting BI tools, or running automation scripts.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `secondary_index`
+
+- **Display name:** SQL: Secondary Index
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Use the CREATE INDEX statement to create an index on non-partitioning, non-clustering, high-cardinality columns of UC managed Delta Lake or Iceberg tables. The index accelerates SQL queries with selective key lookup WHERE predicates.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1368,11 +1446,11 @@ Vector Search AutoEval enables automatic search quality evaluation for Vector Se
 
 ### `vs_full_text`
 
-- **Display name:** Vector Search Full Text
+- **Display name:** Vector Search: Full-Text Search
 - **Phase:** BETA
 - **Status:** ✅ 200
 
-When enabled, users can create full-text indices and run full-text search queries directly on indices. This bypasses ANN entirely and is especially valuable in scenarios where precise keyword matching is required.
+Users can create pure full-text indexes and run full-text search queries directly through the UI, Python SDK, or REST APIs. This bypasses ANN or vector search entirely and is especially valuable for use cases that require precise keyword matching.
 
 ```json
 {"boolean_val": {"value": true}}
