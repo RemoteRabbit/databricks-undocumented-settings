@@ -1,18 +1,18 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-05-25T07:35:00Z._
+_Auto-generated on 2026-06-01T07:46:22Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_115 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_122 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 40 settings
-- **GA**: 34 settings
+- **BETA**: 45 settings
+- **GA**: 36 settings
 - **GA_SOON**: 5 settings
-- **PRIVATE_PREVIEW**: 1 settings
-- **PUBLIC_PREVIEW**: 35 settings
+- **PRIVATE_PREVIEW**: 2 settings
+- **PUBLIC_PREVIEW**: 34 settings
 
 ## Summary
 
@@ -33,6 +33,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`apps_otel`](#apps_otel) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry for Databricks Apps |
 | [`apps_v2_ui`](#apps_v2_ui) | GA | 🟡 404 | Databricks Apps V2 |
 | [`authoring_context`](#authoring_context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
+| [`auto_cdf`](#auto_cdf) | PUBLIC_PREVIEW | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
 | [`cloudfiles_excel`](#cloudfiles_excel) | GA | ✅ 200 | Excel File Format Support |
 | [`confluence_connector`](#confluence_connector) | GA | ✅ 200 | Lakeflow Connect for Confluence |
@@ -42,7 +43,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`customerApprovedWSLoginExpirationTime`](#customerapprovedwsloginexpirationtime) | GA | ✅ 200 | - |
 | [`dabs_templates`](#dabs_templates) | BETA | ✅ 200 | Custom bundle templates in the workspace |
 | [`dabs_visual_edit`](#dabs_visual_edit) | BETA | ✅ 200 | Visual authoring: UI <> YAML Sync for DABs in the Workspace |
-| [`dashboard_authoring_agent`](#dashboard_authoring_agent) | PUBLIC_PREVIEW | 🟡 404 | Genie Code for dashboard authoring |
+| [`dashboard_authoring_agent`](#dashboard_authoring_agent) | GA | 🟡 404 | Genie Code for dashboard authoring |
 | [`databricks_one`](#databricks_one) | GA | ✅ 200 | Databricks One |
 | [`dataclassificationws`](#dataclassificationws) | GA | ✅ 200 | Data Classification |
 | [`datascience_agent`](#datascience_agent) | GA | ✅ 200 | Genie Code |
@@ -60,6 +61,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`dynamics_connector`](#dynamics_connector) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect for Dynamics 365 |
 | [`embedded_genie`](#embedded_genie) | BETA | 🟡 404 | Embed Genie as an iframe |
 | [`enable_dlmv_aibi`](#enable_dlmv_aibi) | PUBLIC_PREVIEW | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
+| [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | BETA | 🟡 404 | Databricks Apps - GitHub Webhook-Triggered Deployments |
 | [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
 | [`enable_obo_user_apps`](#enable_obo_user_apps) | GA_SOON | ✅ 200 | Databricks Apps - On-Behalf-Of User Authorization |
 | [`enforceGitAppDeployments`](#enforcegitappdeployments) | GA | ✅ 200 | - |
@@ -71,6 +73,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`fstore_decl_fw`](#fstore_decl_fw) | BETA | ✅ 200 | Feature Store Declarative Framework (Batch) |
 | [`full_text_search_index`](#full_text_search_index) | BETA | 🟡 404 | SQL: Full-Text Search Index for UC managed tables |
 | [`gdrive_connector`](#gdrive_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Drive |
+| [`generic_lfc`](#generic_lfc) | BETA | ✅ 200 | Lakeflow Connect Community Connectors |
 | [`genie_bi_migration`](#genie_bi_migration) | BETA | 🟡 404 | Import from External BI to AI/BI |
 | [`genie_chat_sharing`](#genie_chat_sharing) | BETA | ✅ 200 | Genie Chat Sharing |
 | [`genie_deep_research`](#genie_deep_research) | PUBLIC_PREVIEW | ✅ 200 | Genie Agent |
@@ -78,7 +81,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | 🟡 404 | Upload Local PDFs to Genie Spaces |
 | [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
 | [`hspot_mktg_connector`](#hspot_mktg_connector) | GA | ✅ 200 | Lakeflow Connect for HubSpot |
-| [`icebergv3`](#icebergv3) | PUBLIC_PREVIEW | ✅ 200 | Iceberg V3 |
+| [`icebergv3`](#icebergv3) | GA | ✅ 200 | Iceberg V3 |
 | [`ip_functions`](#ip_functions) | BETA | 🟡 404 | Ip Functions |
 | [`jdbc_connector`](#jdbc_connector) | PUBLIC_PREVIEW | ✅ 200 | Custom JDBC on UC Compute |
 | [`jira_connector`](#jira_connector) | BETA | ✅ 200 | Lakeflow Connect for Jira |
@@ -103,6 +106,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`operationalEmailCustomRecipient`](#operationalemailcustomrecipient) | GA | ✅ 200 | - |
 | [`otel_collector`](#otel_collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
 | [`otel_model_serving`](#otel_model_serving) | BETA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
+| [`pat_autoscoping`](#pat_autoscoping) | PRIVATE_PREVIEW | 🟡 404 | Personal access tokens auto-scoping |
+| [`pipeline_parameters`](#pipeline_parameters) | BETA | ✅ 200 | Spark Declarative Pipeline Parameters |
 | [`pkg_repo_api_cluster`](#pkg_repo_api_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via API |
 | [`pkg_repo_dlt`](#pkg_repo_dlt) | GA_SOON | ✅ 200 | Default Python package repositories in Spark Declarative Pipelines |
 | [`pkg_repo_ui_cluster`](#pkg_repo_ui_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via UI |
@@ -112,10 +117,12 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
 | [`secondary_index`](#secondary_index) | BETA | 🟡 404 | SQL: Secondary Index |
 | [`serverless_jar_jobs`](#serverless_jar_jobs) | PUBLIC_PREVIEW | ✅ 200 | Serverless JARs |
+| [`serverless_workload_observability`](#serverless_workload_observability) | BETA | 🟡 404 | Improved Lakeflow Performance Observability |
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
 | [`sharepoint_connector`](#sharepoint_connector) | BETA | ✅ 200 | Lakeflow Connect for Sharepoint |
 | [`sql_cond_triggers`](#sql_cond_triggers) | GA | 🟡 404 | - |
+| [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
 | [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
 | [`tabular_subscription_attachments`](#tabular_subscription_attachments) | GA | 🟡 404 | Widget Data Attachments for Dashboard Subscriptions |
@@ -316,6 +323,18 @@ Similar to opening a folder in an IDE, you can now set the scope of the notebook
 {"boolean_val": {"value": true}}
 ```
 
+### `auto_cdf`
+
+- **Display name:** Auto-CDF (Change Data Feed)
+- **Phase:** PUBLIC_PREVIEW
+- **Status:** ✅ 200
+
+This preview enables a new Change Data Feed (CDF) mode that now allows Iceberg writers to write to the table. This new CDF can improve write-time performance, given that it computes the CDF at query time. It requires row tracking, but does not require (`delta.enableChangeDataFeed`) to be enabled on the table. It is available only for DBR version 17.3 and above, on DBR (Spark + DBSQL).
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `cld_to_volumes`
 
 - **Display name:** Cluster Log Delivery to UC Volumes
@@ -427,7 +446,7 @@ This preview enables users to edit resources (Jobs, Pipelines) in the UI and hav
 ### `dashboard_authoring_agent`
 
 - **Display name:** Genie Code for dashboard authoring
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** 🟡 404
 
 Enables Genie Code to create and edit AI/BI Dashboards by delegating complex tasks like visualization generation, filter configuration, and layout organization
@@ -640,6 +659,18 @@ Create Metric Views that are local to an Ai/BI dashboard. These Dashboard Local 
 {"boolean_val": {"value": true}}
 ```
 
+### `enable_github_webhook_app_deployments`
+
+- **Display name:** Databricks Apps - GitHub Webhook-Triggered Deployments
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Automatically deploy apps when changes are pushed to a connected GitHub repository. Push events received via GitHub webhooks trigger app deployment workflows, removing the need for manual redeployment after code changes.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `enable_lakeview_tags`
 
 - **Display name:** Tagging support for workspace scoped assets
@@ -772,6 +803,18 @@ Ingest from Google Drive with a simple and efficient connector. **Requires DBR 1
 {"boolean_val": {"value": true}}
 ```
 
+### `generic_lfc`
+
+- **Display name:** Lakeflow Connect Community Connectors
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+This feature enables a wide range of OSS connectors built on the Python Data Source API and SDP, covering sources beyond managed ingestion and enabling users to build custom connectors.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `genie_bi_migration`
 
 - **Display name:** Import from External BI to AI/BI
@@ -859,7 +902,7 @@ Ingest from HubSpot with a simple and efficient connector.
 ### `icebergv3`
 
 - **Display name:** Iceberg V3
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Iceberg V3 adds performance and feature capabilities to Delta UniForm and Managed Iceberg tables. These features include deletion vectors for efficient row-level deletes, row lineage for incremental processing, and the Variant data type for semi-structured data.
@@ -1156,6 +1199,30 @@ OpenTelemetry log/span/metric persistence for model serving endpoints.
 {"boolean_val": {"value": true}}
 ```
 
+### `pat_autoscoping`
+
+- **Display name:** Personal access tokens auto-scoping
+- **Phase:** PRIVATE_PREVIEW
+- **Status:** 🟡 404
+
+Auto-scoping narrows token permissions to match actual API usage, which reduces the risk of over-privileged tokens. New tokens with a lifetime longer than 30 days have auto-scoping on by default. Owners can turn it off or select 'all-apis' at creation. After 30 days, enabled tokens are scoped based on observed API usage. Existing tokens with 'all-apis' scope are backfilled based on historical usage. Admins and token owners are notified and can review and modify auto-assigned scopes at any time.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `pipeline_parameters`
+
+- **Display name:** Spark Declarative Pipeline Parameters
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Write extensible, maintainable pipeline code by parameterizing Spark Declarative Pipelines.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `pkg_repo_api_cluster`
 
 - **Display name:** Default Python package repositories in clusters created via API
@@ -1264,6 +1331,18 @@ Deploy Scala and Java jobs as Jars on serverless compute with faster startup, au
 {"boolean_val": {"value": true}}
 ```
 
+### `serverless_workload_observability`
+
+- **Display name:** Improved Lakeflow Performance Observability
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Improved Lakeflow Performance Observability includes aggregates of query metrics and insights on the workload level, support for timeline view for single task runs and other improvements.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `sfdc_file_sharing`
 
 - **Display name:** Salesforce Data Cloud file sharing federation
@@ -1307,6 +1386,18 @@ Ingest Sharepoint data with a simple and efficient connector. Available via API.
 - **Status:** 🟡 404
 
 Controls whether users within the workspace are allowed to configure SQL conditions for triggers. This feature helps users to trigger job runs when business conditions are met and improves observability. By default, this setting is disabled (set to `false`)
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `standalone_mv_st_on_serverless_gc`
+
+- **Display name:** MV and ST in Serverless Notebooks and Jobs
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Feature preview to enable creating and refreshing SDP Materialized Views and Streaming Tables in Serverless Notebooks and Jobs using Serverless Generic Compute. 
 
 ```json
 {"boolean_val": {"value": true}}
