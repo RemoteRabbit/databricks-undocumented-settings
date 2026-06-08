@@ -1,15 +1,15 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-06-01T07:46:22Z._
+_Auto-generated on 2026-06-08T07:42:38Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_122 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_131 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 45 settings
-- **GA**: 36 settings
+- **BETA**: 52 settings
+- **GA**: 38 settings
 - **GA_SOON**: 5 settings
 - **PRIVATE_PREVIEW**: 2 settings
 - **PUBLIC_PREVIEW**: 34 settings
@@ -36,6 +36,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`auto_cdf`](#auto_cdf) | PUBLIC_PREVIEW | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
 | [`cloudfiles_excel`](#cloudfiles_excel) | GA | ✅ 200 | Excel File Format Support |
+| [`collaboration_platform_connectivity`](#collaboration_platform_connectivity) | GA | ✅ 200 | - |
+| [`collaboration_platform_message_visibility`](#collaboration_platform_message_visibility) | GA | ✅ 200 | - |
 | [`confluence_connector`](#confluence_connector) | GA | ✅ 200 | Lakeflow Connect for Confluence |
 | [`conn_cdc_col_select`](#conn_cdc_col_select) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Column Selection for Database Sources |
 | [`custom_apps_preview`](#custom_apps_preview) | GA | ✅ 200 | Databricks Apps |
@@ -59,7 +61,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`discover_page`](#discover_page) | BETA | ✅ 200 | Discover Page |
 | [`ds_v2_join_pushdown`](#ds_v2_join_pushdown) | PUBLIC_PREVIEW | ✅ 200 | Join Pushdown for Federated Queries |
 | [`dynamics_connector`](#dynamics_connector) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect for Dynamics 365 |
-| [`embedded_genie`](#embedded_genie) | BETA | 🟡 404 | Embed Genie as an iframe |
+| [`embedded_genie`](#embedded_genie) | GA | 🟡 404 | Embed Genie as an iframe |
+| [`enable_dcs_vnext`](#enable_dcs_vnext) | BETA | ✅ 200 | DCS-vNext |
 | [`enable_dlmv_aibi`](#enable_dlmv_aibi) | PUBLIC_PREVIEW | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
 | [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | BETA | 🟡 404 | Databricks Apps - GitHub Webhook-Triggered Deployments |
 | [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
@@ -68,9 +71,11 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`excel_connector_flip`](#excel_connector_flip) | PUBLIC_PREVIEW | 🟡 404 | Excel Add-In |
 | [`exp_sp_token_notif`](#exp_sp_token_notif) | BETA | ✅ 200 | Expiring service principal access token notifications |
 | [`external_access_to_managed_delta`](#external_access_to_managed_delta) | BETA | 🟡 404 | External Access to Unity Catalog Managed Delta Table |
+| [`external_engine_fgac`](#external_engine_fgac) | BETA | 🟡 404 | Cross-engine ABAC |
 | [`filebrowser_tree`](#filebrowser_tree) | PUBLIC_PREVIEW | ✅ 200 | Tree view of the side panel file browser |
 | [`fmapi_qwen3_instruct`](#fmapi_qwen3_instruct) | PUBLIC_PREVIEW | ✅ 200 | Enable Extended Models (Qwen) |
 | [`fstore_decl_fw`](#fstore_decl_fw) | BETA | ✅ 200 | Feature Store Declarative Framework (Batch) |
+| [`full_screen_genie_code`](#full_screen_genie_code) | BETA | 🟡 404 | Full Page Genie Code |
 | [`full_text_search_index`](#full_text_search_index) | BETA | 🟡 404 | SQL: Full-Text Search Index for UC managed tables |
 | [`gdrive_connector`](#gdrive_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Drive |
 | [`generic_lfc`](#generic_lfc) | BETA | ✅ 200 | Lakeflow Connect Community Connectors |
@@ -79,6 +84,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`genie_deep_research`](#genie_deep_research) | PUBLIC_PREVIEW | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
 | [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | 🟡 404 | Upload Local PDFs to Genie Spaces |
+| [`github_connector`](#github_connector) | BETA | ✅ 200 | Lakeflow Connect for Github |
 | [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
 | [`hspot_mktg_connector`](#hspot_mktg_connector) | GA | ✅ 200 | Lakeflow Connect for HubSpot |
 | [`icebergv3`](#icebergv3) | GA | ✅ 200 | Iceberg V3 |
@@ -106,22 +112,24 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`operationalEmailCustomRecipient`](#operationalemailcustomrecipient) | GA | ✅ 200 | - |
 | [`otel_collector`](#otel_collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
 | [`otel_model_serving`](#otel_model_serving) | BETA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
+| [`outlook_connector`](#outlook_connector) | BETA | ✅ 200 | Lakeflow Connect for Outlook |
 | [`pat_autoscoping`](#pat_autoscoping) | PRIVATE_PREVIEW | 🟡 404 | Personal access tokens auto-scoping |
+| [`pendo_connector`](#pendo_connector) | BETA | 🟡 404 | Lakeflow Connect for Pendo |
 | [`pipeline_parameters`](#pipeline_parameters) | BETA | ✅ 200 | Spark Declarative Pipeline Parameters |
 | [`pkg_repo_api_cluster`](#pkg_repo_api_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via API |
 | [`pkg_repo_dlt`](#pkg_repo_dlt) | GA_SOON | ✅ 200 | Default Python package repositories in Spark Declarative Pipelines |
 | [`pkg_repo_ui_cluster`](#pkg_repo_ui_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via UI |
 | [`power_bi_task`](#power_bi_task) | PUBLIC_PREVIEW | ✅ 200 | Power BI task type |
+| [`query_perf_insights`](#query_perf_insights) | BETA | ✅ 200 | Query performance insights |
 | [`remote_ds_writes`](#remote_ds_writes) | PUBLIC_PREVIEW | ✅ 200 | Remote data sources write support on serverless compute |
 | [`remote_query_tvf`](#remote_query_tvf) | PUBLIC_PREVIEW | ✅ 200 | Enables remote query table-valued function (remote_query). |
 | [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
-| [`secondary_index`](#secondary_index) | BETA | 🟡 404 | SQL: Secondary Index |
 | [`serverless_jar_jobs`](#serverless_jar_jobs) | PUBLIC_PREVIEW | ✅ 200 | Serverless JARs |
 | [`serverless_workload_observability`](#serverless_workload_observability) | BETA | 🟡 404 | Improved Lakeflow Performance Observability |
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
 | [`sharepoint_connector`](#sharepoint_connector) | BETA | ✅ 200 | Lakeflow Connect for Sharepoint |
-| [`sql_cond_triggers`](#sql_cond_triggers) | GA | 🟡 404 | - |
+| [`slack_ailogs_connector`](#slack_ailogs_connector) | BETA | 🟡 404 | Lakeflow Connect for Slack Access and Integration Logs |
 | [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
 | [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
@@ -140,6 +148,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`wsfs_git_cli`](#wsfs_git_cli) | BETA | ✅ 200 | Git CLI support for Git folders |
 | [`zdesk_supt_connector`](#zdesk_supt_connector) | GA | ✅ 200 | Lakeflow Connect for Zendesk Support |
 | [`zerobus_ingest_core`](#zerobus_ingest_core) | GA | ✅ 200 | Lakeflow Connect Zerobus Ingest |
+| [`zoom_logs_connector`](#zoom_logs_connector) | BETA | 🟡 404 | Lakeflow Connect for Zoom Logs |
 
 ## Details
 
@@ -354,6 +363,30 @@ Allows users to configure a classic compute cluster’s cluster log delivery to 
 - **Status:** ✅ 200
 
 Read Excel files using Spark batch and streaming APIs including Auto Loader, read_files, spark.read and COPY INTO. Available in DBR17.1+
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `collaboration_platform_connectivity`
+
+- **Display name:** -
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Controls which external collaboration platforms (Slack and/or Microsoft Teams) can connect to this workspace. Defaults to ALLOW_ALL.
+
+```json
+{"connectivity": "CONNECTIVITY_UNSPECIFIED"}
+```
+
+### `collaboration_platform_message_visibility`
+
+- **Display name:** -
+- **Phase:** GA
+- **Status:** ✅ 200
+
+When enabled, users can choose whether responses from the Databricks app in Slack or Microsoft Teams are visible to the channel. When disabled, all responses are forced to be private to the requesting user.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -638,10 +671,22 @@ Ingest Dynamics 365 data via Dataverse with a simple and efficient connector. Av
 ### `embedded_genie`
 
 - **Display name:** Embed Genie as an iframe
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** 🟡 404
 
 This feature allows Genie space authors to embed Genie spaces into external applications. Users in the external application must have access to Databricks and the Genie space.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `enable_dcs_vnext`
+
+- **Display name:** DCS-vNext
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enables DCS-vNext support, which uses the LXC container and Dataplane Runtime daemon and Sandbox API to run customer containers.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -743,6 +788,18 @@ External Access to Unity Catalog Managed Delta Tables lets external engines like
 {"boolean_val": {"value": true}}
 ```
 
+### `external_engine_fgac`
+
+- **Display name:** Cross-engine ABAC
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+This feature enables external clients to securely access tables in Databricks via UC Open APIs with attribute-based access controls (ABAC), row filters, and column masks enforced.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `filebrowser_tree`
 
 - **Display name:** Tree view of the side panel file browser
@@ -774,6 +831,18 @@ This preview enables an extended family of models, specifically Qwen, in model s
 - **Status:** ✅ 200
 
 Opt in to the new declarative framework for defining batch features in Databricks Feature Store. You can still use the legacy feature table pipelines alongside the new framework. Note: This preview currently supports batch features only; streaming features will be available in a separate preview.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `full_screen_genie_code`
+
+- **Display name:** Full Page Genie Code
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+The "Full Page" mode and toggle of Genie Code. When enabled, customers have an option to open Genie Code in a Full Page UI with assets that can be opened in soft tabs. 
 
 ```json
 {"boolean_val": {"value": true}}
@@ -870,6 +939,18 @@ Advanced technique that reviews initial SQL answers and makes improvements in st
 - **Status:** 🟡 404
 
 Enables users to upload local PDFs as conversation-level context in Agent mode
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `github_connector`
+
+- **Display name:** Lakeflow Connect for Github
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Github with a simple and efficient connector.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1199,6 +1280,18 @@ OpenTelemetry log/span/metric persistence for model serving endpoints.
 {"boolean_val": {"value": true}}
 ```
 
+### `outlook_connector`
+
+- **Display name:** Lakeflow Connect for Outlook
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Outlook with a simple and efficient connector.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `pat_autoscoping`
 
 - **Display name:** Personal access tokens auto-scoping
@@ -1206,6 +1299,18 @@ OpenTelemetry log/span/metric persistence for model serving endpoints.
 - **Status:** 🟡 404
 
 Auto-scoping narrows token permissions to match actual API usage, which reduces the risk of over-privileged tokens. New tokens with a lifetime longer than 30 days have auto-scoping on by default. Owners can turn it off or select 'all-apis' at creation. After 30 days, enabled tokens are scoped based on observed API usage. Existing tokens with 'all-apis' scope are backfilled based on historical usage. Admins and token owners are notified and can review and modify auto-assigned scopes at any time.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `pendo_connector`
+
+- **Display name:** Lakeflow Connect for Pendo
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Ingest from Pendo using a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1271,6 +1376,18 @@ The Power BI task type in Databricks Workflows allows users to keep Power BI sem
 {"boolean_val": {"value": true}}
 ```
 
+### `query_perf_insights`
+
+- **Display name:** Query performance insights
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+When queries run, Databricks might return insights that identify opportunities to improve performance. 
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `remote_ds_writes`
 
 - **Display name:** Remote data sources write support on serverless compute
@@ -1302,18 +1419,6 @@ Function allows users to execute query in remote engine syntax using credentials
 - **Status:** ✅ 200
 
 Scoped personal access tokens (Scoped PATs) limit which APIs each token can call through specific scopes that define its permissions. The feature helps enforce least-privilege access and reduces risk if a token is compromised. You can configure scopes individually on each token and update them at any time to match the token's intended use—such as connecting BI tools, or running automation scripts.
-
-```json
-{"boolean_val": {"value": true}}
-```
-
-### `secondary_index`
-
-- **Display name:** SQL: Secondary Index
-- **Phase:** BETA
-- **Status:** 🟡 404
-
-Use the CREATE INDEX statement to create an index on non-partitioning, non-clustering, high-cardinality columns of UC managed Delta Lake or Iceberg tables. The index accelerates SQL queries with selective key lookup WHERE predicates.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1379,13 +1484,13 @@ Ingest Sharepoint data with a simple and efficient connector. Available via API.
 {"boolean_val": {"value": true}}
 ```
 
-### `sql_cond_triggers`
+### `slack_ailogs_connector`
 
-- **Display name:** -
-- **Phase:** GA
+- **Display name:** Lakeflow Connect for Slack Access and Integration Logs
+- **Phase:** BETA
 - **Status:** 🟡 404
 
-Controls whether users within the workspace are allowed to configure SQL conditions for triggers. This feature helps users to trigger job runs when business conditions are met and improves observability. By default, this setting is disabled (set to `false`)
+Ingest Slack Access and Integration Logs with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1602,6 +1707,18 @@ Ingest from Zendesk Support with a simple and efficient connector.
 - **Status:** ✅ 200
 
 Zerobus Ingest, part of Lakeflow Connect, is a robust API that allows you to efficiently push data into tables in a streaming, record-by-record, fashion, operating in a serverless multi-tenant environment to support a high volume of clients.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `zoom_logs_connector`
+
+- **Display name:** Lakeflow Connect for Zoom Logs
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Ingest Zoom Logs with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
