@@ -1,18 +1,18 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-06-08T07:42:38Z._
+_Auto-generated on 2026-06-15T07:59:16Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_131 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_134 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 52 settings
-- **GA**: 38 settings
-- **GA_SOON**: 5 settings
+- **BETA**: 54 settings
+- **GA**: 44 settings
+- **GA_SOON**: 4 settings
 - **PRIVATE_PREVIEW**: 2 settings
-- **PUBLIC_PREVIEW**: 34 settings
+- **PUBLIC_PREVIEW**: 30 settings
 
 ## Summary
 
@@ -20,11 +20,12 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 |---|---|---|---|
 | [`agent_monitoring`](#agent_monitoring) | BETA | ✅ 200 | Production Monitoring for MLflow |
 | [`agents_obo`](#agents_obo) | PUBLIC_PREVIEW | ✅ 200 | Agent Framework: On-Behalf-Of-User Authorization |
-| [`ai_classify`](#ai_classify) | PUBLIC_PREVIEW | ✅ 200 | AI Classify |
-| [`ai_extract`](#ai_extract) | PUBLIC_PREVIEW | ✅ 200 | AI Extract |
+| [`ai_classify`](#ai_classify) | GA | ✅ 200 | AI Classify |
+| [`ai_extract`](#ai_extract) | GA | ✅ 200 | AI Extract |
 | [`ai_parse_document`](#ai_parse_document) | GA | ✅ 200 | AI ParseDocument |
 | [`ai_prep_search`](#ai_prep_search) | BETA | 🟡 404 | AI Prep Search |
 | [`ai_runtime_beta_features`](#ai_runtime_beta_features) | BETA | 🟡 404 | AI Runtime Beta Features |
+| [`air_h100_multinode`](#air_h100_multinode) | BETA | ✅ 200 | Serverless GPU Compute API Remote H100s |
 | [`air_interactive`](#air_interactive) | BETA | ✅ 200 | Serverless GPU Compute |
 | [`alerts_v2`](#alerts_v2) | GA | ✅ 200 | SQL Alerts V2 |
 | [`alertv2_job_task`](#alertv2_job_task) | PUBLIC_PREVIEW | ✅ 200 | Alert Job Task |
@@ -56,6 +57,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`default_base_envs`](#default_base_envs) | GA | ✅ 200 | Workspace base environments for serverless compute |
 | [`default_wh_setting`](#default_wh_setting) | GA | ✅ 200 | Default warehouse setting |
 | [`designer`](#designer) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Designer |
+| [`direct_cdc_connector`](#direct_cdc_connector) | BETA | ✅ 200 | LakeFlow Connect for Direct Cdc Managed Ingestion Pipeline |
 | [`disable_legacy_access`](#disable_legacy_access) | GA | ✅ 200 | - |
 | [`disable_legacy_dbfs`](#disable_legacy_dbfs) | GA | ✅ 200 | - |
 | [`discover_page`](#discover_page) | BETA | ✅ 200 | Discover Page |
@@ -73,7 +75,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`external_access_to_managed_delta`](#external_access_to_managed_delta) | BETA | 🟡 404 | External Access to Unity Catalog Managed Delta Table |
 | [`external_engine_fgac`](#external_engine_fgac) | BETA | 🟡 404 | Cross-engine ABAC |
 | [`filebrowser_tree`](#filebrowser_tree) | PUBLIC_PREVIEW | ✅ 200 | Tree view of the side panel file browser |
-| [`fmapi_qwen3_instruct`](#fmapi_qwen3_instruct) | PUBLIC_PREVIEW | ✅ 200 | Enable Extended Models (Qwen) |
+| [`fmapi_qwen3_instruct`](#fmapi_qwen3_instruct) | PUBLIC_PREVIEW | ✅ 200 | Enable Extended Models |
 | [`fstore_decl_fw`](#fstore_decl_fw) | BETA | ✅ 200 | Feature Store Declarative Framework (Batch) |
 | [`full_screen_genie_code`](#full_screen_genie_code) | BETA | 🟡 404 | Full Page Genie Code |
 | [`full_text_search_index`](#full_text_search_index) | BETA | 🟡 404 | SQL: Full-Text Search Index for UC managed tables |
@@ -97,9 +99,10 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakebase CDF |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
 | [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
-| [`lakeflow_qbc`](#lakeflow_qbc) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Query Based Connectors |
+| [`lakeflow_qbc`](#lakeflow_qbc) | GA | ✅ 200 | Lakeflow Connect Query Based Connectors |
 | [`lakeflow_runs_list`](#lakeflow_runs_list) | GA | ✅ 200 | Unified Runs List |
-| [`lf_pipelines_auth`](#lf_pipelines_auth) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Pipelines Editor |
+| [`lakehouse_replay`](#lakehouse_replay) | BETA | ✅ 200 | Lakehouse Replay |
+| [`lf_pipelines_auth`](#lf_pipelines_auth) | GA | ✅ 200 | Lakeflow Pipelines Editor |
 | [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | - |
 | [`managed_mcp_servers`](#managed_mcp_servers) | PUBLIC_PREVIEW | ✅ 200 | Managed MCP Servers |
 | [`meta_ads_connector`](#meta_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Meta Ads |
@@ -108,10 +111,10 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`multiple_git_creds`](#multiple_git_creds) | GA | ✅ 200 | Multiple Git Credentials |
 | [`new_policy_form`](#new_policy_form) | GA | ✅ 200 | New compute policy form |
 | [`oltp_database`](#oltp_database) | GA | ✅ 200 | Lakebase Postgres |
-| [`one_chat`](#one_chat) | GA_SOON | ✅ 200 | New chat experience in Genie |
+| [`one_chat`](#one_chat) | GA | ✅ 200 | New chat experience in Genie |
 | [`operationalEmailCustomRecipient`](#operationalemailcustomrecipient) | GA | ✅ 200 | - |
 | [`otel_collector`](#otel_collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
-| [`otel_model_serving`](#otel_model_serving) | BETA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
+| [`otel_model_serving`](#otel_model_serving) | GA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
 | [`outlook_connector`](#outlook_connector) | BETA | ✅ 200 | Lakeflow Connect for Outlook |
 | [`pat_autoscoping`](#pat_autoscoping) | PRIVATE_PREVIEW | 🟡 404 | Personal access tokens auto-scoping |
 | [`pendo_connector`](#pendo_connector) | BETA | 🟡 404 | Lakeflow Connect for Pendo |
@@ -130,7 +133,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
 | [`sharepoint_connector`](#sharepoint_connector) | BETA | ✅ 200 | Lakeflow Connect for Sharepoint |
 | [`slack_ailogs_connector`](#slack_ailogs_connector) | BETA | 🟡 404 | Lakeflow Connect for Slack Access and Integration Logs |
-| [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
+| [`smartsheet_connector`](#smartsheet_connector) | BETA | ✅ 200 | Lakeflow Connect for Smartsheet |
 | [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
 | [`tabular_subscription_attachments`](#tabular_subscription_attachments) | GA | 🟡 404 | Widget Data Attachments for Dashboard Subscriptions |
@@ -141,8 +144,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`variant_shredding`](#variant_shredding) | BETA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
 | [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
 | [`vectorsearch_highqps`](#vectorsearch_highqps) | PUBLIC_PREVIEW | ✅ 200 | Vector Search High QPS |
-| [`vs_autoeval`](#vs_autoeval) | BETA | 🟡 404 | Vector Search AutoEval |
-| [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | Vector Search: Full-Text Search |
+| [`vs_autoeval`](#vs_autoeval) | BETA | 🟡 404 | AI Search: Quality Evaluation |
+| [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | AI Search: Full-Text Search |
 | [`wday_hcm_connector`](#wday_hcm_connector) | BETA | ✅ 200 | Lakeflow Connect for Workday HCM |
 | [`wh_activity_details`](#wh_activity_details) | BETA | ✅ 200 | Warehouse Activity Details |
 | [`wsfs_git_cli`](#wsfs_git_cli) | BETA | ✅ 200 | Git CLI support for Git folders |
@@ -179,7 +182,7 @@ This feature enables on-behalf-of-user authentication for generative AI agents d
 ### `ai_classify`
 
 - **Display name:** AI Classify
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 The ai_classify() function enables you to classify input text directly in SQL using state-of-the-art generative AI models provided by Databricks Foundation Model APIs. By supplying a set of labels, you can declaratively assign categories to unstructured text.
@@ -191,7 +194,7 @@ The ai_classify() function enables you to classify input text directly in SQL us
 ### `ai_extract`
 
 - **Display name:** AI Extract
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 The ai_extract() function enables you to extract structured entities from unstructured text directly in SQL using state-of-the-art generative AI models provided by Databricks Foundation Model APIs. After specifying a target schema, you can declaratively transform raw text into structured outputs.
@@ -231,6 +234,18 @@ The ai_prep_search() function enables you to transform the output of ai_parse_do
 - **Status:** 🟡 404
 
 This preview allows users to use AI Runtime Beta features in their workspaces.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `air_h100_multinode`
+
+- **Display name:** Serverless GPU Compute API Remote H100s
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enables users to use Serverless GPU Compute Python APIs to submit remote distributed training workloads using single and multi-node H100 GPUs for users of Serverless GPU Compute.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -386,7 +401,7 @@ Controls which external collaboration platforms (Slack and/or Microsoft Teams) c
 - **Phase:** GA
 - **Status:** ✅ 200
 
-When enabled, users can choose whether responses from the Databricks app in Slack or Microsoft Teams are visible to the channel. When disabled, all responses are forced to be private to the requesting user.
+When enabled, users can choose whether responses from the Databricks app in Slack are visible to the channel. When disabled, all responses are forced to be private to the requesting user.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -608,6 +623,18 @@ Allows users to use Lakeflow Designer, a low-code, fully governed, AI-native too
 {"boolean_val": {"value": true}}
 ```
 
+### `direct_cdc_connector`
+
+- **Display name:** LakeFlow Connect for Direct Cdc Managed Ingestion Pipeline
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from several databases instances for database connectors like SQL Server, Postgres, Oracle using Direct Cdc Managed Ingestion Pipeline.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `disable_legacy_access`
 
 - **Display name:** -
@@ -814,11 +841,11 @@ The file browser in the editor’s side panel now supports a tree view, allowing
 
 ### `fmapi_qwen3_instruct`
 
-- **Display name:** Enable Extended Models (Qwen)
+- **Display name:** Enable Extended Models
 - **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
-This preview enables an extended family of models, specifically Qwen, in model serving.
+This preview enables an extended family of models (e.g. Qwen) in model serving.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1103,7 +1130,7 @@ The new Lakeflow Jobs UI features a streamlined layout, redesigned task palette,
 ### `lakeflow_qbc`
 
 - **Display name:** Lakeflow Connect Query Based Connectors
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enable Lakeflow Connect query based connectors to ingest from Lakehouse federation sources.
@@ -1124,10 +1151,22 @@ You can now view all of your Jobs and Pipeline executions in the updated Runs li
 {"boolean_val": {"value": true}}
 ```
 
+### `lakehouse_replay`
+
+- **Display name:** Lakehouse Replay
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Databricks automatically replays read‑only serverless workloads in a safe shadow environment so regressions are detected and fixed before they impact production workloads.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `lf_pipelines_auth`
 
 - **Display name:** Lakeflow Pipelines Editor
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Purpose-built IDE for declarative data pipelines. Designed to support everything you need for building pipelines in one place: code-first authoring, folder-based organization, selective execution, data previews, and pipeline graphs. Integrated with the Databricks Platform, supporting version control, code reviews, and scheduling.
@@ -1235,7 +1274,7 @@ A new Postgres compute type built for low-latency reads and writes. Autoscaling 
 ### `one_chat`
 
 - **Display name:** New chat experience in Genie
-- **Phase:** GA_SOON
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Chat with Databricks agents and third-party data sources from a single conversation in Genie, governed by Unity Catalog.
@@ -1271,7 +1310,7 @@ Enables ingestion of OpenTelemetry data into Unity Catalog managed Delta tables 
 ### `otel_model_serving`
 
 - **Display name:** OpenTelemetry for Databricks Model Serving
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 OpenTelemetry log/span/metric persistence for model serving endpoints.
@@ -1496,13 +1535,13 @@ Ingest Slack Access and Integration Logs with a simple and efficient connector
 {"boolean_val": {"value": true}}
 ```
 
-### `standalone_mv_st_on_serverless_gc`
+### `smartsheet_connector`
 
-- **Display name:** MV and ST in Serverless Notebooks and Jobs
+- **Display name:** Lakeflow Connect for Smartsheet
 - **Phase:** BETA
-- **Status:** 🟡 404
+- **Status:** ✅ 200
 
-Feature preview to enable creating and refreshing SDP Materialized Views and Streaming Tables in Serverless Notebooks and Jobs using Serverless Generic Compute. 
+Ingest from Smartsheet with a simple and efficient connector.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1630,11 +1669,11 @@ Vector Search High QPS enables significantly higher real-time query throughput f
 
 ### `vs_autoeval`
 
-- **Display name:** Vector Search AutoEval
+- **Display name:** AI Search: Quality Evaluation
 - **Phase:** BETA
 - **Status:** 🟡 404
 
-Vector Search AutoEval enables automatic search quality evaluation for Vector Search indexes, using synthetic query generation and LLM-based relevance scoring to measure recall, precision, NDCG, and other retrieval metrics.
+AI Search Quality Evaluation enables automatic search quality evaluation for AI Search indexes, using synthetic query generation and LLM-based relevance scoring to measure recall, precision, NDCG, and other retrieval metrics.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1642,7 +1681,7 @@ Vector Search AutoEval enables automatic search quality evaluation for Vector Se
 
 ### `vs_full_text`
 
-- **Display name:** Vector Search: Full-Text Search
+- **Display name:** AI Search: Full-Text Search
 - **Phase:** BETA
 - **Status:** ✅ 200
 
