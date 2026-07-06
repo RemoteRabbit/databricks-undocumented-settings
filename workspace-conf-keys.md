@@ -1,6 +1,6 @@
 # Databricks `workspace-conf` keys (legacy /api/2.0/workspace-conf)
 
-_Auto-generated on 2026-06-29T07:43:08Z._
+_Auto-generated on 2026-07-06T07:33:57Z._
 _Discovered against a Databricks host. Some keys may be valid on other tiers but rejected here._
 _Descriptions are hand-maintained in [`workspace-conf-descriptions.json`](workspace-conf-descriptions.json)._
 

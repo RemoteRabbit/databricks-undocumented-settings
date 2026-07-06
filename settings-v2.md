@@ -1,18 +1,18 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-06-29T07:43:08Z._
+_Auto-generated on 2026-07-06T07:33:57Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_151 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_153 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 67 settings
-- **GA**: 47 settings
+- **BETA**: 66 settings
+- **GA**: 49 settings
 - **GA_SOON**: 4 settings
 - **PRIVATE_PREVIEW**: 1 settings
-- **PUBLIC_PREVIEW**: 32 settings
+- **PUBLIC_PREVIEW**: 33 settings
 
 ## Summary
 
@@ -27,7 +27,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`ai_prep_search`](#ai_prep_search) | BETA | 🟡 404 | AI Prep Search |
 | [`ai_runtime_beta_features`](#ai_runtime_beta_features) | BETA | 🟡 404 | AI Runtime Beta Features |
 | [`air_h100_multinode`](#air_h100_multinode) | BETA | ✅ 200 | Serverless GPU Compute API Remote H100s |
-| [`air_interactive`](#air_interactive) | BETA | ✅ 200 | Serverless GPU Compute |
+| [`air_interactive`](#air_interactive) | PUBLIC_PREVIEW | ✅ 200 | Serverless GPU Compute |
 | [`alerts_v2`](#alerts_v2) | GA | ✅ 200 | SQL Alerts V2 |
 | [`alertv2_job_task`](#alertv2_job_task) | GA | ✅ 200 | Alert Job Task |
 | [`allowedAppsUserApiScopes`](#allowedappsuserapiscopes) | GA | ✅ 200 | - |
@@ -85,7 +85,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`generic_lfc`](#generic_lfc) | BETA | ✅ 200 | Lakeflow Connect Community Connectors |
 | [`genie_bi_migration`](#genie_bi_migration) | BETA | 🟡 404 | Import from External BI to AI/BI |
 | [`genie_chat_sharing`](#genie_chat_sharing) | BETA | ✅ 200 | Genie Chat Sharing |
-| [`genie_deep_research`](#genie_deep_research) | PUBLIC_PREVIEW | ✅ 200 | Genie Agent |
+| [`genie_deep_research`](#genie_deep_research) | GA | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
 | [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | 🟡 404 | Upload Local PDFs to Genie Spaces |
 | [`github_connector`](#github_connector) | BETA | ✅ 200 | Lakeflow Connect for Github |
@@ -109,6 +109,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`lf_pipelines_auth`](#lf_pipelines_auth) | GA | ✅ 200 | Lakeflow Pipelines Editor |
 | [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | - |
 | [`managed_mcp_servers`](#managed_mcp_servers) | PUBLIC_PREVIEW | ✅ 200 | Managed MCP Servers |
+| [`managed_memory_agents`](#managed_memory_agents) | BETA | 🟡 404 | Managed Memory for Agents |
 | [`marketplace_app_install`](#marketplace_app_install) | PUBLIC_PREVIEW | 🟡 404 | Marketplace - Install Databricks Apps |
 | [`meta_ads_connector`](#meta_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Meta Ads |
 | [`mlflow_logged_models`](#mlflow_logged_models) | PUBLIC_PREVIEW | ✅ 200 | Models in Unity Catalog: Deployment Jobs |
@@ -118,7 +119,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`multiple_git_creds`](#multiple_git_creds) | GA | ✅ 200 | Multiple Git Credentials |
 | [`netskope_logs_connector`](#netskope_logs_connector) | BETA | 🟡 404 | Lakeflow Connect for Netskope Logs |
 | [`new_policy_form`](#new_policy_form) | GA | ✅ 200 | New compute policy form |
-| [`object_metadata_column`](#object_metadata_column) | BETA | 🟡 404 | Object Metadata Column |
+| [`object_metadata_column`](#object_metadata_column) | PUBLIC_PREVIEW | 🟡 404 | Object Metadata Column |
 | [`oltp_database`](#oltp_database) | GA | ✅ 200 | Lakebase Postgres |
 | [`omnigents`](#omnigents) | BETA | 🟡 404 | Omnigent |
 | [`one_chat`](#one_chat) | GA | ✅ 200 | New chat experience in Genie |
@@ -162,11 +163,12 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`vs_autoeval`](#vs_autoeval) | BETA | 🟡 404 | AI Search: Quality Evaluation |
 | [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | AI Search: Full-Text Search |
 | [`wday_hcm_connector`](#wday_hcm_connector) | BETA | ✅ 200 | Lakeflow Connect for Workday HCM |
-| [`wh_activity_details`](#wh_activity_details) | BETA | ✅ 200 | Warehouse Activity Details |
+| [`wh_activity_details`](#wh_activity_details) | GA | ✅ 200 | Warehouse Activity Details |
 | [`wiz_alogs_connector`](#wiz_alogs_connector) | BETA | 🟡 404 | Lakeflow Connect for Wiz Audit Logs |
 | [`wsfs_git_cli`](#wsfs_git_cli) | BETA | ✅ 200 | Git CLI support for Git folders |
 | [`zdesk_supt_connector`](#zdesk_supt_connector) | GA | ✅ 200 | Lakeflow Connect for Zendesk Support |
 | [`zerobus_ingest_core`](#zerobus_ingest_core) | GA | ✅ 200 | Lakeflow Connect Zerobus Ingest |
+| [`zip_connector`](#zip_connector) | BETA | 🟡 404 | Lakeflow Connect for Zip |
 | [`zoho_books_connector`](#zoho_books_connector) | BETA | 🟡 404 | Lakeflow Connect for Zoho Books |
 | [`zoom_logs_connector`](#zoom_logs_connector) | BETA | 🟡 404 | Lakeflow Connect for Zoom Logs |
 
@@ -283,7 +285,7 @@ Enables users to use Serverless GPU Compute Python APIs to submit remote distrib
 ### `air_interactive`
 
 - **Display name:** Serverless GPU Compute
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
 Serverless GPU compute provides access to GPU compute (e.g A10 GPUs) via serverless. Users can, within the environment panel, select an accelerator to run notebook workloads like model training and finetuning without having to provision or manage infrastructure, streamlining development and training of models.
@@ -979,7 +981,7 @@ Share Genie space chats with space managers by default, and allow users to share
 ### `genie_deep_research`
 
 - **Display name:** Genie Agent
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 The Genie Agent provides deeper data insights and answers complex business questions using multi-step reasoning and hypothesis investigation.
@@ -1264,6 +1266,18 @@ Databricks managed MCP (Model Context Protocol) servers enable your AI agents to
 {"boolean_val": {"value": true}}
 ```
 
+### `managed_memory_agents`
+
+- **Display name:** Managed Memory for Agents
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Enable Managed Memory APIs and Memory Store Unity Catalog Securable for Custom Agents.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `marketplace_app_install`
 
 - **Display name:** Marketplace - Install Databricks Apps
@@ -1375,7 +1389,7 @@ This preview enables a new and improved user interface for creating, editing and
 ### `object_metadata_column`
 
 - **Display name:** Object Metadata Column
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** 🟡 404
 
 Introduces the _object_metadata hidden column that exposes cloud object-level properties for each file read by a file-based data source.
@@ -1903,7 +1917,7 @@ Ingest from Workday HCM with a simple and efficient connector. To ingest from Wo
 ### `wh_activity_details`
 
 - **Display name:** Warehouse Activity Details
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Provides deeper visibility into SQL Warehouse usage by showing why a warehouse is running even when no queries are visible. The SQL Warehouse monitoring UI includes an activity details view in the running clusters chart, showing query execution and client-driven activity, such as open sessions or query fetching.
@@ -1955,6 +1969,18 @@ Ingest from Zendesk Support with a simple and efficient connector.
 - **Status:** ✅ 200
 
 Zerobus Ingest, part of Lakeflow Connect, is a robust API that allows you to efficiently push data into tables in a streaming, record-by-record, fashion, operating in a serverless multi-tenant environment to support a high volume of clients.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `zip_connector`
+
+- **Display name:** Lakeflow Connect for Zip
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Ingest from Zip with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
