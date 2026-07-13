@@ -1,18 +1,17 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-07-06T07:33:57Z._
+_Auto-generated on 2026-07-13T07:07:21Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_153 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_154 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 66 settings
+- **BETA**: 64 settings
 - **GA**: 49 settings
 - **GA_SOON**: 4 settings
-- **PRIVATE_PREVIEW**: 1 settings
-- **PUBLIC_PREVIEW**: 33 settings
+- **PUBLIC_PREVIEW**: 37 settings
 
 ## Summary
 
@@ -26,7 +25,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`ai_parse_document`](#ai_parse_document) | GA | ✅ 200 | AI ParseDocument |
 | [`ai_prep_search`](#ai_prep_search) | BETA | 🟡 404 | AI Prep Search |
 | [`ai_runtime_beta_features`](#ai_runtime_beta_features) | BETA | 🟡 404 | AI Runtime Beta Features |
-| [`air_h100_multinode`](#air_h100_multinode) | BETA | ✅ 200 | Serverless GPU Compute API Remote H100s |
+| [`air_h100_multinode`](#air_h100_multinode) | PUBLIC_PREVIEW | ✅ 200 | Serverless GPU Compute API Remote H100s |
 | [`air_interactive`](#air_interactive) | PUBLIC_PREVIEW | ✅ 200 | Serverless GPU Compute |
 | [`alerts_v2`](#alerts_v2) | GA | ✅ 200 | SQL Alerts V2 |
 | [`alertv2_job_task`](#alertv2_job_task) | GA | ✅ 200 | Alert Job Task |
@@ -35,6 +34,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`apps_otel`](#apps_otel) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry for Databricks Apps |
 | [`apps_v2_ui`](#apps_v2_ui) | GA | 🟡 404 | Databricks Apps V2 |
 | [`authoring_context`](#authoring_context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
+| [`auto_cdf`](#auto_cdf) | PUBLIC_PREVIEW | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
 | [`cloudfiles_excel`](#cloudfiles_excel) | GA | ✅ 200 | Excel File Format Support |
 | [`collaboration_platform_connectivity`](#collaboration_platform_connectivity) | GA | ✅ 200 | - |
@@ -62,7 +62,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`disable_legacy_dbfs`](#disable_legacy_dbfs) | GA | ✅ 200 | - |
 | [`discover_page`](#discover_page) | PUBLIC_PREVIEW | ✅ 200 | Discover Page |
 | [`ds_v2_join_pushdown`](#ds_v2_join_pushdown) | PUBLIC_PREVIEW | ✅ 200 | Join Pushdown for Federated Queries |
-| [`dynamics_connector`](#dynamics_connector) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect for Dynamics 365 |
+| [`dynamics_connector`](#dynamics_connector) | GA | ✅ 200 | Lakeflow Connect for Dynamics 365 |
 | [`embedded_genie`](#embedded_genie) | GA | 🟡 404 | Embed Genie as an iframe |
 | [`enable_dcs_vnext`](#enable_dcs_vnext) | BETA | ✅ 200 | DCS-vNext |
 | [`enable_dlmv_aibi`](#enable_dlmv_aibi) | PUBLIC_PREVIEW | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
@@ -84,7 +84,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`gdrive_connector`](#gdrive_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Drive |
 | [`generic_lfc`](#generic_lfc) | BETA | ✅ 200 | Lakeflow Connect Community Connectors |
 | [`genie_bi_migration`](#genie_bi_migration) | BETA | 🟡 404 | Import from External BI to AI/BI |
-| [`genie_chat_sharing`](#genie_chat_sharing) | BETA | ✅ 200 | Genie Chat Sharing |
+| [`genie_chat_sharing`](#genie_chat_sharing) | PUBLIC_PREVIEW | ✅ 200 | Genie Chat Sharing |
 | [`genie_deep_research`](#genie_deep_research) | GA | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
 | [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | 🟡 404 | Upload Local PDFs to Genie Spaces |
@@ -98,14 +98,13 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`jira_connector`](#jira_connector) | BETA | ✅ 200 | Lakeflow Connect for Jira |
 | [`jobs_disabled_tasks`](#jobs_disabled_tasks) | GA | ✅ 200 | Disabled tasks in Lakeflow Jobs |
 | [`jobs_serverless_managed_base_environments`](#jobs_serverless_managed_base_environments) | BETA | 🟡 404 | Serverless workspace base environment support in Jobs |
-| [`lakebase_accel_sync`](#lakebase_accel_sync) | PRIVATE_PREVIEW | ✅ 200 | Lakebase Accelerated Sync |
 | [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakebase CDF |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
 | [`lakebase_search`](#lakebase_search) | BETA | 🟡 404 | Lakebase Search |
 | [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
 | [`lakeflow_qbc`](#lakeflow_qbc) | GA | ✅ 200 | Lakeflow Connect Query Based Connectors |
 | [`lakeflow_runs_list`](#lakeflow_runs_list) | GA | ✅ 200 | Unified Runs List |
-| [`lakehouse_replay`](#lakehouse_replay) | BETA | ✅ 200 | Lakehouse Replay |
+| [`lakehouse_replay`](#lakehouse_replay) | PUBLIC_PREVIEW | ✅ 200 | Lakehouse Replay |
 | [`lf_pipelines_auth`](#lf_pipelines_auth) | GA | ✅ 200 | Lakeflow Pipelines Editor |
 | [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | - |
 | [`managed_mcp_servers`](#managed_mcp_servers) | PUBLIC_PREVIEW | ✅ 200 | Managed MCP Servers |
@@ -150,16 +149,17 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
 | [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
-| [`tabular_subscription_attachments`](#tabular_subscription_attachments) | GA | 🟡 404 | Widget Data Attachments for Dashboard Subscriptions |
 | [`third_party_agent_connectors`](#third_party_agent_connectors) | BETA | 🟡 404 | Third Party Connectors for Agents |
 | [`tiktok_ads_connector`](#tiktok_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for TikTok Ads |
 | [`tiles_platform`](#tiles_platform) | BETA | ✅ 200 | Mosaic AI Agent Bricks Preview |
 | [`time_type`](#time_type) | BETA | 🟡 404 | Time data type |
 | [`tut_delta_sharing_ws`](#tut_delta_sharing_ws) | BETA | ✅ 200 | Table Update Triggers on OpenSharing (Recipient) |
+| [`uc_secrets`](#uc_secrets) | PUBLIC_PREVIEW | ✅ 200 | Secrets in Unity Catalog |
 | [`ucmr_prompt_registry`](#ucmr_prompt_registry) | BETA | ✅ 200 | Managed MLflow Prompt Registry |
 | [`variant_shredding`](#variant_shredding) | BETA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
 | [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
 | [`vectorsearch_highqps`](#vectorsearch_highqps) | PUBLIC_PREVIEW | ✅ 200 | Vector Search High QPS |
+| [`veeva_connector`](#veeva_connector) | BETA | ✅ 200 | Lakeflow Connect for Veeva |
 | [`vs_autoeval`](#vs_autoeval) | BETA | 🟡 404 | AI Search: Quality Evaluation |
 | [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | AI Search: Full-Text Search |
 | [`wday_hcm_connector`](#wday_hcm_connector) | BETA | ✅ 200 | Lakeflow Connect for Workday HCM |
@@ -273,7 +273,7 @@ This preview allows users to use AI Runtime Beta features in their workspaces.
 ### `air_h100_multinode`
 
 - **Display name:** Serverless GPU Compute API Remote H100s
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
 Enables users to use Serverless GPU Compute Python APIs to submit remote distributed training workloads using single and multi-node H100 GPUs for users of Serverless GPU Compute.
@@ -373,6 +373,18 @@ Enables the standalone Databricks Apps V2 UI experience with dedicated app manag
 - **Status:** ✅ 200
 
 Similar to opening a folder in an IDE, you can now set the scope of the notebook and file editor to a specific Git folder. When the scope is set to a Git folder, the side panel displays that folder’s contents as an expandable tree, and the editor’s tab bar displays only the files, notebooks, and queries opened while the scope is set to that folder.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `auto_cdf`
+
+- **Display name:** Auto-CDF (Change Data Feed)
+- **Phase:** PUBLIC_PREVIEW
+- **Status:** ✅ 200
+
+This preview enables a new Change Data Feed (CDF) mode that now allows Iceberg writers to write to the table. This new CDF can improve write-time performance, given that it computes the CDF at query time. It requires row tracking, but does not require (`delta.enableChangeDataFeed`) to be enabled on the table. It is available only for DBR version 17.3 and above, on DBR (Spark + DBSQL).
 
 ```json
 {"boolean_val": {"value": true}}
@@ -705,7 +717,7 @@ Enables automatic pushdown of join operations to remote databases when executing
 ### `dynamics_connector`
 
 - **Display name:** Lakeflow Connect for Dynamics 365
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Ingest Dynamics 365 data via Dataverse with a simple and efficient connector. Available via API or UI.
@@ -969,7 +981,7 @@ This preview allows users to import data models & dashboards from external BI to
 ### `genie_chat_sharing`
 
 - **Display name:** Genie Chat Sharing
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
 Share Genie space chats with space managers by default, and allow users to share their chats with others in the Databricks account.
@@ -1134,18 +1146,6 @@ Enable serverless workspace base environment support for Notebook, Python Script
 {"boolean_val": {"value": true}}
 ```
 
-### `lakebase_accel_sync`
-
-- **Display name:** Lakebase Accelerated Sync
-- **Phase:** PRIVATE_PREVIEW
-- **Status:** ✅ 200
-
-Uses parallelized load directly into object storage for faster initial load and refresh.
-
-```json
-{"boolean_val": {"value": true}}
-```
-
 ### `lakebase_cdf`
 
 - **Display name:** Lakebase CDF
@@ -1221,7 +1221,7 @@ You can now view all of your Jobs and Pipeline executions in the updated Runs li
 ### `lakehouse_replay`
 
 - **Display name:** Lakehouse Replay
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
 Databricks automatically replays read‑only serverless workloads in a safe shadow environment so regressions are detected and fixed before they impact production workloads.
@@ -1758,18 +1758,6 @@ Materialized View (MV) and Streaming Table (ST) schedules now surface as a syste
 {"boolean_val": {"value": true}}
 ```
 
-### `tabular_subscription_attachments`
-
-- **Display name:** Widget Data Attachments for Dashboard Subscriptions
-- **Phase:** GA
-- **Status:** 🟡 404
-
-Enables support for attaching widget data to dashboard subscription email notifications. Widget data can be attached as CSV, TSV, or Excel.
-
-```json
-{"boolean_val": {"value": true}}
-```
-
 ### `third_party_agent_connectors`
 
 - **Display name:** Third Party Connectors for Agents
@@ -1830,6 +1818,18 @@ Recipient workspace-level preview for Table Update Triggers on OpenSharing table
 {"boolean_val": {"value": true}}
 ```
 
+### `uc_secrets`
+
+- **Display name:** Secrets in Unity Catalog
+- **Phase:** PUBLIC_PREVIEW
+- **Status:** ✅ 200
+
+Enables creating and managing secrets across workspaces and using Unity Catalog. When enabled, users with CREATE SECRET permissions on a schema can create secrets (e.g., to store passwords or other sensitive credentials for authentication) and grant others users READ access to those. The owner of the secret and any user with READ access can then retrieve the secret value using dbutils.secrets.get(catalog, schema, secret_name), or the REST API. Secrets are stored encrypted in Databricks, and secret redaction is applied to prevent accidental exposure of the secret value. This feature is available on Databricks Runtime 17.3 LTS and above.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `ucmr_prompt_registry`
 
 - **Display name:** Managed MLflow Prompt Registry
@@ -1873,6 +1873,18 @@ When enabled, users can improve similarity search quality from Vector Search by 
 - **Status:** ✅ 200
 
 Vector Search High QPS enables significantly higher real-time query throughput for Vector Search by scaling endpoint capacity via replication – so you can serve more concurrent search requests without standing up or load‑balancing across multiple endpoints. In this phase, you manually increase QPS capacity by adjusting endpoint replication and monitor performance using available metrics; support for automatic scaling is planned for later releases.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `veeva_connector`
+
+- **Display name:** Lakeflow Connect for Veeva
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Veeva with a simple and efficient connector.
 
 ```json
 {"boolean_val": {"value": true}}
