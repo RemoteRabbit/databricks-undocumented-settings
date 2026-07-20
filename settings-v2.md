@@ -1,17 +1,17 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-07-13T07:07:21Z._
+_Auto-generated on 2026-07-20T07:05:23Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_154 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_159 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 64 settings
-- **GA**: 49 settings
+- **BETA**: 68 settings
+- **GA**: 51 settings
 - **GA_SOON**: 4 settings
-- **PUBLIC_PREVIEW**: 37 settings
+- **PUBLIC_PREVIEW**: 36 settings
 
 ## Summary
 
@@ -37,13 +37,13 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`auto_cdf`](#auto_cdf) | PUBLIC_PREVIEW | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
 | [`cloudfiles_excel`](#cloudfiles_excel) | GA | ✅ 200 | Excel File Format Support |
-| [`collaboration_platform_connectivity`](#collaboration_platform_connectivity) | GA | ✅ 200 | - |
-| [`collaboration_platform_message_visibility`](#collaboration_platform_message_visibility) | GA | ✅ 200 | - |
+| [`collaboration_platform_connectivity`](#collaboration_platform_connectivity) | GA | ✅ 200 | Allowed collaboration platforms |
+| [`collaboration_platform_message_visibility`](#collaboration_platform_message_visibility) | GA | ✅ 200 | Allow public messages in collaboration platforms |
 | [`confluence_connector`](#confluence_connector) | GA | ✅ 200 | Lakeflow Connect for Confluence |
 | [`conn_cdc_col_select`](#conn_cdc_col_select) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Column Selection for Database Sources |
 | [`custom_apps_preview`](#custom_apps_preview) | GA | ✅ 200 | Databricks Apps |
 | [`custom_llm_serving`](#custom_llm_serving) | BETA | ✅ 200 | Custom LLM Serving for Databricks Model Serving |
-| [`customerApprovedWSLoginExpirationTime`](#customerapprovedwsloginexpirationtime) | GA | ✅ 200 | - |
+| [`customerApprovedWSLoginExpirationTime`](#customerapprovedwsloginexpirationtime) | GA | ✅ 200 | Workspace access for Databricks personnel |
 | [`dabs_templates`](#dabs_templates) | BETA | ✅ 200 | Custom bundle templates in the workspace |
 | [`dabs_visual_edit`](#dabs_visual_edit) | BETA | ✅ 200 | Visual authoring: UI <> YAML Sync for DABs in the Workspace |
 | [`dashboard_authoring_agent`](#dashboard_authoring_agent) | GA | 🟡 404 | Genie Code for dashboard authoring |
@@ -58,8 +58,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`default_wh_setting`](#default_wh_setting) | GA | ✅ 200 | Default warehouse setting |
 | [`designer`](#designer) | GA | ✅ 200 | Lakeflow Designer |
 | [`direct_cdc_connector`](#direct_cdc_connector) | BETA | ✅ 200 | LakeFlow Connect for Direct Cdc Managed Ingestion Pipeline |
-| [`disable_legacy_access`](#disable_legacy_access) | GA | ✅ 200 | - |
-| [`disable_legacy_dbfs`](#disable_legacy_dbfs) | GA | ✅ 200 | - |
+| [`disable_legacy_access`](#disable_legacy_access) | GA | ✅ 200 | Disable legacy access |
+| [`disable_legacy_dbfs`](#disable_legacy_dbfs) | GA | ✅ 200 | Disable DBFS root and mounts |
 | [`discover_page`](#discover_page) | PUBLIC_PREVIEW | ✅ 200 | Discover Page |
 | [`ds_v2_join_pushdown`](#ds_v2_join_pushdown) | PUBLIC_PREVIEW | ✅ 200 | Join Pushdown for Federated Queries |
 | [`dynamics_connector`](#dynamics_connector) | GA | ✅ 200 | Lakeflow Connect for Dynamics 365 |
@@ -87,6 +87,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`genie_chat_sharing`](#genie_chat_sharing) | PUBLIC_PREVIEW | ✅ 200 | Genie Chat Sharing |
 | [`genie_deep_research`](#genie_deep_research) | GA | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
+| [`genie_one_user_memory`](#genie_one_user_memory) | BETA | 🟡 404 | Genie One Memory |
 | [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | 🟡 404 | Upload Local PDFs to Genie Spaces |
 | [`github_connector`](#github_connector) | BETA | ✅ 200 | Lakeflow Connect for Github |
 | [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
@@ -96,8 +97,10 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`jdbc_connector`](#jdbc_connector) | PUBLIC_PREVIEW | ✅ 200 | Custom JDBC on UC Compute |
 | [`jdbc_oauth_m2m_connector`](#jdbc_oauth_m2m_connector) | BETA | 🟡 404 | OAuth M2M Support for Custom JDBC on UC Compute |
 | [`jira_connector`](#jira_connector) | BETA | ✅ 200 | Lakeflow Connect for Jira |
+| [`job_cluster_default_auto_data_security_mode`](#job_cluster_default_auto_data_security_mode) | BETA | 🟡 404 | Job cluster default auto data security mode |
 | [`jobs_disabled_tasks`](#jobs_disabled_tasks) | GA | ✅ 200 | Disabled tasks in Lakeflow Jobs |
 | [`jobs_serverless_managed_base_environments`](#jobs_serverless_managed_base_environments) | BETA | 🟡 404 | Serverless workspace base environment support in Jobs |
+| [`lakebase_accel_sync`](#lakebase_accel_sync) | BETA | ✅ 200 | LTAP Direct Writes |
 | [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakebase CDF |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
 | [`lakebase_search`](#lakebase_search) | BETA | 🟡 404 | Lakebase Search |
@@ -106,7 +109,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`lakeflow_runs_list`](#lakeflow_runs_list) | GA | ✅ 200 | Unified Runs List |
 | [`lakehouse_replay`](#lakehouse_replay) | PUBLIC_PREVIEW | ✅ 200 | Lakehouse Replay |
 | [`lf_pipelines_auth`](#lf_pipelines_auth) | GA | ✅ 200 | Lakeflow Pipelines Editor |
-| [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | - |
+| [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | Partner-powered AI features |
 | [`managed_mcp_servers`](#managed_mcp_servers) | PUBLIC_PREVIEW | ✅ 200 | Managed MCP Servers |
 | [`managed_memory_agents`](#managed_memory_agents) | BETA | 🟡 404 | Managed Memory for Agents |
 | [`marketplace_app_install`](#marketplace_app_install) | PUBLIC_PREVIEW | 🟡 404 | Marketplace - Install Databricks Apps |
@@ -123,7 +126,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`omnigents`](#omnigents) | BETA | 🟡 404 | Omnigent |
 | [`one_chat`](#one_chat) | GA | ✅ 200 | New chat experience in Genie |
 | [`operationalEmailCustomRecipient`](#operationalemailcustomrecipient) | GA | ✅ 200 | - |
-| [`otel_collector`](#otel_collector) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry on Databricks |
+| [`otel_collector`](#otel_collector) | GA | ✅ 200 | OpenTelemetry on Databricks |
 | [`otel_model_serving`](#otel_model_serving) | GA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
 | [`outlook_connector`](#outlook_connector) | BETA | ✅ 200 | Lakeflow Connect for Outlook |
 | [`pat_autoscoping`](#pat_autoscoping) | BETA | 🟡 404 | Personal access tokens auto-scoping |
@@ -147,6 +150,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`smartsheet_connector`](#smartsheet_connector) | BETA | ✅ 200 | Lakeflow Connect for Smartsheet |
 | [`square_connector`](#square_connector) | BETA | 🟡 404 | Lakeflow Connect for Square |
 | [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
+| [`strac_connector`](#strac_connector) | BETA | 🟡 404 | Lakeflow Connect for Strac |
 | [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
 | [`third_party_agent_connectors`](#third_party_agent_connectors) | BETA | 🟡 404 | Third Party Connectors for Agents |
@@ -154,6 +158,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`tiles_platform`](#tiles_platform) | BETA | ✅ 200 | Mosaic AI Agent Bricks Preview |
 | [`time_type`](#time_type) | BETA | 🟡 404 | Time data type |
 | [`tut_delta_sharing_ws`](#tut_delta_sharing_ws) | BETA | ✅ 200 | Table Update Triggers on OpenSharing (Recipient) |
+| [`uc_scala_udfs`](#uc_scala_udfs) | GA | ✅ 200 | Scala and Java UDFs in Unity Catalog |
 | [`uc_secrets`](#uc_secrets) | PUBLIC_PREVIEW | ✅ 200 | Secrets in Unity Catalog |
 | [`ucmr_prompt_registry`](#ucmr_prompt_registry) | BETA | ✅ 200 | Managed MLflow Prompt Registry |
 | [`variant_shredding`](#variant_shredding) | BETA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
@@ -416,7 +421,7 @@ Read Excel files using Spark batch and streaming APIs including Auto Loader, rea
 
 ### `collaboration_platform_connectivity`
 
-- **Display name:** -
+- **Display name:** Allowed collaboration platforms
 - **Phase:** GA
 - **Status:** ✅ 200
 
@@ -428,7 +433,7 @@ Controls which external collaboration platforms (Slack and/or Microsoft Teams) c
 
 ### `collaboration_platform_message_visibility`
 
-- **Display name:** -
+- **Display name:** Allow public messages in collaboration platforms
 - **Phase:** GA
 - **Status:** ✅ 200
 
@@ -488,11 +493,11 @@ Enable serving custom LLMs in model serving endpoints.
 
 ### `customerApprovedWSLoginExpirationTime`
 
-- **Display name:** -
+- **Display name:** Workspace access for Databricks personnel
 - **Phase:** GA
 - **Status:** ✅ 200
 
-Enable and disable access to your workspace to Databricks personnel. You can control when and how long Databricks can access your workspace for support purposes. If you have disabled access, no Databricks personnel will be able to gain access to your workspace. Accepted string values are - '', 'indefinite' or valid ISO date
+A specific time after which Databricks personnel may no longer log into your workspace. The time is formatted as `YYYY-MM-DDTHH:MM:SSZ`. You can completely disable access by setting it to a timestamp in the past, such as `1998-01-01T00:00:00.000Z`. Enable access indefinitely by using an empty string or the special value `indefinite`.
 
 ```json
 {"string_val": {"value": "string"}}
@@ -668,7 +673,7 @@ Ingest from several databases instances for database connectors like SQL Server,
 
 ### `disable_legacy_access`
 
-- **Display name:** -
+- **Display name:** Disable legacy access
 - **Phase:** GA
 - **Status:** ✅ 200
 
@@ -680,7 +685,7 @@ Ingest from several databases instances for database connectors like SQL Server,
 
 ### `disable_legacy_dbfs`
 
-- **Display name:** -
+- **Display name:** Disable DBFS root and mounts
 - **Phase:** GA
 - **Status:** ✅ 200
 
@@ -1014,6 +1019,18 @@ Advanced technique that reviews initial SQL answers and makes improvements in st
 {"boolean_val": {"value": true}}
 ```
 
+### `genie_one_user_memory`
+
+- **Display name:** Genie One Memory
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+When enabled, Genie remembers context across conversations and can save, view, and delete memories to personalize its responses. Memories are not shared across users.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `genie_unstructured_files_in_deepresearch_mode`
 
 - **Display name:** Upload Local PDFs to Genie Spaces
@@ -1122,6 +1139,18 @@ Ingest Jira data with a simple and efficient connector. Available via API for bo
 {"boolean_val": {"value": true}}
 ```
 
+### `job_cluster_default_auto_data_security_mode`
+
+- **Display name:** Job cluster default auto data security mode
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+When enabled, job clusters default to AUTO data security mode.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `jobs_disabled_tasks`
 
 - **Display name:** Disabled tasks in Lakeflow Jobs
@@ -1141,6 +1170,18 @@ Be able to disable tasks in Lakeflow Jobs. By disabling a task, Lakeflow Jobs wi
 - **Status:** 🟡 404
 
 Enable serverless workspace base environment support for Notebook, Python Script, and Wheel tasks in Jobs
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `lakebase_accel_sync`
+
+- **Display name:** LTAP Direct Writes
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Bulk writes data directly to Lakebase storage to power faster synced table loads and refreshes.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1244,7 +1285,7 @@ Purpose-built IDE for declarative data pipelines. Designed to support everything
 
 ### `llm_proxy_partner_powered`
 
-- **Display name:** -
+- **Display name:** Partner-powered AI features
 - **Phase:** GA
 - **Status:** ✅ 200
 
@@ -1449,7 +1490,7 @@ Additional recipient for this workspace's operational emails. When set, Databric
 ### `otel_collector`
 
 - **Display name:** OpenTelemetry on Databricks
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enables ingestion of OpenTelemetry data into Unity Catalog managed Delta tables for MLflow Tracing.
@@ -1734,6 +1775,18 @@ Feature preview to enable creating and refreshing SDP Materialized Views and Str
 {"boolean_val": {"value": true}}
 ```
 
+### `strac_connector`
+
+- **Display name:** Lakeflow Connect for Strac
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Ingest from Strac with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `supervisor_api`
 
 - **Display name:** Supervisor API
@@ -1813,6 +1866,18 @@ Adds the support for TIME data type to Spark. Applies to DBR 18.2+ on all SQL Wa
 - **Status:** ✅ 200
 
 Recipient workspace-level preview for Table Update Triggers on OpenSharing tables. When enabled for a workspace, users in that workspace can create Table Update Triggers (TUTs) on tables shared with them through OpenSharing. Requires the provider account to have the tut_delta_sharing preview enabled.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `uc_scala_udfs`
+
+- **Display name:** Scala and Java UDFs in Unity Catalog
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Support for Scala and Java UDFs in Unity Catalog on Serverless compute (Serverless GC and DBSQL)
 
 ```json
 {"boolean_val": {"value": true}}
