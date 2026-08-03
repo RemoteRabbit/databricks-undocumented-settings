@@ -1,17 +1,17 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-07-27T07:08:52Z._
+_Auto-generated on 2026-08-03T07:08:37Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_172 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_182 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 75 settings
-- **GA**: 53 settings
+- **BETA**: 80 settings
+- **GA**: 61 settings
 - **GA_SOON**: 4 settings
-- **PUBLIC_PREVIEW**: 40 settings
+- **PUBLIC_PREVIEW**: 37 settings
 
 ## Summary
 
@@ -22,9 +22,11 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`aha_connector`](#aha_connector) | BETA | 🟡 404 | Lakeflow Connect for Aha! |
 | [`ai_classify`](#ai_classify) | GA | ✅ 200 | AI Classify |
 | [`ai_extract`](#ai_extract) | GA | ✅ 200 | AI Extract |
+| [`ai_gateway_ga_ws`](#ai_gateway_ga_ws) | GA | 🟡 404 | Unity AI Gateway |
 | [`ai_parse_document`](#ai_parse_document) | GA | ✅ 200 | AI ParseDocument |
 | [`ai_prep_search`](#ai_prep_search) | BETA | 🟡 404 | AI Prep Search |
 | [`ai_runtime_beta_features`](#ai_runtime_beta_features) | BETA | 🟡 404 | AI Runtime Beta Features |
+| [`ai_top_drivers`](#ai_top_drivers) | BETA | 🟡 404 | Predictive AI Functions |
 | [`aibi_dashboard_relationships`](#aibi_dashboard_relationships) | PUBLIC_PREVIEW | 🟡 404 | AI/BI Dashboard Relationships |
 | [`air_h100_multinode`](#air_h100_multinode) | PUBLIC_PREVIEW | ✅ 200 | Serverless GPU Compute API Remote H100s |
 | [`air_interactive`](#air_interactive) | PUBLIC_PREVIEW | ✅ 200 | Serverless GPU Compute |
@@ -36,7 +38,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`apps_otel`](#apps_otel) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry for Databricks Apps |
 | [`apps_v2_ui`](#apps_v2_ui) | GA | 🟡 404 | Databricks Apps V2 |
 | [`authoring_context`](#authoring_context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
-| [`auto_cdf`](#auto_cdf) | PUBLIC_PREVIEW | ✅ 200 | Auto-CDF (Change Data Feed) |
+| [`auto_cdf`](#auto_cdf) | GA | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
 | [`cloudfiles_excel`](#cloudfiles_excel) | GA | ✅ 200 | Excel File Format Support |
 | [`collaboration_platform_connectivity`](#collaboration_platform_connectivity) | GA | ✅ 200 | Allowed collaboration platforms |
@@ -72,7 +74,9 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | BETA | 🟡 404 | Databricks Apps - Webhook-Triggered Deployments (GitHub, Azure DevOps) |
 | [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
 | [`enable_obo_user_apps`](#enable_obo_user_apps) | GA_SOON | ✅ 200 | Databricks Apps - On-Behalf-Of User Authorization |
+| [`enable_workspace_repo_configuration`](#enable_workspace_repo_configuration) | BETA | 🟡 404 | Enable Workspace Repo Configuration for Databricks Apps |
 | [`enforceGitAppDeployments`](#enforcegitappdeployments) | GA | ✅ 200 | Only allow app deployments from Git |
+| [`enforce_single_user_cluster_permission`](#enforce_single_user_cluster_permission) | BETA | 🟡 404 | Enforce Single User Cluster Permission |
 | [`excel_connector_flip`](#excel_connector_flip) | PUBLIC_PREVIEW | 🟡 404 | Excel Add-In |
 | [`excl_data_access`](#excl_data_access) | PUBLIC_PREVIEW | ✅ 200 | Role-based access control (RBAC) |
 | [`exp_sp_token_notif`](#exp_sp_token_notif) | GA | ✅ 200 | Expiring service principal access token notifications |
@@ -90,6 +94,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`genie_bi_migration`](#genie_bi_migration) | PUBLIC_PREVIEW | 🟡 404 | Import from External BI to AI/BI |
 | [`genie_bring_your_own_volume`](#genie_bring_your_own_volume) | BETA | 🟡 404 | Analyze Files in Volumes with Genie Agents |
 | [`genie_chat_sharing`](#genie_chat_sharing) | GA | ✅ 200 | Genie Chat Sharing |
+| [`genie_code_automations`](#genie_code_automations) | BETA | 🟡 404 | Genie Code Scheduled Tasks |
 | [`genie_deep_research`](#genie_deep_research) | GA | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
 | [`genie_one_user_memory`](#genie_one_user_memory) | BETA | 🟡 404 | Genie One Memory |
@@ -99,6 +104,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
 | [`hspot_mktg_connector`](#hspot_mktg_connector) | GA | ✅ 200 | Lakeflow Connect for HubSpot |
 | [`icebergv3`](#icebergv3) | GA | ✅ 200 | Iceberg V3 |
+| [`integrated_cdc_mysql_connector`](#integrated_cdc_mysql_connector) | BETA | 🟡 404 | LakeFlow Connect for Integrated Cdc MySQL Connector |
+| [`integrated_cdc_sql_server_connector`](#integrated_cdc_sql_server_connector) | BETA | 🟡 404 | LakeFlow Connect for Integrated Cdc Sql Server Connector |
 | [`ip_functions`](#ip_functions) | PUBLIC_PREVIEW | 🟡 404 | Ip Functions |
 | [`jdbc_connector`](#jdbc_connector) | PUBLIC_PREVIEW | ✅ 200 | Custom JDBC on UC Compute |
 | [`jdbc_oauth_m2m_connector`](#jdbc_oauth_m2m_connector) | BETA | 🟡 404 | OAuth M2M Support for Custom JDBC on UC Compute |
@@ -107,12 +114,13 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`jobs_disabled_tasks`](#jobs_disabled_tasks) | GA | ✅ 200 | Disabled tasks in Lakeflow Jobs |
 | [`jobs_serverless_managed_base_environments`](#jobs_serverless_managed_base_environments) | BETA | 🟡 404 | Serverless workspace base environment support in Jobs |
 | [`kafka_connector`](#kafka_connector) | BETA | 🟡 404 | Lakeflow Connect for Kafka |
+| [`knowledge_assistant`](#knowledge_assistant) | GA | ✅ 200 | Knowledge Assistant |
 | [`lakebase_accel_sync`](#lakebase_accel_sync) | BETA | ✅ 200 | LTAP Direct Writes |
 | [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakebase CDF |
-| [`lakebase_insights`](#lakebase_insights) | BETA | 🟡 404 | Lakebase Insights |
+| [`lakebase_insights`](#lakebase_insights) | BETA | 🟡 404 | Lakebase Advanced Postgres Telemetry |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | 🟡 404 | Lakebase OpenTelemetry Integration |
 | [`lakebase_search`](#lakebase_search) | BETA | 🟡 404 | Lakebase Search |
-| [`lakebridge`](#lakebridge) | BETA | 🟡 404 | Lakebridge |
+| [`lakebridge`](#lakebridge) | BETA | 🟡 404 | Agentic Converter in Genie Code |
 | [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
 | [`lakeflow_qbc`](#lakeflow_qbc) | GA | ✅ 200 | Lakeflow Connect Query Based Connectors |
 | [`lakeflow_runs_list`](#lakeflow_runs_list) | GA | ✅ 200 | Unified Runs List |
@@ -148,34 +156,35 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`pkg_repo_ui_cluster`](#pkg_repo_ui_cluster) | GA_SOON | ✅ 200 | Default Python package repositories in clusters created via UI |
 | [`power_bi_task`](#power_bi_task) | PUBLIC_PREVIEW | ✅ 200 | Power BI task type |
 | [`query_perf_insights`](#query_perf_insights) | BETA | ✅ 200 | Query performance insights |
+| [`rabbitmq_connector`](#rabbitmq_connector) | BETA | 🟡 404 | Lakeflow Connector for RabbitMQ |
 | [`reddit_ads_connector`](#reddit_ads_connector) | BETA | 🟡 404 | Lakeflow Connect for Reddit Ads |
 | [`remote_ds_writes`](#remote_ds_writes) | GA | ✅ 200 | Remote data sources write support on serverless compute |
-| [`remote_query_tvf`](#remote_query_tvf) | PUBLIC_PREVIEW | ✅ 200 | Enables remote query table-valued function (remote_query). |
+| [`remote_query_tvf`](#remote_query_tvf) | GA | ✅ 200 | Enables remote query table-valued function (remote_query). |
 | [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
+| [`serverless_compute`](#serverless_compute) | GA | 🟡 404 | Serverless Compute Access Control |
 | [`serverless_jar_jobs`](#serverless_jar_jobs) | PUBLIC_PREVIEW | ✅ 200 | Serverless JARs |
 | [`serverless_workload_observability`](#serverless_workload_observability) | BETA | 🟡 404 | Improved Lakeflow Performance Observability |
 | [`sf_mktg_connector`](#sf_mktg_connector) | BETA | ✅ 200 | Lakeflow Connect for Salesforce Marketing Cloud |
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
 | [`sharepoint_connector`](#sharepoint_connector) | BETA | ✅ 200 | Lakeflow Connect for Sharepoint |
-| [`slack_ailogs_connector`](#slack_ailogs_connector) | BETA | 🟡 404 | Lakeflow Connect for Slack Access and Integration Logs |
 | [`smartsheet_connector`](#smartsheet_connector) | BETA | ✅ 200 | Lakeflow Connect for Smartsheet |
 | [`square_connector`](#square_connector) | BETA | 🟡 404 | Lakeflow Connect for Square |
 | [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | 🟡 404 | MV and ST in Serverless Notebooks and Jobs |
 | [`strac_connector`](#strac_connector) | BETA | 🟡 404 | Lakeflow Connect for Strac |
+| [`supervisor_agent`](#supervisor_agent) | GA | ✅ 200 | Supervisor Agent |
 | [`supervisor_api`](#supervisor_api) | BETA | 🟡 404 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
 | [`third_party_agent_connectors`](#third_party_agent_connectors) | BETA | 🟡 404 | Third Party Connectors for Agents |
 | [`tiktok_ads_connector`](#tiktok_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for TikTok Ads |
-| [`tiles_platform`](#tiles_platform) | BETA | ✅ 200 | Mosaic AI Agent Bricks Preview |
 | [`time_type`](#time_type) | BETA | 🟡 404 | Time data type |
 | [`tut_delta_sharing_ws`](#tut_delta_sharing_ws) | BETA | ✅ 200 | Table Update Triggers on OpenSharing (Recipient) |
 | [`uc_scala_udfs`](#uc_scala_udfs) | GA | ✅ 200 | Scala and Java UDFs in Unity Catalog |
 | [`uc_secrets`](#uc_secrets) | PUBLIC_PREVIEW | ✅ 200 | Secrets in Unity Catalog |
 | [`ucmr_prompt_registry`](#ucmr_prompt_registry) | BETA | ✅ 200 | Managed MLflow Prompt Registry |
-| [`variant_shredding`](#variant_shredding) | BETA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
+| [`variant_shredding`](#variant_shredding) | GA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
 | [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
-| [`vectorsearch_highqps`](#vectorsearch_highqps) | PUBLIC_PREVIEW | ✅ 200 | Vector Search High QPS |
+| [`vectorsearch_highqps`](#vectorsearch_highqps) | GA | ✅ 200 | Vector Search High QPS |
 | [`veeva_connector`](#veeva_connector) | BETA | ✅ 200 | Lakeflow Connect for Veeva |
 | [`vs_autoeval`](#vs_autoeval) | BETA | 🟡 404 | AI Search: Quality Evaluation |
 | [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | AI Search: Full-Text Search |
@@ -186,6 +195,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`wsfs_git_cli`](#wsfs_git_cli) | PUBLIC_PREVIEW | ✅ 200 | Git CLI support for Git folders |
 | [`zdesk_supt_connector`](#zdesk_supt_connector) | GA | ✅ 200 | Lakeflow Connect for Zendesk Support |
 | [`zerobus_ingest_core`](#zerobus_ingest_core) | GA | ✅ 200 | Lakeflow Connect Zerobus Ingest |
+| [`zerobus_rescue_column_json`](#zerobus_rescue_column_json) | BETA | 🟡 404 | Zerobus Ingest Rescue Column JSON |
 | [`zip_connector`](#zip_connector) | BETA | 🟡 404 | Lakeflow Connect for Zip |
 | [`zoho_books_connector`](#zoho_books_connector) | BETA | 🟡 404 | Lakeflow Connect for Zoho Books |
 | [`zoom_logs_connector`](#zoom_logs_connector) | BETA | 🟡 404 | Lakeflow Connect for Zoom Logs |
@@ -252,6 +262,18 @@ The ai_extract() function enables you to extract structured entities from unstru
 {"boolean_val": {"value": true}}
 ```
 
+### `ai_gateway_ga_ws`
+
+- **Display name:** Unity AI Gateway
+- **Phase:** GA
+- **Status:** 🟡 404
+
+Unity AI Gateway is the control plane for AI: it routes every model and MCP request, enforces rate limits and cost controls, applies service policies, and records usage — across any model provider and any coding agent.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `ai_parse_document`
 
 - **Display name:** AI ParseDocument
@@ -283,6 +305,18 @@ The ai_prep_search() function enables you to transform the output of ai_parse_do
 - **Status:** 🟡 404
 
 This preview allows users to use AI Runtime Beta features in their workspaces.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `ai_top_drivers`
+
+- **Display name:** Predictive AI Functions
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Enables all new predictive functions for analyzing tabular data in Databricks SQL.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -423,7 +457,7 @@ Similar to opening a folder in an IDE, you can now set the scope of the notebook
 ### `auto_cdf`
 
 - **Display name:** Auto-CDF (Change Data Feed)
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 This preview enables a new Change Data Feed (CDF) mode that now allows Iceberg writers to write to the table. This new CDF can improve write-time performance, given that it computes the CDF at query time. It requires row tracking, but does not require (`delta.enableChangeDataFeed`) to be enabled on the table. It is available only for DBR version 17.3 and above, on DBR (Spark + DBSQL).
@@ -852,6 +886,18 @@ Allows the Databricks App to act on behalf of the app user. This enhancement all
 {"boolean_val": {"value": true}}
 ```
 
+### `enable_workspace_repo_configuration`
+
+- **Display name:** Enable Workspace Repo Configuration for Databricks Apps
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Enables Databricks Apps to use workspace-level package repository configuration during app deployment, including workspace PyPI/NPM settings.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `enforceGitAppDeployments`
 
 - **Display name:** Only allow app deployments from Git
@@ -859,6 +905,18 @@ Allows the Databricks App to act on behalf of the app user. This enhancement all
 - **Status:** ✅ 200
 
 When enabled, apps in this workspace can only be deployed from Git.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `enforce_single_user_cluster_permission`
+
+- **Display name:** Enforce Single User Cluster Permission
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+When enabled, non-admin users can only create dedicated (single-user) clusters assigned to themselves. Admins can create clusters for any user.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1068,6 +1126,18 @@ Share Genie space chats with space managers by default, and allow users to share
 {"boolean_val": {"value": true}}
 ```
 
+### `genie_code_automations`
+
+- **Display name:** Genie Code Scheduled Tasks
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Run Genie Code agents automatically on a recurring schedule.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `genie_deep_research`
 
 - **Display name:** Genie Agent
@@ -1176,6 +1246,30 @@ Iceberg V3 adds performance and feature capabilities to Delta UniForm and Manage
 {"boolean_val": {"value": true}}
 ```
 
+### `integrated_cdc_mysql_connector`
+
+- **Display name:** LakeFlow Connect for Integrated Cdc MySQL Connector
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Ingest from MySQL databases using Integrated Cdc Managed Ingestion Pipeline.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `integrated_cdc_sql_server_connector`
+
+- **Display name:** LakeFlow Connect for Integrated Cdc Sql Server Connector
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Ingest from SQL Server databases using Integrated Cdc Managed Ingestion Pipeline.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `ip_functions`
 
 - **Display name:** Ip Functions
@@ -1272,6 +1366,18 @@ Ingest from Apache Kafka with a simple and efficient streaming connector.
 {"boolean_val": {"value": true}}
 ```
 
+### `knowledge_assistant`
+
+- **Display name:** Knowledge Assistant
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Turn your docs into an expert AI chatbot
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `lakebase_accel_sync`
 
 - **Display name:** LTAP Direct Writes
@@ -1298,11 +1404,11 @@ Lakebase-native export of the Postgres Change Data Feed to Delta tables. Support
 
 ### `lakebase_insights`
 
-- **Display name:** Lakebase Insights
+- **Display name:** Lakebase Advanced Postgres Telemetry
 - **Phase:** BETA
 - **Status:** 🟡 404
 
-Turns on Lakebase background metric logging and insights for user's Lakebase projects.
+Enables Lakebase Postgres telemetry capture — query stats, wait events, plans, and schema changes land as Delta tables in your Unity Catalog, with a built-in dashboard. Genie can access this telemetry to help diagnose and fix issues.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1334,11 +1440,11 @@ This preview introduces scalable vector search and native BM-25 fulltext search 
 
 ### `lakebridge`
 
-- **Display name:** Lakebridge
+- **Display name:** Agentic Converter in Genie Code
 - **Phase:** BETA
 - **Status:** 🟡 404
 
-Lakebridge is an agentic migration tool for moving workloads from third party data warehouses to Databricks. Lakebridge uses Genie Code, Databricks' AI coding agent, to convert proprietary code to open ANSI SQL. The preview supports T-SQL, Snowflake, Redshift, Oracle, BigQuery, and Teradata. You must have Genie Code enabled in your workspace to enroll in the Agentic Lakebridge Beta.
+Enable the Agentic Converter in Genie Code to migrate workloads from third party data warehouses to Databricks. The converter uses Genie Code, Databricks' AI coding agent, to translate proprietary code to open ANSI SQL. Currently, it supports T-SQL, Snowflake, Redshift, Oracle, BigQuery, and Teradata. Genie Code must be enabled in your workspace to enroll in the Agentic Converter Beta.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1764,6 +1870,18 @@ When queries run, Databricks might return insights that identify opportunities t
 {"boolean_val": {"value": true}}
 ```
 
+### `rabbitmq_connector`
+
+- **Display name:** Lakeflow Connector for RabbitMQ
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Ingest from RabbitMQ with a simple and efficient streaming connector.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `reddit_ads_connector`
 
 - **Display name:** Lakeflow Connect for Reddit Ads
@@ -1791,7 +1909,7 @@ Enables the write support on serverless compute for the remote data sources. The
 ### `remote_query_tvf`
 
 - **Display name:** Enables remote query table-valued function (remote_query).
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Function allows users to execute query in remote engine syntax using credentials from a Unity Catalog connection. Function is available on Databricks Runtime 17.3 or above.
@@ -1807,6 +1925,18 @@ Function allows users to execute query in remote engine syntax using credentials
 - **Status:** ✅ 200
 
 Scoped personal access tokens (Scoped PATs) limit which APIs each token can call through specific scopes that define its permissions. The feature helps enforce least-privilege access and reduces risk if a token is compromised. You can configure scopes individually on each token and update them at any time to match the token's intended use—such as connecting BI tools, or running automation scripts.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `serverless_compute`
+
+- **Display name:** Serverless Compute Access Control
+- **Phase:** GA
+- **Status:** 🟡 404
+
+Manage access to serverless compute for Notebooks, Jobs, and Pipelines. Account admins can control which users, groups, and service principals can use serverless resources.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1884,18 +2014,6 @@ Ingest Sharepoint data with a simple and efficient connector. Available via API.
 {"boolean_val": {"value": true}}
 ```
 
-### `slack_ailogs_connector`
-
-- **Display name:** Lakeflow Connect for Slack Access and Integration Logs
-- **Phase:** BETA
-- **Status:** 🟡 404
-
-Ingest Slack Access and Integration Logs with a simple and efficient connector
-
-```json
-{"boolean_val": {"value": true}}
-```
-
 ### `smartsheet_connector`
 
 - **Display name:** Lakeflow Connect for Smartsheet
@@ -1944,6 +2062,18 @@ Ingest from Strac with a simple and efficient connector
 {"boolean_val": {"value": true}}
 ```
 
+### `supervisor_agent`
+
+- **Display name:** Supervisor Agent
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Agent Bricks Supervisor Agent lets you combine Genie spaces, other agents, and tools together in a powerful agent system that can answer questions and take actions.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `supervisor_api`
 
 - **Display name:** Supervisor API
@@ -1987,18 +2117,6 @@ Enables Databricks AI features to use Databricks-managed connectors to popular t
 - **Status:** ✅ 200
 
 Ingest from TikTok Ads with a simple and efficient connector.
-
-```json
-{"boolean_val": {"value": true}}
-```
-
-### `tiles_platform`
-
-- **Display name:** Mosaic AI Agent Bricks Preview
-- **Phase:** BETA
-- **Status:** ✅ 200
-
-Mosaic AI Agent Bricks enables you to build and optimize domain-specific agent systems. Simply select your problem, and Agent Bricks will run optimizations to improve quality and cost, generating a deployable endpoint on Databricks. Additionally, Agent Bricks provides automated evaluation and recommendations to refine your agent systems performance. Enabling this flag will also enable ai_parse_document function; however, for the regions where Agent Bricks is not available, you will only get access to ai_parse_document without Agent Bricks enabled.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2067,10 +2185,10 @@ Managed MLflow Prompt Registry on Databricks is a powerful tool that streamlines
 ### `variant_shredding`
 
 - **Display name:** Variant Shredding for Optimized Read Performance on Semi-Structured Data
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
-Variant shredding extracts commonly occurring fields in semi-structured data into separate columns during writes. This significantly improves read performance, but incurs some overhead on writes. Variant shredding is supported in DBR 17.2 and above.
+Variant shredding extracts commonly occurring fields in semi-structured data into separate columns during writes. This significantly improves read performance, but incurs some overhead on writes. Variant shredding is supported in DBR 17.3 and above.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2091,7 +2209,7 @@ When enabled, users can improve similarity search quality from Vector Search by 
 ### `vectorsearch_highqps`
 
 - **Display name:** Vector Search High QPS
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Vector Search High QPS enables significantly higher real-time query throughput for Vector Search by scaling endpoint capacity via replication – so you can serve more concurrent search requests without standing up or load‑balancing across multiple endpoints. In this phase, you manually increase QPS capacity by adjusting endpoint replication and monitor performance using available metrics; support for automatic scaling is planned for later releases.
@@ -2217,6 +2335,18 @@ Ingest from Zendesk Support with a simple and efficient connector.
 - **Status:** ✅ 200
 
 Zerobus Ingest, part of Lakeflow Connect, is a robust API that allows you to efficiently push data into tables in a streaming, record-by-record, fashion, operating in a serverless multi-tenant environment to support a high volume of clients.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `zerobus_rescue_column_json`
+
+- **Display name:** Zerobus Ingest Rescue Column JSON
+- **Phase:** BETA
+- **Status:** 🟡 404
+
+Zerobus "rescue column" feature support for JSON ingestion.
 
 ```json
 {"boolean_val": {"value": true}}
