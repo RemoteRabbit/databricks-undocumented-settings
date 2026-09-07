@@ -1,16 +1,16 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-08-31T06:18:14Z._
+_Auto-generated on 2026-09-07T06:17:25Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_208 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_215 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 92 settings
-- **GA**: 80 settings
-- **PUBLIC_PREVIEW**: 36 settings
+- **BETA**: 96 settings
+- **GA**: 82 settings
+- **PUBLIC_PREVIEW**: 37 settings
 
 ## Summary
 
@@ -20,6 +20,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`agents_obo`](#agents_obo) | PUBLIC_PREVIEW | ✅ 200 | Agent Framework: On-Behalf-Of-User Authorization |
 | [`aha_connector`](#aha_connector) | BETA | ✅ 200 | Lakeflow Connect for Aha! |
 | [`ai_classify`](#ai_classify) | GA | ✅ 200 | AI Classify |
+| [`ai_enrich`](#ai_enrich) | BETA | ✅ 200 | Ai Enrich |
 | [`ai_extract`](#ai_extract) | GA | ✅ 200 | AI Extract |
 | [`ai_extract_precision_mode`](#ai_extract_precision_mode) | GA | ✅ 200 | AI Extract Precision Mode |
 | [`ai_gateway_ga_ws`](#ai_gateway_ga_ws) | GA | ✅ 200 | Unity AI Gateway |
@@ -73,7 +74,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`embedded_genie`](#embedded_genie) | GA | ✅ 200 | Embed Genie as an iframe |
 | [`enable_dcs_vnext`](#enable_dcs_vnext) | BETA | ✅ 200 | DCS-vNext |
 | [`enable_dlmv_aibi`](#enable_dlmv_aibi) | PUBLIC_PREVIEW | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
-| [`enable_genie_web_search`](#enable_genie_web_search) | BETA | ✅ 200 | Genie Code Web Search |
+| [`enable_genie_web_search`](#enable_genie_web_search) | BETA | ✅ 200 | Web search in Genie Code and Genie One |
 | [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | BETA | ✅ 200 | Databricks Apps - Webhook-Triggered Deployments (GitHub, Azure DevOps) |
 | [`enable_hscaling_apps`](#enable_hscaling_apps) | BETA | ✅ 200 | Apps Horizontal Scaling |
 | [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
@@ -88,6 +89,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`external_engine_fgac`](#external_engine_fgac) | BETA | ✅ 200 | Cross-engine ABAC |
 | [`file_type`](#file_type) | BETA | ✅ 200 | File data type |
 | [`filebrowser_tree`](#filebrowser_tree) | PUBLIC_PREVIEW | ✅ 200 | Tree view of the side panel file browser |
+| [`fine_grained_dml`](#fine_grained_dml) | BETA | ✅ 200 | Fine-Grained DML Privileges |
 | [`fmapi_qwen3_instruct`](#fmapi_qwen3_instruct) | PUBLIC_PREVIEW | ✅ 200 | Enable Extended Models |
 | [`foreign_tbl_comments`](#foreign_tbl_comments) | BETA | ✅ 200 | Comments on Foreign Tables |
 | [`fstore_decl_fw`](#fstore_decl_fw) | PUBLIC_PREVIEW | ✅ 200 | Feature Views (Batch) |
@@ -98,7 +100,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`generic_lfc`](#generic_lfc) | BETA | ✅ 200 | Lakeflow Connect Community Connectors |
 | [`genie_bi_migration`](#genie_bi_migration) | GA | ✅ 200 | Import from External BI to AI/BI |
 | [`genie_chat_sharing`](#genie_chat_sharing) | GA | ✅ 200 | Genie Chat Sharing |
-| [`genie_code_automations`](#genie_code_automations) | BETA | ✅ 200 | Genie Code Scheduled Tasks |
+| [`genie_code_automations`](#genie_code_automations) | GA | ✅ 200 | Genie Code Scheduled Tasks |
+| [`genie_code_job_task`](#genie_code_job_task) | BETA | ✅ 200 | Genie Code Job Task |
 | [`genie_deep_research`](#genie_deep_research) | GA | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
 | [`genie_one_file_upload`](#genie_one_file_upload) | BETA | ✅ 200 | Genie One File Upload |
@@ -141,6 +144,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`managed_memory_agents`](#managed_memory_agents) | BETA | ✅ 200 | Managed Memory for Agents |
 | [`marketo_connector`](#marketo_connector) | BETA | ✅ 200 | Lakeflow Connect for Marketo |
 | [`marketplace_app_install`](#marketplace_app_install) | PUBLIC_PREVIEW | ✅ 200 | Marketplace - Install Databricks Apps |
+| [`match_recognize`](#match_recognize) | PUBLIC_PREVIEW | ✅ 200 | Match Recognize |
 | [`meta_ads_connector`](#meta_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Meta Ads |
 | [`metadata_automations`](#metadata_automations) | BETA | ✅ 200 | Tag Automations |
 | [`mlflow_custom_trace_view`](#mlflow_custom_trace_view) | BETA | ✅ 200 | MLflow Custom Trace View |
@@ -173,12 +177,14 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`pkg_repo_dlt`](#pkg_repo_dlt) | GA | ✅ 200 | Default Python package repositories in Spark Declarative Pipelines |
 | [`pkg_repo_ui_cluster`](#pkg_repo_ui_cluster) | GA | ✅ 200 | Default Python package repositories in clusters created via UI |
 | [`power_bi_task`](#power_bi_task) | PUBLIC_PREVIEW | ✅ 200 | Power BI task type |
-| [`query_perf_insights`](#query_perf_insights) | BETA | ✅ 200 | Query performance insights |
+| [`project_scoped_shared_compute`](#project_scoped_shared_compute) | BETA | ✅ 200 | Project-Scoped Shared Compute |
+| [`query_perf_insights`](#query_perf_insights) | GA | ✅ 200 | Query performance insights |
 | [`rabbitmq_connector`](#rabbitmq_connector) | BETA | ✅ 200 | Lakeflow Connector for RabbitMQ |
 | [`read_metadata_privilege`](#read_metadata_privilege) | GA | ✅ 200 | Advanced metadata viewing privilege ('READ METADATA') |
 | [`reddit_ads_connector`](#reddit_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Reddit Ads |
 | [`remote_ds_writes`](#remote_ds_writes) | GA | ✅ 200 | Remote data sources write support on serverless compute |
 | [`remote_query_tvf`](#remote_query_tvf) | GA | ✅ 200 | Enables remote query table-valued function (remote_query). |
+| [`reranker_finetuning`](#reranker_finetuning) | BETA | ✅ 200 | Reranker Finetuning |
 | [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
 | [`sendgrid_connector`](#sendgrid_connector) | BETA | ✅ 200 | Lakeflow Connect for SendGrid |
 | [`serverless_compute`](#serverless_compute) | GA | ✅ 200 | Serverless Compute Access Control |
@@ -198,6 +204,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`supervisor_api`](#supervisor_api) | BETA | ✅ 200 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
 | [`third_party_agent_connectors`](#third_party_agent_connectors) | BETA | ✅ 200 | Third Party Connectors for Agents |
+| [`third_party_agent_connectors_glean`](#third_party_agent_connectors_glean) | BETA | ✅ 200 | Third Party Agent Connectors Glean |
 | [`tiktok_ads_connector`](#tiktok_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for TikTok Ads |
 | [`time_type`](#time_type) | BETA | ✅ 200 | Time data type |
 | [`tut_delta_sharing_ws`](#tut_delta_sharing_ws) | BETA | ✅ 200 | Table Update Triggers on OpenSharing (Recipient) |
@@ -270,6 +277,18 @@ Ingest from Aha! using a simple and efficient connector
 - **Status:** ✅ 200
 
 The ai_classify() function enables you to classify input text directly in SQL using state-of-the-art generative AI models provided by Databricks Foundation Model APIs. By supplying a set of labels, you can declaratively assign categories to unstructured text.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `ai_enrich`
+
+- **Display name:** Ai Enrich
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+An entity enrichment primitive inside Databricks: given sparse or messy entity inputs, users can enrich those entities with structured fields grounded in knowledge sources such as web search , vector search and more
 
 ```json
 {"boolean_val": {"value": true}}
@@ -593,7 +612,7 @@ Controls which external collaboration platforms (Slack and/or Microsoft Teams) c
 - **Phase:** GA
 - **Status:** ✅ 200
 
-When enabled, users can choose whether responses from the Databricks app in Slack are visible to the channel. When disabled, all responses are forced to be private to the requesting user.
+When enabled, users can choose whether responses from the Databricks app in Slack or Microsoft Teams are visible to the channel. When disabled, all responses are forced to be private to the requesting user.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -913,11 +932,11 @@ Create Metric Views that are local to an Ai/BI dashboard. These Dashboard Local 
 
 ### `enable_genie_web_search`
 
-- **Display name:** Genie Code Web Search
+- **Display name:** Web search in Genie Code and Genie One
 - **Phase:** BETA
 - **Status:** ✅ 200
 
-Enables Genie Code Web Search using web search providers compliant with this workspace
+Enables web search in Genie Code and Genie One using web search providers compliant with this workspace
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1091,6 +1110,18 @@ The file browser in the editor’s side panel now supports a tree view, allowing
 {"boolean_val": {"value": true}}
 ```
 
+### `fine_grained_dml`
+
+- **Display name:** Fine-Grained DML Privileges
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enables the ability to grant individual, fine-grained DML privileges—specifically INSERT, UPDATE, and DELETE—on tables within Unity Catalog. These privileges serve as a least-privileged alternative to the broader MODIFY privilege, particularly when users should not be authorized to perform DDL operations, such as schema modifications.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `fmapi_qwen3_instruct`
 
 - **Display name:** Enable Extended Models
@@ -1214,10 +1245,22 @@ Share Genie space chats with space managers by default, and allow users to share
 ### `genie_code_automations`
 
 - **Display name:** Genie Code Scheduled Tasks
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Run Genie Code agents automatically on a recurring schedule.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `genie_code_job_task`
+
+- **Display name:** Genie Code Job Task
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enables genie code as a task type in jobs.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1727,6 +1770,18 @@ Allow workspace admins to install databricks apps from Databricks Marketplace.
 {"boolean_val": {"value": true}}
 ```
 
+### `match_recognize`
+
+- **Display name:** Match Recognize
+- **Phase:** PUBLIC_PREVIEW
+- **Status:** ✅ 200
+
+MATCH_RECOGNIZE lets you find patterns across ordered rows directly in SQL—defining a sequence of conditions and matching them the way a regular expression matches characters in a string. Instead of writing complex self-joins, window functions, or procedural code, you partition and order your data, define named row patterns, and return per-match or per-row results in a single, readable query.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `meta_ads_connector`
 
 - **Display name:** Lakeflow Connect for Meta Ads
@@ -2111,10 +2166,22 @@ The Power BI task type in Databricks Workflows allows users to keep Power BI sem
 {"boolean_val": {"value": true}}
 ```
 
+### `project_scoped_shared_compute`
+
+- **Display name:** Project-Scoped Shared Compute
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enables project-scoped serverless compute for Git Folders. Notebooks and files in the same Git Folder share the REPL VM, filesystem, web terminal, and Python environment while notebook execution and Spark state remain isolated. Requires serverless client version 5.11 or later.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `query_perf_insights`
 
 - **Display name:** Query performance insights
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 When queries run, Databricks might return insights that identify opportunities to improve performance. 
@@ -2178,6 +2245,18 @@ Enables the write support on serverless compute for the remote data sources. The
 - **Status:** ✅ 200
 
 Function allows users to execute query in remote engine syntax using credentials from a Unity Catalog connection. Function is available on Databricks Runtime 17.3 or above.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `reranker_finetuning`
+
+- **Display name:** Reranker Finetuning
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Fine-tune reranker models for Vector Search to improve search relevance on your data.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2406,6 +2485,18 @@ Materialized View (MV) and Streaming Table (ST) schedules now surface as a syste
 - **Status:** ✅ 200
 
 Enables Databricks AI features to use Databricks-managed connectors to popular third party providers.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `third_party_agent_connectors_glean`
+
+- **Display name:** Third Party Agent Connectors Glean
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enables the Glean connector for Databricks AI agents. Requires 'Third Party Connectors for Agents' to be enabled.
 
 ```json
 {"boolean_val": {"value": true}}
