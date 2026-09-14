@@ -1,15 +1,15 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-09-07T06:17:25Z._
+_Auto-generated on 2026-09-14T06:18:28Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_215 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_221 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 96 settings
-- **GA**: 82 settings
+- **BETA**: 99 settings
+- **GA**: 85 settings
 - **PUBLIC_PREVIEW**: 37 settings
 
 ## Summary
@@ -23,6 +23,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`ai_enrich`](#ai_enrich) | BETA | ✅ 200 | Ai Enrich |
 | [`ai_extract`](#ai_extract) | GA | ✅ 200 | AI Extract |
 | [`ai_extract_precision_mode`](#ai_extract_precision_mode) | GA | ✅ 200 | AI Extract Precision Mode |
+| [`ai_functions_rest_api`](#ai_functions_rest_api) | GA | ✅ 200 | AI Functions REST API |
 | [`ai_gateway_ga_ws`](#ai_gateway_ga_ws) | GA | ✅ 200 | Unity AI Gateway |
 | [`ai_parse_document`](#ai_parse_document) | GA | ✅ 200 | AI ParseDocument |
 | [`ai_prep_search`](#ai_prep_search) | BETA | ✅ 200 | AI Prep Search |
@@ -41,6 +42,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`anomaly_detection_ws`](#anomaly_detection_ws) | PUBLIC_PREVIEW | ✅ 200 | Data quality monitoring with anomaly detection (workspace level) |
 | [`anthropic_connector`](#anthropic_connector) | BETA | ✅ 200 | Lakeflow Connect for Anthropic |
 | [`apps_otel`](#apps_otel) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry for Databricks Apps |
+| [`atlassian_audit_logs_connector`](#atlassian_audit_logs_connector) | BETA | ✅ 200 | Lakeflow Connect for Atlassian Audit Logs |
 | [`authoring_context`](#authoring_context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
 | [`auto_cdf`](#auto_cdf) | GA | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`automatic_cluster_update`](#automatic_cluster_update) | GA | ✅ 200 | Automatic cluster update |
@@ -82,7 +84,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`enable_workspace_repo_configuration`](#enable_workspace_repo_configuration) | BETA | ✅ 200 | Enable Workspace Repo Configuration for Databricks Apps |
 | [`enforceGitAppDeployments`](#enforcegitappdeployments) | GA | ✅ 200 | Only allow app deployments from Git |
 | [`enforce_single_user_cluster_permission`](#enforce_single_user_cluster_permission) | BETA | ✅ 200 | Enforce Single User Cluster Permission |
-| [`excel_connector_flip`](#excel_connector_flip) | PUBLIC_PREVIEW | ✅ 200 | Excel Add-In |
+| [`excel_connector_flip`](#excel_connector_flip) | GA | ✅ 200 | Excel Add-In |
 | [`excl_data_access`](#excl_data_access) | GA | ✅ 200 | Role-based access control (RBAC) |
 | [`exp_sp_token_notif`](#exp_sp_token_notif) | GA | ✅ 200 | Expiring service principal access token notifications |
 | [`external_access_to_managed_delta`](#external_access_to_managed_delta) | PUBLIC_PREVIEW | ✅ 200 | External Access to Unity Catalog Managed Delta Table |
@@ -108,7 +110,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`genie_one_user_memory`](#genie_one_user_memory) | BETA | ✅ 200 | Genie One Memory |
 | [`genie_ontology_snippets`](#genie_ontology_snippets) | PUBLIC_PREVIEW | ✅ 200 | Genie Ontology snippets |
 | [`genie_spaces_agentic_api`](#genie_spaces_agentic_api) | GA | ✅ 200 | Agent Mode APIs for Genie Agents |
-| [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | ✅ 200 | Upload Local PDFs to Genie Spaces |
+| [`genie_unstructured_files_in_deepresearch_mode`](#genie_unstructured_files_in_deepresearch_mode) | BETA | ✅ 200 | Upload Local PDFs to Genie Agents |
 | [`github_connector`](#github_connector) | BETA | ✅ 200 | Lakeflow Connect for Github |
 | [`gmail_connector`](#gmail_connector) | BETA | ✅ 200 | Lakeflow Connect for Gmail |
 | [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
@@ -118,7 +120,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`icebergv3`](#icebergv3) | GA | ✅ 200 | Iceberg V3 |
 | [`integrated_cdc_mysql_connector`](#integrated_cdc_mysql_connector) | BETA | ✅ 200 | LakeFlow Connect for Integrated Cdc MySQL Connector |
 | [`integrated_cdc_oracle_connector`](#integrated_cdc_oracle_connector) | BETA | ✅ 200 | LakeFlow Connect for Integrated Cdc Oracle Connector |
-| [`integrated_cdc_sql_server_connector`](#integrated_cdc_sql_server_connector) | GA | ✅ 200 | LakeFlow Connect for Integrated Cdc Sql Server Connector |
+| [`integrated_cdc_sql_server_connector`](#integrated_cdc_sql_server_connector) | BETA | ✅ 200 | LakeFlow Connect for Integrated Cdc Sql Server Connector |
 | [`ip_functions`](#ip_functions) | PUBLIC_PREVIEW | ✅ 200 | Ip Functions |
 | [`jdbc_connector`](#jdbc_connector) | PUBLIC_PREVIEW | ✅ 200 | Custom JDBC on UC Compute |
 | [`jdbc_oauth_m2m_connector`](#jdbc_oauth_m2m_connector) | BETA | ✅ 200 | OAuth M2M Support for Custom JDBC on UC Compute |
@@ -137,6 +139,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`lakeflow_qbc`](#lakeflow_qbc) | GA | ✅ 200 | Lakeflow Connect Query Based Connectors |
 | [`lakeflow_runs_list`](#lakeflow_runs_list) | GA | ✅ 200 | Unified Runs List |
 | [`lakehouse_replay`](#lakehouse_replay) | PUBLIC_PREVIEW | ✅ 200 | Lakehouse Replay |
+| [`lf_continuous_unif`](#lf_continuous_unif) | GA | ✅ 200 | Continuous Declarative Pipelines: Standard mode and improved notifications |
 | [`lf_pipelines_auth`](#lf_pipelines_auth) | GA | ✅ 200 | Lakeflow Pipelines Editor |
 | [`linkedin_ads_connector`](#linkedin_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Linkedin Ads  |
 | [`llm_proxy_partner_powered`](#llm_proxy_partner_powered) | GA | ✅ 200 | Partner-powered AI features |
@@ -195,6 +198,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
 | [`sharepoint_connector`](#sharepoint_connector) | GA | ✅ 200 | Lakeflow Connect for Sharepoint |
+| [`sharepoint_list_connector`](#sharepoint_list_connector) | BETA | ✅ 200 | Sharepoint List Connector |
 | [`shield_csp_enablement_ws_db`](#shield_csp_enablement_ws_db) | GA | ✅ 200 | Compliance security profile |
 | [`shield_esm_enablement_ws_db`](#shield_esm_enablement_ws_db) | GA | ✅ 200 | Enhanced security monitoring |
 | [`smartsheet_connector`](#smartsheet_connector) | BETA | ✅ 200 | Lakeflow Connect for Smartsheet |
@@ -203,11 +207,12 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`strac_connector`](#strac_connector) | BETA | ✅ 200 | Lakeflow Connect for Strac |
 | [`supervisor_api`](#supervisor_api) | BETA | ✅ 200 | Supervisor API |
 | [`system_managed_job`](#system_managed_job) | BETA | ✅ 200 | System-Managed Job for Materialized Views & Streaming Tables |
-| [`third_party_agent_connectors`](#third_party_agent_connectors) | BETA | ✅ 200 | Third Party Connectors for Agents |
+| [`third_party_agent_connectors`](#third_party_agent_connectors) | GA | ✅ 200 | Third Party Connectors for Agents |
 | [`third_party_agent_connectors_glean`](#third_party_agent_connectors_glean) | BETA | ✅ 200 | Third Party Agent Connectors Glean |
 | [`tiktok_ads_connector`](#tiktok_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for TikTok Ads |
 | [`time_type`](#time_type) | BETA | ✅ 200 | Time data type |
 | [`tut_delta_sharing_ws`](#tut_delta_sharing_ws) | BETA | ✅ 200 | Table Update Triggers on OpenSharing (Recipient) |
+| [`uc_external_secrets`](#uc_external_secrets) | BETA | ✅ 200 | External secrets for Unity Catalog |
 | [`uc_scala_udfs`](#uc_scala_udfs) | GA | ✅ 200 | Scala and Java UDFs in Unity Catalog |
 | [`uc_secrets`](#uc_secrets) | GA | ✅ 200 | Secrets in Unity Catalog |
 | [`uc_udf_dependencies`](#uc_udf_dependencies) | GA | ✅ 200 | Enhanced Python UDFs in Unity Catalog |
@@ -226,6 +231,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`workspace_label`](#workspace_label) | GA | ✅ 200 | Workspace Label |
 | [`wsfs_git_cli`](#wsfs_git_cli) | PUBLIC_PREVIEW | ✅ 200 | Git CLI support for Git folders |
 | [`zdesk_supt_connector`](#zdesk_supt_connector) | GA | ✅ 200 | Lakeflow Connect for Zendesk Support |
+| [`zerobus_default_storage_write`](#zerobus_default_storage_write) | PUBLIC_PREVIEW | ✅ 200 | Zerobus Ingest Default Storage |
 | [`zerobus_ingest_core`](#zerobus_ingest_core) | GA | ✅ 200 | Lakeflow Connect Zerobus Ingest |
 | [`zerobus_kafka_endpoint`](#zerobus_kafka_endpoint) | BETA | ✅ 200 | Zerobus Ingest Kafka Endpoint |
 | [`zerobus_rescue_column_json`](#zerobus_rescue_column_json) | BETA | ✅ 200 | Zerobus Ingest Rescue Column JSON |
@@ -313,6 +319,18 @@ The ai_extract() function enables you to extract structured entities from unstru
 - **Status:** ✅ 200
 
 The AI Extract Precision mode is a new setting on the AI Extract function that provides customers with frontier document processing capabilities targeted for advanced use cases such as long documents, large schemas, and complex field logic.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `ai_functions_rest_api`
+
+- **Display name:** AI Functions REST API
+- **Phase:** GA
+- **Status:** ✅ 200
+
+The AI Functions REST API allows customers to call AI Parse Document, AI Extract, and AI Classify through a REST API endpoint.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -529,6 +547,18 @@ Ingest from Anthropic with a simple and efficient connector
 - **Status:** ✅ 200
 
 Enables observability features for Databricks Apps.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `atlassian_audit_logs_connector`
+
+- **Display name:** Lakeflow Connect for Atlassian Audit Logs
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Atlassian Audit Logs with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1029,7 +1059,7 @@ When enabled, non-admin users can only create dedicated (single-user) clusters a
 ### `excel_connector_flip`
 
 - **Display name:** Excel Add-In
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enable the Databricks Add-In for Excel to import data from Databricks into Excel
@@ -1340,7 +1370,7 @@ APIs let you run Agent mode programmatically instead of through the Databricks U
 
 ### `genie_unstructured_files_in_deepresearch_mode`
 
-- **Display name:** Upload Local PDFs to Genie Spaces
+- **Display name:** Upload Local PDFs to Genie Agents
 - **Phase:** BETA
 - **Status:** ✅ 200
 
@@ -1461,7 +1491,7 @@ Ingest from Oracle databases using Integrated Cdc Managed Ingestion Pipeline.
 ### `integrated_cdc_sql_server_connector`
 
 - **Display name:** LakeFlow Connect for Integrated Cdc Sql Server Connector
-- **Phase:** GA
+- **Phase:** BETA
 - **Status:** ✅ 200
 
 Ingest from SQL Server databases using Integrated Cdc Managed Ingestion Pipeline.
@@ -1681,6 +1711,18 @@ You can now view all of your Jobs and Pipeline executions in the updated Runs li
 - **Status:** ✅ 200
 
 Databricks automatically replays read‑only serverless workloads in a safe shadow environment so regressions are detected and fixed before they impact production workloads.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `lf_continuous_unif`
+
+- **Display name:** Continuous Declarative Pipelines: Standard mode and improved notifications
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Allows users to run their continuous Lakeflow Spark Declarative Pipelines in Standard mode and provides improved notification options by scheduling continuous pipelines using Lakeflow Jobs. This preview deprecates the existing Pipeline mode setting in favor of the existing configuration options available in Lakeflow Jobs.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2382,6 +2424,18 @@ Ingest Sharepoint data with a simple and efficient connector. Available via API.
 {"boolean_val": {"value": true}}
 ```
 
+### `sharepoint_list_connector`
+
+- **Display name:** Sharepoint List Connector
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Controls the rollout of the sharepoint list connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `shield_csp_enablement_ws_db`
 
 - **Display name:** Compliance security profile
@@ -2481,7 +2535,7 @@ Materialized View (MV) and Streaming Table (ST) schedules now surface as a syste
 ### `third_party_agent_connectors`
 
 - **Display name:** Third Party Connectors for Agents
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enables Databricks AI features to use Databricks-managed connectors to popular third party providers.
@@ -2533,6 +2587,18 @@ Adds the support for TIME data type to Spark. Applies to DBR 18.2+ on all SQL Wa
 - **Status:** ✅ 200
 
 Recipient workspace-level preview for Table Update Triggers on OpenSharing tables. When enabled for a workspace, users in that workspace can create Table Update Triggers (TUTs) on tables shared with them through OpenSharing. Requires the provider account to have the tut_delta_sharing preview enabled.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `uc_external_secrets`
+
+- **Display name:** External secrets for Unity Catalog
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enable Unity Catalog schemas to reference secrets stored in external secret managers.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2751,6 +2817,18 @@ You can now run Git CLI commands against Git folders in the Web Terminal and fro
 - **Status:** ✅ 200
 
 Ingest from Zendesk Support with a simple and efficient connector.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `zerobus_default_storage_write`
+
+- **Display name:** Zerobus Ingest Default Storage
+- **Phase:** PUBLIC_PREVIEW
+- **Status:** ✅ 200
+
+Controls whether Zerobus can write into Default Storage backed tables.
 
 ```json
 {"boolean_val": {"value": true}}
