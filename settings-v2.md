@@ -1,16 +1,16 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-09-14T06:18:28Z._
+_Auto-generated on 2026-09-21T06:19:09Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_221 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_232 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 99 settings
-- **GA**: 85 settings
-- **PUBLIC_PREVIEW**: 37 settings
+- **BETA**: 106 settings
+- **GA**: 92 settings
+- **PUBLIC_PREVIEW**: 34 settings
 
 ## Summary
 
@@ -30,6 +30,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`ai_runtime_beta_features`](#ai_runtime_beta_features) | BETA | ✅ 200 | AI Runtime Beta Features |
 | [`ai_search`](#ai_search) | BETA | ✅ 200 | AI Search |
 | [`ai_top_drivers`](#ai_top_drivers) | BETA | ✅ 200 | Predictive AI Functions |
+| [`ai_transcribe`](#ai_transcribe) | BETA | ✅ 200 | Ai Transcribe |
 | [`aibi_dash_embed_ws_acc_policy`](#aibi_dash_embed_ws_acc_policy) | GA | ✅ 200 | AI/BI Dashboard Embedding Access Policy |
 | [`aibi_dash_embed_ws_apprvd_domains`](#aibi_dash_embed_ws_apprvd_domains) | GA | ✅ 200 | AI/BI Dashboard Embedding Approved Domains |
 | [`aibi_dashboard_relationships`](#aibi_dashboard_relationships) | PUBLIC_PREVIEW | ✅ 200 | AI/BI Dashboard Relationships |
@@ -39,17 +40,22 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`alertv2_job_task`](#alertv2_job_task) | GA | ✅ 200 | Alert Job Task |
 | [`allowedAppsUserApiScopes`](#allowedappsuserapiscopes) | GA | ✅ 200 | Restrict OAuth scopes for apps to selected values |
 | [`amplitude_connector`](#amplitude_connector) | BETA | ✅ 200 | Lakeflow Connect for Amplitude |
+| [`anaplan_connector`](#anaplan_connector) | BETA | ✅ 200 | Lakeflow Connect for Anaplan |
 | [`anomaly_detection_ws`](#anomaly_detection_ws) | PUBLIC_PREVIEW | ✅ 200 | Data quality monitoring with anomaly detection (workspace level) |
 | [`anthropic_connector`](#anthropic_connector) | BETA | ✅ 200 | Lakeflow Connect for Anthropic |
-| [`apps_otel`](#apps_otel) | PUBLIC_PREVIEW | ✅ 200 | OpenTelemetry for Databricks Apps |
+| [`anysphere_connector`](#anysphere_connector) | BETA | ✅ 200 | Lakeflow Connect for Anysphere Audit Logs |
+| [`anysphere_org_connector`](#anysphere_org_connector) | BETA | ✅ 200 | Lakeflow Connect for Anysphere Org |
+| [`apps_otel`](#apps_otel) | GA | ✅ 200 | OpenTelemetry for Databricks Apps |
 | [`atlassian_audit_logs_connector`](#atlassian_audit_logs_connector) | BETA | ✅ 200 | Lakeflow Connect for Atlassian Audit Logs |
 | [`authoring_context`](#authoring_context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
 | [`auto_cdf`](#auto_cdf) | GA | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`automatic_cluster_update`](#automatic_cluster_update) | GA | ✅ 200 | Automatic cluster update |
+| [`celigo_connector`](#celigo_connector) | BETA | ✅ 200 | Lakeflow Connect for Celigo |
 | [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
 | [`cloudfiles_excel`](#cloudfiles_excel) | GA | ✅ 200 | Excel File Format Support |
 | [`collaboration_platform_connectivity`](#collaboration_platform_connectivity) | GA | ✅ 200 | Allowed collaboration platforms |
 | [`collaboration_platform_message_visibility`](#collaboration_platform_message_visibility) | GA | ✅ 200 | Allow public messages in collaboration platforms |
+| [`compute_agent`](#compute_agent) | BETA | ✅ 200 | Compute Agent |
 | [`confluence_connector`](#confluence_connector) | GA | ✅ 200 | Lakeflow Connect for Confluence |
 | [`conn_cdc_col_select`](#conn_cdc_col_select) | PUBLIC_PREVIEW | ✅ 200 | Lakeflow Connect Column Selection for Database Sources |
 | [`custom_apps_preview`](#custom_apps_preview) | GA | ✅ 200 | Databricks Apps |
@@ -65,6 +71,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`dbsql_5xl_serverless`](#dbsql_5xl_serverless) | PUBLIC_PREVIEW | ✅ 200 | 5XL Serverless SQL Warehouse |
 | [`dbt_cloud_task`](#dbt_cloud_task) | BETA | ✅ 200 | dbt platform task |
 | [`dc_custom_tags`](#dc_custom_tags) | BETA | ✅ 200 | Extend Data Classification with Custom Classifiers |
+| [`dc_view_scanning`](#dc_view_scanning) | BETA | ✅ 200 | Data Classification View Scanning |
 | [`default_wh_setting`](#default_wh_setting) | GA | ✅ 200 | Default warehouse setting |
 | [`direct_cdc_connector`](#direct_cdc_connector) | BETA | ✅ 200 | LakeFlow Connect for Direct Cdc Managed Ingestion Pipeline |
 | [`disable_legacy_access`](#disable_legacy_access) | GA | ✅ 200 | Disable legacy access |
@@ -75,15 +82,16 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`dynamics_connector`](#dynamics_connector) | GA | ✅ 200 | Lakeflow Connect for Dynamics 365 |
 | [`embedded_genie`](#embedded_genie) | GA | ✅ 200 | Embed Genie as an iframe |
 | [`enable_dcs_vnext`](#enable_dcs_vnext) | BETA | ✅ 200 | DCS-vNext |
-| [`enable_dlmv_aibi`](#enable_dlmv_aibi) | PUBLIC_PREVIEW | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
+| [`enable_dlmv_aibi`](#enable_dlmv_aibi) | GA | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
 | [`enable_genie_web_search`](#enable_genie_web_search) | BETA | ✅ 200 | Web search in Genie Code and Genie One |
-| [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | BETA | ✅ 200 | Databricks Apps - Webhook-Triggered Deployments (GitHub, Azure DevOps) |
+| [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | GA | ✅ 200 | Databricks Apps - Webhook-Triggered Deployments (GitHub, Azure DevOps) |
 | [`enable_hscaling_apps`](#enable_hscaling_apps) | BETA | ✅ 200 | Apps Horizontal Scaling |
 | [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
 | [`enable_obo_user_apps`](#enable_obo_user_apps) | GA | ✅ 200 | Databricks Apps - On-Behalf-Of User Authorization |
 | [`enable_workspace_repo_configuration`](#enable_workspace_repo_configuration) | BETA | ✅ 200 | Enable Workspace Repo Configuration for Databricks Apps |
 | [`enforceGitAppDeployments`](#enforcegitappdeployments) | GA | ✅ 200 | Only allow app deployments from Git |
 | [`enforce_single_user_cluster_permission`](#enforce_single_user_cluster_permission) | BETA | ✅ 200 | Enforce Single User Cluster Permission |
+| [`envs_on_classic`](#envs_on_classic) | BETA | ✅ 200 | Environments on Standard Compute |
 | [`excel_connector_flip`](#excel_connector_flip) | GA | ✅ 200 | Excel Add-In |
 | [`excl_data_access`](#excl_data_access) | GA | ✅ 200 | Role-based access control (RBAC) |
 | [`exp_sp_token_notif`](#exp_sp_token_notif) | GA | ✅ 200 | Expiring service principal access token notifications |
@@ -115,13 +123,14 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`gmail_connector`](#gmail_connector) | BETA | ✅ 200 | Lakeflow Connect for Gmail |
 | [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
 | [`google_search_console_connector`](#google_search_console_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Search Console |
+| [`google_workspace_connector`](#google_workspace_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Workspace |
 | [`hspot_mktg_connector`](#hspot_mktg_connector) | GA | ✅ 200 | Lakeflow Connect for HubSpot |
 | [`hubspot_connector_crm_objects`](#hubspot_connector_crm_objects) | BETA | ✅ 200 | Hubspot Connector CRM Hub Objects |
 | [`icebergv3`](#icebergv3) | GA | ✅ 200 | Iceberg V3 |
 | [`integrated_cdc_mysql_connector`](#integrated_cdc_mysql_connector) | BETA | ✅ 200 | LakeFlow Connect for Integrated Cdc MySQL Connector |
 | [`integrated_cdc_oracle_connector`](#integrated_cdc_oracle_connector) | BETA | ✅ 200 | LakeFlow Connect for Integrated Cdc Oracle Connector |
-| [`integrated_cdc_sql_server_connector`](#integrated_cdc_sql_server_connector) | BETA | ✅ 200 | LakeFlow Connect for Integrated Cdc Sql Server Connector |
-| [`ip_functions`](#ip_functions) | PUBLIC_PREVIEW | ✅ 200 | Ip Functions |
+| [`integrated_cdc_sql_server_connector`](#integrated_cdc_sql_server_connector) | GA | ✅ 200 | LakeFlow Connect for Integrated Cdc Sql Server Connector |
+| [`ip_functions`](#ip_functions) | GA | ✅ 200 | Ip Functions |
 | [`jdbc_connector`](#jdbc_connector) | PUBLIC_PREVIEW | ✅ 200 | Custom JDBC on UC Compute |
 | [`jdbc_oauth_m2m_connector`](#jdbc_oauth_m2m_connector) | BETA | ✅ 200 | OAuth M2M Support for Custom JDBC on UC Compute |
 | [`jira_connector`](#jira_connector) | BETA | ✅ 200 | Lakeflow Connect for Jira |
@@ -133,7 +142,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakebase CDF |
 | [`lakebase_insights`](#lakebase_insights) | BETA | ✅ 200 | Lakebase Advanced Postgres Telemetry |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | ✅ 200 | Lakebase OpenTelemetry Integration |
-| [`lakebase_search`](#lakebase_search) | BETA | ✅ 200 | Lakebase Search |
+| [`lakebase_search`](#lakebase_search) | GA | ✅ 200 | Lakebase Search |
 | [`lakebridge`](#lakebridge) | BETA | ✅ 200 | Agentic Converter in Genie Code |
 | [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
 | [`lakeflow_qbc`](#lakeflow_qbc) | GA | ✅ 200 | Lakeflow Connect Query Based Connectors |
@@ -187,6 +196,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`reddit_ads_connector`](#reddit_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Reddit Ads |
 | [`remote_ds_writes`](#remote_ds_writes) | GA | ✅ 200 | Remote data sources write support on serverless compute |
 | [`remote_query_tvf`](#remote_query_tvf) | GA | ✅ 200 | Enables remote query table-valued function (remote_query). |
+| [`reposIpynbResultsExportPermissions`](#reposipynbresultsexportpermissions) | GA | ✅ 200 | Allow repos to export IPYNB output |
 | [`reranker_finetuning`](#reranker_finetuning) | BETA | ✅ 200 | Reranker Finetuning |
 | [`scoped_pat`](#scoped_pat) | GA | ✅ 200 | Scoped personal access tokens |
 | [`sendgrid_connector`](#sendgrid_connector) | BETA | ✅ 200 | Lakeflow Connect for SendGrid |
@@ -198,7 +208,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
 | [`sharepoint_connector`](#sharepoint_connector) | GA | ✅ 200 | Lakeflow Connect for Sharepoint |
-| [`sharepoint_list_connector`](#sharepoint_list_connector) | BETA | ✅ 200 | Sharepoint List Connector |
+| [`sharepoint_list_connector`](#sharepoint_list_connector) | BETA | ✅ 200 | SharePoint Lists Connector |
 | [`shield_csp_enablement_ws_db`](#shield_csp_enablement_ws_db) | GA | ✅ 200 | Compliance security profile |
 | [`shield_esm_enablement_ws_db`](#shield_esm_enablement_ws_db) | GA | ✅ 200 | Enhanced security monitoring |
 | [`smartsheet_connector`](#smartsheet_connector) | BETA | ✅ 200 | Lakeflow Connect for Smartsheet |
@@ -221,6 +231,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
 | [`vectorsearch_highqps`](#vectorsearch_highqps) | GA | ✅ 200 | Vector Search High QPS |
 | [`veeva_connector`](#veeva_connector) | BETA | ✅ 200 | Lakeflow Connect for Veeva |
+| [`verkada_connector`](#verkada_connector) | BETA | ✅ 200 | Lakeflow Connect for Verkada |
 | [`vs_autoeval`](#vs_autoeval) | BETA | ✅ 200 | AI Search: Quality Evaluation |
 | [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | AI Search: Full-Text Search |
 | [`warehouse_stmt_tmout`](#warehouse_stmt_tmout) | BETA | ✅ 200 | Warehouse Statement Timeout |
@@ -408,6 +419,18 @@ Enables all new predictive functions for analyzing tabular data in Databricks SQ
 {"boolean_val": {"value": true}}
 ```
 
+### `ai_transcribe`
+
+- **Display name:** Ai Transcribe
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+The ai_transcribe() function brings production-quality speech-to-text to SQL: given an audio file, it returns a timestamped transcript segmented by speaker, ready for search, analytics, and downstream LLM consumption.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `aibi_dash_embed_ws_acc_policy`
 
 - **Display name:** AI/BI Dashboard Embedding Access Policy
@@ -516,6 +539,18 @@ Ingest from Amplitude using a simple and efficient connector
 {"boolean_val": {"value": true}}
 ```
 
+### `anaplan_connector`
+
+- **Display name:** Lakeflow Connect for Anaplan
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Anaplan with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `anomaly_detection_ws`
 
 - **Display name:** Data quality monitoring with anomaly detection (workspace level)
@@ -540,10 +575,34 @@ Ingest from Anthropic with a simple and efficient connector
 {"boolean_val": {"value": true}}
 ```
 
+### `anysphere_connector`
+
+- **Display name:** Lakeflow Connect for Anysphere Audit Logs
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Anysphere Audit Logs with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `anysphere_org_connector`
+
+- **Display name:** Lakeflow Connect for Anysphere Org
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Anysphere Org with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `apps_otel`
 
 - **Display name:** OpenTelemetry for Databricks Apps
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enables observability features for Databricks Apps.
@@ -600,6 +659,18 @@ Automatic cluster update ensures that all the clusters in a workspace are period
 {"enabled": true,"can_toggle": true,"maintenance_window": {"week_day_based_schedule": {"frequency": "WEEK_DAY_FREQUENCY_UNSPECIFIED","day_of_week": "DAY_OF_WEEK_UNSPECIFIED","window_start_time": {"hours": 0,"minutes": 0}}},"enablement_details": {"unavailable_for_non_enterprise_tier": true,"unavailable_for_disabled_entitlement": true,"forced_for_compliance_mode": true},"restart_even_if_no_updates_available": true}
 ```
 
+### `celigo_connector`
+
+- **Display name:** Lakeflow Connect for Celigo
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Celigo with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `cld_to_volumes`
 
 - **Display name:** Cluster Log Delivery to UC Volumes
@@ -643,6 +714,18 @@ Controls which external collaboration platforms (Slack and/or Microsoft Teams) c
 - **Status:** ✅ 200
 
 When enabled, users can choose whether responses from the Databricks app in Slack or Microsoft Teams are visible to the channel. When disabled, all responses are forced to be private to the requesting user.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `compute_agent`
+
+- **Display name:** Compute Agent
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Compute Agent is an AI agent that migrates Databricks Jobs and notebooks from classic compute to serverless.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -828,6 +911,18 @@ Automatically detect custom/business-specific tags beyond Data Classification’
 {"boolean_val": {"value": true}}
 ```
 
+### `dc_view_scanning`
+
+- **Display name:** Data Classification View Scanning
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enable scanning views in Data Classification.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `default_wh_setting`
 
 - **Display name:** Default warehouse setting
@@ -951,7 +1046,7 @@ Enables DCS-vNext support, which uses the LXC container and Dataplane Runtime da
 ### `enable_dlmv_aibi`
 
 - **Display name:** Enable Dashboard Local Metric Views in AI/BI Dashboards
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Create Metric Views that are local to an Ai/BI dashboard. These Dashboard Local Metric Views are created as datasets.
@@ -975,7 +1070,7 @@ Enables web search in Genie Code and Genie One using web search providers compli
 ### `enable_github_webhook_app_deployments`
 
 - **Display name:** Databricks Apps - Webhook-Triggered Deployments (GitHub, Azure DevOps)
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Automatically deploy apps when changes are pushed to a connected GitHub or Azure DevOps repository. Push events received via provider webhooks trigger app deployment workflows, removing the need for manual redeployment after code changes.
@@ -1051,6 +1146,18 @@ When enabled, apps in this workspace can only be deployed from Git.
 - **Status:** ✅ 200
 
 When enabled, non-admin users can only create dedicated (single-user) clusters assigned to themselves. Admins can create clusters for any user.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `envs_on_classic`
+
+- **Display name:** Environments on Standard Compute
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Unified dependency management experience across classic and serverless which results in increased stability and performance - DBR 19+
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1428,6 +1535,18 @@ Ingest from Google Search Console using a simple and efficient connector.
 {"boolean_val": {"value": true}}
 ```
 
+### `google_workspace_connector`
+
+- **Display name:** Lakeflow Connect for Google Workspace
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Google Workspace with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `hspot_mktg_connector`
 
 - **Display name:** Lakeflow Connect for HubSpot
@@ -1491,7 +1610,7 @@ Ingest from Oracle databases using Integrated Cdc Managed Ingestion Pipeline.
 ### `integrated_cdc_sql_server_connector`
 
 - **Display name:** LakeFlow Connect for Integrated Cdc Sql Server Connector
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Ingest from SQL Server databases using Integrated Cdc Managed Ingestion Pipeline.
@@ -1503,7 +1622,7 @@ Ingest from SQL Server databases using Integrated Cdc Managed Ingestion Pipeline
 ### `ip_functions`
 
 - **Display name:** Ip Functions
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Ip Functions feature preview enables built-in functions for working with IP addresses and CIDR blocks. Requires DBR 18.2 or later.
@@ -1647,7 +1766,7 @@ Enables OpenTelemetry integration for Lakebase, allowing export of telemetry dat
 ### `lakebase_search`
 
 - **Display name:** Lakebase Search
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 This preview introduces scalable vector search and native BM-25 fulltext search to Lakebase.
@@ -2292,6 +2411,18 @@ Function allows users to execute query in remote engine syntax using credentials
 {"boolean_val": {"value": true}}
 ```
 
+### `reposIpynbResultsExportPermissions`
+
+- **Display name:** Allow repos to export IPYNB output
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Controls whether users can commit .ipynb notebook outputs to remote Git repositories in the workspace.
+
+```json
+{"string_val": {"value": "string"}}
+```
+
 ### `reranker_finetuning`
 
 - **Display name:** Reranker Finetuning
@@ -2426,11 +2557,11 @@ Ingest Sharepoint data with a simple and efficient connector. Available via API.
 
 ### `sharepoint_list_connector`
 
-- **Display name:** Sharepoint List Connector
+- **Display name:** SharePoint Lists Connector
 - **Phase:** BETA
 - **Status:** ✅ 200
 
-Controls the rollout of the sharepoint list connector
+Ingest from SharePoint Lists with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2538,7 +2669,7 @@ Materialized View (MV) and Streaming Table (ST) schedules now surface as a syste
 - **Phase:** GA
 - **Status:** ✅ 200
 
-Enables Databricks AI features to use Databricks-managed connectors to popular third party providers.
+Controls whether Databricks AI features can invoke Databricks-provided MCP connectors to third-party services, including Google Drive, Gmail, Google Calendar, Microsoft 365, Atlassian, GitHub, Slack, and Glean, etc.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2695,6 +2826,18 @@ Vector Search High QPS enables significantly higher real-time query throughput f
 - **Status:** ✅ 200
 
 Ingest from Veeva with a simple and efficient connector.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `verkada_connector`
+
+- **Display name:** Lakeflow Connect for Verkada
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Verkada with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
