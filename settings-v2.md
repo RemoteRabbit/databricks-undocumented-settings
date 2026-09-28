@@ -1,16 +1,16 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-09-21T06:19:09Z._
+_Auto-generated on 2026-09-28T06:19:29Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_232 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_238 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 106 settings
-- **GA**: 92 settings
-- **PUBLIC_PREVIEW**: 34 settings
+- **BETA**: 108 settings
+- **GA**: 95 settings
+- **PUBLIC_PREVIEW**: 35 settings
 
 ## Summary
 
@@ -20,6 +20,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`agents_obo`](#agents_obo) | PUBLIC_PREVIEW | ✅ 200 | Agent Framework: On-Behalf-Of-User Authorization |
 | [`aha_connector`](#aha_connector) | BETA | ✅ 200 | Lakeflow Connect for Aha! |
 | [`ai_classify`](#ai_classify) | GA | ✅ 200 | AI Classify |
+| [`ai_diagnose`](#ai_diagnose) | BETA | ✅ 200 | AI Diagnose |
 | [`ai_enrich`](#ai_enrich) | BETA | ✅ 200 | Ai Enrich |
 | [`ai_extract`](#ai_extract) | GA | ✅ 200 | AI Extract |
 | [`ai_extract_precision_mode`](#ai_extract_precision_mode) | GA | ✅ 200 | AI Extract Precision Mode |
@@ -85,7 +86,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`enable_dlmv_aibi`](#enable_dlmv_aibi) | GA | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
 | [`enable_genie_web_search`](#enable_genie_web_search) | BETA | ✅ 200 | Web search in Genie Code and Genie One |
 | [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | GA | ✅ 200 | Databricks Apps - Webhook-Triggered Deployments (GitHub, Azure DevOps) |
-| [`enable_hscaling_apps`](#enable_hscaling_apps) | BETA | ✅ 200 | Apps Horizontal Scaling |
+| [`enable_hscaling_apps`](#enable_hscaling_apps) | GA | ✅ 200 | Apps Horizontal Scaling |
 | [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
 | [`enable_obo_user_apps`](#enable_obo_user_apps) | GA | ✅ 200 | Databricks Apps - On-Behalf-Of User Authorization |
 | [`enable_workspace_repo_configuration`](#enable_workspace_repo_configuration) | BETA | ✅ 200 | Enable Workspace Repo Configuration for Databricks Apps |
@@ -96,7 +97,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`excl_data_access`](#excl_data_access) | GA | ✅ 200 | Role-based access control (RBAC) |
 | [`exp_sp_token_notif`](#exp_sp_token_notif) | GA | ✅ 200 | Expiring service principal access token notifications |
 | [`external_access_to_managed_delta`](#external_access_to_managed_delta) | PUBLIC_PREVIEW | ✅ 200 | External Access to Unity Catalog Managed Delta Table |
-| [`external_engine_fgac`](#external_engine_fgac) | BETA | ✅ 200 | Cross-engine ABAC |
+| [`external_engine_fgac`](#external_engine_fgac) | GA | ✅ 200 | Cross-engine ABAC |
 | [`file_type`](#file_type) | BETA | ✅ 200 | File data type |
 | [`filebrowser_tree`](#filebrowser_tree) | PUBLIC_PREVIEW | ✅ 200 | Tree view of the side panel file browser |
 | [`fine_grained_dml`](#fine_grained_dml) | BETA | ✅ 200 | Fine-Grained DML Privileges |
@@ -115,6 +116,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`genie_deep_research`](#genie_deep_research) | GA | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
 | [`genie_one_file_upload`](#genie_one_file_upload) | BETA | ✅ 200 | Genie One File Upload |
+| [`genie_one_mcp`](#genie_one_mcp) | GA | ✅ 200 | Genie One Mcp |
 | [`genie_one_user_memory`](#genie_one_user_memory) | BETA | ✅ 200 | Genie One Memory |
 | [`genie_ontology_snippets`](#genie_ontology_snippets) | PUBLIC_PREVIEW | ✅ 200 | Genie Ontology snippets |
 | [`genie_spaces_agentic_api`](#genie_spaces_agentic_api) | GA | ✅ 200 | Agent Mode APIs for Genie Agents |
@@ -123,7 +125,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`gmail_connector`](#gmail_connector) | BETA | ✅ 200 | Lakeflow Connect for Gmail |
 | [`google_ads_connector`](#google_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Ads |
 | [`google_search_console_connector`](#google_search_console_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Search Console |
-| [`google_workspace_connector`](#google_workspace_connector) | BETA | ✅ 200 | Lakeflow Connect for Google Workspace |
+| [`governed_vibe_coding`](#governed_vibe_coding) | BETA | ✅ 200 | Governed agentic app-building |
 | [`hspot_mktg_connector`](#hspot_mktg_connector) | GA | ✅ 200 | Lakeflow Connect for HubSpot |
 | [`hubspot_connector_crm_objects`](#hubspot_connector_crm_objects) | BETA | ✅ 200 | Hubspot Connector CRM Hub Objects |
 | [`icebergv3`](#icebergv3) | GA | ✅ 200 | Iceberg V3 |
@@ -143,6 +145,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`lakebase_insights`](#lakebase_insights) | BETA | ✅ 200 | Lakebase Advanced Postgres Telemetry |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | ✅ 200 | Lakebase OpenTelemetry Integration |
 | [`lakebase_search`](#lakebase_search) | GA | ✅ 200 | Lakebase Search |
+| [`lakebase_system_table_o11y`](#lakebase_system_table_o11y) | BETA | ✅ 200 | Lakebase Observability in System Tables |
 | [`lakebridge`](#lakebridge) | BETA | ✅ 200 | Agentic Converter in Genie Code |
 | [`lakeflow_new_jobs_ui`](#lakeflow_new_jobs_ui) | GA | ✅ 200 | Lakeflow Jobs UI |
 | [`lakeflow_qbc`](#lakeflow_qbc) | GA | ✅ 200 | Lakeflow Connect Query Based Connectors |
@@ -203,7 +206,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`serverless_compute`](#serverless_compute) | GA | ✅ 200 | Serverless Compute Access Control |
 | [`serverless_jar_jobs`](#serverless_jar_jobs) | GA | ✅ 200 | Serverless JARs |
 | [`serverless_workload_observability`](#serverless_workload_observability) | BETA | ✅ 200 | Improved Lakeflow Performance Observability |
-| [`session_restore_for_serverless_jobs`](#session_restore_for_serverless_jobs) | BETA | ✅ 200 | Session restore for serverless jobs |
+| [`session_restore_for_serverless_jobs`](#session_restore_for_serverless_jobs) | PUBLIC_PREVIEW | ✅ 200 | Session restore for serverless jobs |
 | [`sf_mktg_connector`](#sf_mktg_connector) | BETA | ✅ 200 | Lakeflow Connect for Salesforce Marketing Cloud |
 | [`sfdc_file_sharing`](#sfdc_file_sharing) | GA | ✅ 200 | Salesforce Data Cloud file sharing federation |
 | [`sftp_connector`](#sftp_connector) | GA | ✅ 200 | SFTP Connector |
@@ -211,6 +214,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`sharepoint_list_connector`](#sharepoint_list_connector) | BETA | ✅ 200 | SharePoint Lists Connector |
 | [`shield_csp_enablement_ws_db`](#shield_csp_enablement_ws_db) | GA | ✅ 200 | Compliance security profile |
 | [`shield_esm_enablement_ws_db`](#shield_esm_enablement_ws_db) | GA | ✅ 200 | Enhanced security monitoring |
+| [`shopify_connector`](#shopify_connector) | BETA | ✅ 200 | Lakeflow Connect for Shopify |
 | [`smartsheet_connector`](#smartsheet_connector) | BETA | ✅ 200 | Lakeflow Connect for Smartsheet |
 | [`square_connector`](#square_connector) | BETA | ✅ 200 | Lakeflow Connect for Square |
 | [`standalone_mv_st_on_serverless_gc`](#standalone_mv_st_on_serverless_gc) | BETA | ✅ 200 | MV and ST in Serverless Notebooks and Jobs |
@@ -220,6 +224,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`third_party_agent_connectors`](#third_party_agent_connectors) | GA | ✅ 200 | Third Party Connectors for Agents |
 | [`third_party_agent_connectors_glean`](#third_party_agent_connectors_glean) | BETA | ✅ 200 | Third Party Agent Connectors Glean |
 | [`tiktok_ads_connector`](#tiktok_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for TikTok Ads |
+| [`time_travel_abac`](#time_travel_abac) | BETA | ✅ 200 | Time Travel on UC Managed Delta/Iceberg Tables with Attribute Based Access Controls |
 | [`time_type`](#time_type) | BETA | ✅ 200 | Time data type |
 | [`tut_delta_sharing_ws`](#tut_delta_sharing_ws) | BETA | ✅ 200 | Table Update Triggers on OpenSharing (Recipient) |
 | [`uc_external_secrets`](#uc_external_secrets) | BETA | ✅ 200 | External secrets for Unity Catalog |
@@ -227,6 +232,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`uc_secrets`](#uc_secrets) | GA | ✅ 200 | Secrets in Unity Catalog |
 | [`uc_udf_dependencies`](#uc_udf_dependencies) | GA | ✅ 200 | Enhanced Python UDFs in Unity Catalog |
 | [`ucmr_prompt_registry`](#ucmr_prompt_registry) | BETA | ✅ 200 | Managed MLflow Prompt Registry |
+| [`unity_gateway_managed_config`](#unity_gateway_managed_config) | BETA | ✅ 200 | Unity Gateway Managed Configuration |
 | [`variant_shredding`](#variant_shredding) | GA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
 | [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
 | [`vectorsearch_highqps`](#vectorsearch_highqps) | GA | ✅ 200 | Vector Search High QPS |
@@ -294,6 +300,18 @@ Ingest from Aha! using a simple and efficient connector
 - **Status:** ✅ 200
 
 The ai_classify() function enables you to classify input text directly in SQL using state-of-the-art generative AI models provided by Databricks Foundation Model APIs. By supplying a set of labels, you can declaratively assign categories to unstructured text.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `ai_diagnose`
+
+- **Display name:** AI Diagnose
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+AI Diagnose is an autonomous AI agent that investigates job failures and offers insight into why they happened.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1082,7 +1100,7 @@ Automatically deploy apps when changes are pushed to a connected GitHub or Azure
 ### `enable_hscaling_apps`
 
 - **Display name:** Apps Horizontal Scaling
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enable horizontal scaling by specifying number of compute instances for your app.
@@ -1214,7 +1232,7 @@ External Access to Unity Catalog Managed Delta Tables lets external engines like
 ### `external_engine_fgac`
 
 - **Display name:** Cross-engine ABAC
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 This feature enables external clients to securely access tables in Databricks via UC Open APIs with attribute-based access controls (ABAC), row filters, and column masks enforced.
@@ -1439,6 +1457,18 @@ Enable Genie One users to upload files to their chats.
 {"boolean_val": {"value": true}}
 ```
 
+### `genie_one_mcp`
+
+- **Display name:** Genie One Mcp
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Connect MCP-compatible applications to Genie One so users can ask questions about their data in natural language. Existing Databricks permissions continue to apply.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `genie_one_user_memory`
 
 - **Display name:** Genie One Memory
@@ -1535,13 +1565,13 @@ Ingest from Google Search Console using a simple and efficient connector.
 {"boolean_val": {"value": true}}
 ```
 
-### `google_workspace_connector`
+### `governed_vibe_coding`
 
-- **Display name:** Lakeflow Connect for Google Workspace
+- **Display name:** Governed agentic app-building
 - **Phase:** BETA
 - **Status:** ✅ 200
 
-Ingest from Google Workspace with a simple and efficient connector
+Governed agentic app-building is gated access to Genie App Builder, App Spaces and Serverless Micro Apps.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1770,6 +1800,18 @@ Enables OpenTelemetry integration for Lakebase, allowing export of telemetry dat
 - **Status:** ✅ 200
 
 This preview introduces scalable vector search and native BM-25 fulltext search to Lakebase.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `lakebase_system_table_o11y`
+
+- **Display name:** Lakebase Observability in System Tables
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Captures Lakebase telemetry into Databricks system tables — starting with advanced Postgres signals: query statistics, execution plans, wait events, active session history, schema-change history, and database and compute health. No configuration; telemetry is captured automatically and is available to users with access to the system catalog.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2498,7 +2540,7 @@ Improved Lakeflow Performance Observability includes aggregates of query metrics
 ### `session_restore_for_serverless_jobs`
 
 - **Display name:** Session restore for serverless jobs
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
 Restore Python and Spark state from any serverless job run into a notebook. Available for runs longer than 30 minutes within the last 7 days.
@@ -2589,6 +2631,18 @@ Controls whether enhanced security monitoring is enabled for this workspace. Enh
 
 ```json
 {"is_enabled": true}
+```
+
+### `shopify_connector`
+
+- **Display name:** Lakeflow Connect for Shopify
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Shopify with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
 ```
 
 ### `smartsheet_connector`
@@ -2699,6 +2753,18 @@ Ingest from TikTok Ads with a simple and efficient connector.
 {"boolean_val": {"value": true}}
 ```
 
+### `time_travel_abac`
+
+- **Display name:** Time Travel on UC Managed Delta/Iceberg Tables with Attribute Based Access Controls
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Time travel for ABAC-protected tables: You can use time travel (VERSION AS OF, TIMESTAMP AS OF, and @v) on Unity Catalog managed Delta/Iceberg tables protected by ABAC row filters and column masks. Row filters and column masks are enforced using the table’s current policies when reading historical snapshots. DBR 19.3 Release.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `time_type`
 
 - **Display name:** Time data type
@@ -2778,6 +2844,18 @@ Added support for custom dependencies from PyPI in UC Python UDFs (Databricks Ru
 - **Status:** ✅ 200
 
 Managed MLflow Prompt Registry on Databricks is a powerful tool that streamlines prompt engineering and management in your Generative AI (GenAI) applications. It enables you to version, track, and reuse prompts across your organization, helping maintain consistency and improving collaboration in prompt development.  The Prompt Registry also enables you to optimize prompts through a native integration with DSPy, delivering higher quality while minimizing time spent on manual prompt engineering.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `unity_gateway_managed_config`
+
+- **Display name:** Unity Gateway Managed Configuration
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Lets admins centrally manage configuration in Unity Gateway.
 
 ```json
 {"boolean_val": {"value": true}}

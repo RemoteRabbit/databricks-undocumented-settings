@@ -1,6 +1,6 @@
 # Databricks `workspace-conf` keys (legacy /api/2.0/workspace-conf)
 
-_Auto-generated on 2026-09-21T06:19:09Z._
+_Auto-generated on 2026-09-28T06:19:29Z._
 _Discovered against a Databricks host. Some keys may be valid on other tiers but rejected here._
 _Descriptions are hand-maintained in [`workspace-conf-descriptions.json`](workspace-conf-descriptions.json)._
 
@@ -30,7 +30,7 @@ _Descriptions are hand-maintained in [`workspace-conf-descriptions.json`](worksp
 | `maxTokenLifetimeDays` | `730` | integer (1–730) | Maximum lifetime for new PATs, in days. Existing tokens are unaffected. 0 = unlimited (where allowed). |
 | `mlflowModelRegistryEmailNotificationsEnabled` | `-` | true \| false | Enable email notifications for MLflow Model Registry events. |
 | `mlflowModelServingEndpointCreationEnabled` | `-` | true \| false | Allow creation of MLflow Model Serving endpoints in this workspace. |
-| `projectsAllowList` | `-` | comma-separated URL prefixes | Allow-list of Git URL prefixes that Repos may commit/push to. Empty = block all repos. |
+| `projectsAllowList` | `` | comma-separated URL prefixes | Allow-list of Git URL prefixes that Repos may commit/push to. Empty = block all repos. |
 | `storeInteractiveNotebookResultsInCustomerAccount` | `-` | true \| false | AWS-only. Store interactive notebook results in the customer's S3 root bucket instead of the Databricks-managed location. |
 
 ## ❌ Invalid keys (HTTP 400 "Invalid keys")
