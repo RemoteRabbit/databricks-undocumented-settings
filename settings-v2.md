@@ -1,16 +1,16 @@
 # Databricks settings v2 (/api/2.1/settings/{name})
 
-_Auto-generated on 2026-10-26T06:19:09Z._
+_Auto-generated on 2026-11-02T06:13:15Z._
 _Catalog from `GET /api/2.1/settings-metadata`; status column from per-name probe against a Databricks host._
-_295 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
+_305 entries. Use with the `databricks_workspace_setting_v2` Terraform resource._
 
 Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure · - not probed
 
 ## Index by preview phase
 
-- **BETA**: 144 settings
-- **GA**: 121 settings
-- **PUBLIC_PREVIEW**: 30 settings
+- **BETA**: 149 settings
+- **GA**: 128 settings
+- **PUBLIC_PREVIEW**: 28 settings
 
 ## Summary
 
@@ -39,7 +39,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`aibi_dash_embed_ws_acc_policy`](#aibi_dash_embed_ws_acc_policy) | GA | ✅ 200 | AI/BI Dashboard Embedding Access Policy |
 | [`aibi_dash_embed_ws_apprvd_domains`](#aibi_dash_embed_ws_apprvd_domains) | GA | ✅ 200 | AI/BI Dashboard Embedding Approved Domains |
 | [`aibi_dashboard_dlmv_materialization`](#aibi_dashboard_dlmv_materialization) | BETA | ✅ 200 | AI/BI Dashboard Materialization |
-| [`aibi_dashboard_relationships`](#aibi_dashboard_relationships) | PUBLIC_PREVIEW | ✅ 200 | AI/BI Dashboard Relationships |
+| [`aibi_dashboard_relationships`](#aibi_dashboard_relationships) | GA | ✅ 200 | AI/BI Dashboard Relationships |
 | [`air_h100_multinode`](#air_h100_multinode) | GA | ✅ 200 | AI Runtime multi-node H100 |
 | [`air_interactive`](#air_interactive) | GA | ✅ 200 | AI Runtime |
 | [`akamai_waf_connector`](#akamai_waf_connector) | BETA | ✅ 200 | Lakeflow Connect for Akamai WAF |
@@ -48,17 +48,19 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`allowedAppsUserApiScopes`](#allowedappsuserapiscopes) | GA | ✅ 200 | Restrict OAuth scopes for apps to selected values |
 | [`amplitude_connector`](#amplitude_connector) | BETA | ✅ 200 | Lakeflow Connect for Amplitude |
 | [`anaplan_connector`](#anaplan_connector) | BETA | ✅ 200 | Lakeflow Connect for Anaplan |
-| [`anomaly_detection_ws`](#anomaly_detection_ws) | PUBLIC_PREVIEW | ✅ 200 | Data quality monitoring with anomaly detection (workspace level) |
+| [`anomaly_detection_ws`](#anomaly_detection_ws) | GA | ✅ 200 | Data quality monitoring with anomaly detection (workspace level) |
 | [`anthropic_connector`](#anthropic_connector) | BETA | ✅ 200 | Lakeflow Connect for Anthropic |
 | [`anysphere_connector`](#anysphere_connector) | BETA | ✅ 200 | Lakeflow Connect for Anysphere Audit Logs |
 | [`anysphere_org_connector`](#anysphere_org_connector) | BETA | ✅ 200 | Lakeflow Connect for Anysphere Org |
 | [`apps_otel`](#apps_otel) | GA | ✅ 200 | OpenTelemetry for Databricks Apps |
+| [`apps_security_scan`](#apps_security_scan) | BETA | ✅ 200 | Apps Security Scan |
 | [`asana_connector`](#asana_connector) | BETA | ✅ 200 | Lakeflow Connect for Asana |
 | [`atlassian_audit_logs_connector`](#atlassian_audit_logs_connector) | BETA | ✅ 200 | Lakeflow Connect for Atlassian Audit Logs |
 | [`authoring_context`](#authoring_context) | PUBLIC_PREVIEW | ✅ 200 | Focused notebook & file editor for Git folders |
 | [`auto_cdf`](#auto_cdf) | GA | ✅ 200 | Auto-CDF (Change Data Feed) |
 | [`automatic_cluster_update`](#automatic_cluster_update) | GA | ✅ 200 | Automatic cluster update |
 | [`azure_devops_connector`](#azure_devops_connector) | BETA | ✅ 200 | Lakeflow Connect for Azure DevOps |
+| [`box_audit_logs_connector`](#box_audit_logs_connector) | BETA | ✅ 200 | Lakeflow Connect for Box Audit Logs |
 | [`can_view_cluster_permission`](#can_view_cluster_permission) | BETA | ✅ 200 | Can view compute permission |
 | [`celigo_connector`](#celigo_connector) | BETA | ✅ 200 | Lakeflow Connect for Celigo |
 | [`cld_to_volumes`](#cld_to_volumes) | GA | ✅ 200 | Cluster Log Delivery to UC Volumes |
@@ -105,13 +107,13 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`enableNotebookTableClipboard`](#enablenotebooktableclipboard) | GA | ✅ 200 | Results table clipboard features |
 | [`enableResultsDownloading`](#enableresultsdownloading) | GA | ✅ 200 | Notebook results download |
 | [`enableUploadDataUis`](#enableuploaddatauis) | GA | ✅ 200 | Upload data using the UI |
-| [`enable_artifact_registry`](#enable_artifact_registry) | BETA | ✅ 200 | Databricks Artifact Registry |
+| [`enable_artifact_registry`](#enable_artifact_registry) | PUBLIC_PREVIEW | ✅ 200 | Databricks Artifact Registry |
 | [`enable_dcs_vnext`](#enable_dcs_vnext) | BETA | ✅ 200 | DCS-vNext |
 | [`enable_dlmv_aibi`](#enable_dlmv_aibi) | GA | ✅ 200 | Enable Dashboard Local Metric Views in AI/BI Dashboards |
 | [`enable_genie_web_search`](#enable_genie_web_search) | BETA | ✅ 200 | Web search in Genie Code and Genie One |
 | [`enable_github_webhook_app_deployments`](#enable_github_webhook_app_deployments) | GA | ✅ 200 | Databricks Apps - Webhook-Triggered Deployments (GitHub, Azure DevOps) |
 | [`enable_hscaling_apps`](#enable_hscaling_apps) | GA | ✅ 200 | Apps Horizontal Scaling |
-| [`enable_lakeview_tags`](#enable_lakeview_tags) | PUBLIC_PREVIEW | ✅ 200 | Tagging support for workspace scoped assets |
+| [`enable_lakeview_tags`](#enable_lakeview_tags) | GA | ✅ 200 | Tagging support for workspace scoped assets |
 | [`enable_obo_user_apps`](#enable_obo_user_apps) | GA | ✅ 200 | Databricks Apps - On-Behalf-Of User Authorization |
 | [`enable_workspace_repo_configuration`](#enable_workspace_repo_configuration) | GA | ✅ 200 | Enable Workspace Repo Configuration for Databricks Apps |
 | [`enforceGitAppDeployments`](#enforcegitappdeployments) | GA | ✅ 200 | Only allow app deployments from Git |
@@ -137,6 +139,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`full_text_search_index`](#full_text_search_index) | BETA | ✅ 200 | SQL: Full-Text Search Index for UC managed tables |
 | [`gdrive_connector`](#gdrive_connector) | GA | ✅ 200 | Lakeflow Connect for Google Drive |
 | [`generic_lfc`](#generic_lfc) | BETA | ✅ 200 | Lakeflow Connect Community Connectors |
+| [`genie_agent_guided_setup`](#genie_agent_guided_setup) | BETA | ✅ 200 | Genie Agent Guided Setup |
 | [`genie_agents_fastmode`](#genie_agents_fastmode) | BETA | ✅ 200 | Genie Agents Flash Mode |
 | [`genie_bi_migration`](#genie_bi_migration) | GA | ✅ 200 | Import from External BI to AI/BI |
 | [`genie_chat_sharing`](#genie_chat_sharing) | GA | ✅ 200 | Genie Chat Sharing |
@@ -145,6 +148,7 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`genie_code_job_task`](#genie_code_job_task) | GA | ✅ 200 | Genie Code Job Task |
 | [`genie_deep_research`](#genie_deep_research) | GA | ✅ 200 | Genie Agent |
 | [`genie_inspect_answer`](#genie_inspect_answer) | PUBLIC_PREVIEW | ✅ 200 | Genie Answer Inspection |
+| [`genie_one_api`](#genie_one_api) | BETA | ✅ 200 | Genie One API |
 | [`genie_one_file_upload`](#genie_one_file_upload) | GA | ✅ 200 | Genie One File Upload |
 | [`genie_one_mcp`](#genie_one_mcp) | GA | ✅ 200 | Genie One Mcp |
 | [`genie_one_user_memory`](#genie_one_user_memory) | GA | ✅ 200 | Genie One Memory |
@@ -171,10 +175,11 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`jdbc_oauth_m2m_connector`](#jdbc_oauth_m2m_connector) | BETA | ✅ 200 | OAuth M2M Support for Custom JDBC on UC Compute |
 | [`jira_connector`](#jira_connector) | BETA | ✅ 200 | Lakeflow Connect for Jira |
 | [`job_cluster_default_auto_data_security_mode`](#job_cluster_default_auto_data_security_mode) | PUBLIC_PREVIEW | ✅ 200 | Job cluster default auto data security mode |
+| [`job_completion_triggers`](#job_completion_triggers) | BETA | ✅ 200 | Job Completion Triggers |
 | [`jobs_disabled_tasks`](#jobs_disabled_tasks) | GA | ✅ 200 | Disabled tasks in Lakeflow Jobs |
 | [`jobs_serverless_managed_base_environments`](#jobs_serverless_managed_base_environments) | BETA | ✅ 200 | Serverless workspace base environment support in Jobs |
 | [`kafka_connector`](#kafka_connector) | BETA | ✅ 200 | Lakeflow Connect for Kafka |
-| [`lakebase_accel_sync`](#lakebase_accel_sync) | GA | ✅ 200 | LTAP Direct Writes |
+| [`lakebase_accel_sync`](#lakebase_accel_sync) | BETA | ✅ 200 | LTAP Direct Writes |
 | [`lakebase_cdf`](#lakebase_cdf) | PUBLIC_PREVIEW | ✅ 200 | Lakebase CDF |
 | [`lakebase_insights`](#lakebase_insights) | BETA | ✅ 200 | Lakebase Insights |
 | [`lakebase_otel_integration`](#lakebase_otel_integration) | BETA | ✅ 200 | Lakebase OpenTelemetry Integration |
@@ -199,7 +204,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`meta_ads_connector`](#meta_ads_connector) | BETA | ✅ 200 | Lakeflow Connect for Meta Ads |
 | [`metadata_automations`](#metadata_automations) | BETA | ✅ 200 | Tag Automations |
 | [`microsoft_entra_id`](#microsoft_entra_id) | BETA | ✅ 200 | Lakeflow Connect for Microsoft Entra ID |
-| [`mlflow_experiment_issues_tab`](#mlflow_experiment_issues_tab) | BETA | ✅ 200 | Mlflow Experiment Issues Tab |
+| [`mlflowModelRegistryEmailNotificationsEnabled`](#mlflowmodelregistryemailnotificationsenabled) | GA | ✅ 200 | MLflow model registry email notifications |
+| [`mlflow_experiment_issues_tab`](#mlflow_experiment_issues_tab) | BETA | ✅ 200 | MLflow Issue Detection |
 | [`mlflow_logged_models`](#mlflow_logged_models) | PUBLIC_PREVIEW | ✅ 200 | Models in Unity Catalog: Deployment Jobs |
 | [`mlflow_review_queues`](#mlflow_review_queues) | BETA | ✅ 200 | MLflow Review Queues |
 | [`model_triggers`](#model_triggers) | BETA | ✅ 200 | Model update job triggers |
@@ -225,11 +231,11 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`otel_model_serving`](#otel_model_serving) | GA | ✅ 200 | OpenTelemetry for Databricks Model Serving |
 | [`outlook_connector`](#outlook_connector) | BETA | ✅ 200 | Lakeflow Connect for Outlook |
 | [`pagerduty_connector`](#pagerduty_connector) | BETA | ✅ 200 | Lakeflow Connect for PagerDuty |
-| [`palantir_connector`](#palantir_connector) | PUBLIC_PREVIEW | ✅ 200 | Palantir Federation |
+| [`palantir_connector`](#palantir_connector) | GA | ✅ 200 | Palantir Federation |
 | [`pat_autoscoping`](#pat_autoscoping) | BETA | ✅ 200 | Personal access tokens auto-scoping |
 | [`paypal_connector`](#paypal_connector) | BETA | ✅ 200 | Lakeflow Connect for PayPal |
 | [`pendo_connector`](#pendo_connector) | BETA | ✅ 200 | Lakeflow Connect for Pendo |
-| [`personalized_genie_one_starter_questions`](#personalized_genie_one_starter_questions) | BETA | ✅ 200 | Personalized Genie One Starter Questions |
+| [`personalized_genie_one_starter_questions`](#personalized_genie_one_starter_questions) | GA | ✅ 200 | Personalized Genie One Starter Questions |
 | [`pipeline_parameters`](#pipeline_parameters) | GA | ✅ 200 | Spark Declarative Pipeline Parameters |
 | [`pipelines_user_facing_testing`](#pipelines_user_facing_testing) | BETA | ✅ 200 | Pipelines Unit Testing |
 | [`pkg_repo_api_cluster`](#pkg_repo_api_cluster) | GA | ✅ 200 | Default Python package repositories in clusters created via API |
@@ -285,14 +291,16 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`ucmr_prompt_registry`](#ucmr_prompt_registry) | BETA | ✅ 200 | Managed MLflow Prompt Registry |
 | [`unity_ai_gateway_service_policies`](#unity_ai_gateway_service_policies) | BETA | ✅ 200 | Unity Gateway Service Policies |
 | [`unity_gateway_managed_config`](#unity_gateway_managed_config) | BETA | ✅ 200 | Unity Gateway Managed Configuration |
+| [`user_isolation_ws_enable`](#user_isolation_ws_enable) | GA | ✅ 200 | Enforce user isolation |
 | [`variant_shredding`](#variant_shredding) | GA | ✅ 200 | Variant Shredding for Optimized Read Performance on Semi-Structured Data |
 | [`vector_search_rerank`](#vector_search_rerank) | GA | ✅ 200 | Vector Search Reranker |
 | [`vectorsearch_highqps`](#vectorsearch_highqps) | GA | ✅ 200 | Vector Search High QPS |
 | [`veeva_connector`](#veeva_connector) | BETA | ✅ 200 | Lakeflow Connect for Veeva |
 | [`verkada_connector`](#verkada_connector) | BETA | ✅ 200 | Lakeflow Connect for Verkada |
+| [`vimeo_connector`](#vimeo_connector) | BETA | ✅ 200 | Lakeflow Connect for Vimeo |
 | [`vs_autoeval`](#vs_autoeval) | BETA | ✅ 200 | AI Search: Quality Evaluation |
 | [`vs_full_text`](#vs_full_text) | BETA | ✅ 200 | AI Search: Full-Text Search |
-| [`warehouse_stmt_tmout`](#warehouse_stmt_tmout) | BETA | ✅ 200 | Warehouse Statement Timeout |
+| [`warehouse_stmt_tmout`](#warehouse_stmt_tmout) | PUBLIC_PREVIEW | ✅ 200 | Warehouse Statement Timeout |
 | [`wday_act_connector`](#wday_act_connector) | BETA | ✅ 200 | Lakeflow Connect for Workday Activity Logging |
 | [`wday_hcm_connector`](#wday_hcm_connector) | BETA | ✅ 200 | Lakeflow Connect for Workday HCM |
 | [`wh_activity_details`](#wh_activity_details) | GA | ✅ 200 | Warehouse Activity Details |
@@ -301,6 +309,8 @@ Status legend: ✅ 200 set · 🟡 404 recognized but unset · ❌ other failure
 | [`workiva_connector`](#workiva_connector) | BETA | ✅ 200 | Lakeflow Connect for Workiva |
 | [`workspace_label`](#workspace_label) | GA | ✅ 200 | Workspace Label |
 | [`wsfs_git_cli`](#wsfs_git_cli) | PUBLIC_PREVIEW | ✅ 200 | Git CLI support for Git folders |
+| [`wt_ws_enable`](#wt_ws_enable) | GA | ✅ 200 | Web terminal |
+| [`xero_connector`](#xero_connector) | BETA | ✅ 200 | Lakeflow Connect for Xero |
 | [`zdesk_supt_connector`](#zdesk_supt_connector) | GA | ✅ 200 | Lakeflow Connect for Zendesk Support |
 | [`zerobus_avro_support`](#zerobus_avro_support) | BETA | ✅ 200 | Zerobus Ingest Avro Support |
 | [`zerobus_default_storage_write`](#zerobus_default_storage_write) | PUBLIC_PREVIEW | ✅ 200 | Zerobus Ingest Default Storage |
@@ -593,7 +603,7 @@ Enables authors to materialize datasets for published AI/BI dashboards, with the
 ### `aibi_dashboard_relationships`
 
 - **Display name:** AI/BI Dashboard Relationships
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enable creating relationships (fka Semantic Models) inside AI/BI dashboards.
@@ -701,7 +711,7 @@ Ingest from Anaplan with a simple and efficient connector
 ### `anomaly_detection_ws`
 
 - **Display name:** Data quality monitoring with anomaly detection (workspace level)
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 This feature allows you to be alerted on data quality anomalies (e.g. freshness, completeness) for your tables. By learning the behaviors of each table and intelligently setting thresholds, the feature allows you to easily alert on data quality incidents across all your important tables. Currently, the feature is limited to freshness monitoring and is a library you call in a notebook, but will soon also include completeness (row count) monitoring. The table health information will also be published in Unity Catalog so data consumers know if a table has an ongoing data quality incident.
@@ -753,6 +763,18 @@ Ingest from Anysphere Org with a simple and efficient connector
 - **Status:** ✅ 200
 
 Enables observability features for Databricks Apps.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `apps_security_scan`
+
+- **Display name:** Apps Security Scan
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enable security focused static code analysis for Databricks Apps. Findings are reported in the UI for each deployment.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -825,6 +847,18 @@ Automatic cluster update ensures that all the clusters in a workspace are period
 - **Status:** ✅ 200
 
 Ingest from Azure DevOps with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `box_audit_logs_connector`
+
+- **Display name:** Lakeflow Connect for Box Audit Logs
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Box Audit Logs with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
@@ -1385,7 +1419,7 @@ Controls whether users can upload data to the workspace using the UI. This setti
 ### `enable_artifact_registry`
 
 - **Display name:** Databricks Artifact Registry
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
 Enable Databricks Artifact Registry service
@@ -1457,7 +1491,7 @@ Enable horizontal scaling by specifying number of compute instances for your app
 ### `enable_lakeview_tags`
 
 - **Display name:** Tagging support for workspace scoped assets
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Enable tags for new workspace scoped assets including lakeview dashboards and genie spaces. Users with edit level or above permissions can add and modify tags on the asset
@@ -1767,6 +1801,18 @@ This feature enables a wide range of OSS connectors built on the Python Data Sou
 {"boolean_val": {"value": true}}
 ```
 
+### `genie_agent_guided_setup`
+
+- **Display name:** Genie Agent Guided Setup
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Create a Genie space with an authoring agent that guides you through setup and curates its data and instructions.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `genie_agents_fastmode`
 
 - **Display name:** Genie Agents Flash Mode
@@ -1858,6 +1904,18 @@ The Genie Agent provides deeper data insights and answers complex business quest
 - **Status:** ✅ 200
 
 Advanced technique that reviews initial SQL answers and makes improvements in standard Genie
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `genie_one_api`
+
+- **Display name:** Genie One API
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Use Genie One programmatically through APIs to create responses and manage conversations.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2175,6 +2233,18 @@ When enabled, job clusters default to AUTO data security mode.
 {"boolean_val": {"value": true}}
 ```
 
+### `job_completion_triggers`
+
+- **Display name:** Job Completion Triggers
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Enables downstream jobs to run automatically when configured upstream jobs complete with the selected status.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `jobs_disabled_tasks`
 
 - **Display name:** Disabled tasks in Lakeflow Jobs
@@ -2214,7 +2284,7 @@ Ingest from Apache Kafka with a simple and efficient streaming connector.
 ### `lakebase_accel_sync`
 
 - **Display name:** LTAP Direct Writes
-- **Phase:** GA
+- **Phase:** BETA
 - **Status:** ✅ 200
 
 Bulk writes data directly to Lakebase storage to power faster synced table loads and refreshes.
@@ -2511,13 +2581,25 @@ Ingest from Microsoft Entra ID using a simple and efficient connector
 {"boolean_val": {"value": true}}
 ```
 
+### `mlflowModelRegistryEmailNotificationsEnabled`
+
+- **Display name:** MLflow model registry email notifications
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Boolean toggle enabling MLflow Model Registry email notifications on model version actions (creation, comment, state transition).
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `mlflow_experiment_issues_tab`
 
-- **Display name:** Mlflow Experiment Issues Tab
+- **Display name:** MLflow Issue Detection
 - **Phase:** BETA
 - **Status:** ✅ 200
 
-This controls the feature for the top-level Issues tab in the MLflow experiment page.
+This controls the feature for the MLflow Issue Detection in the MLflow experiment page.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2649,7 +2731,7 @@ This preview enables a new and improved user interface for creating, editing and
 - **Phase:** BETA
 - **Status:** ✅ 200
 
-Experimental features in migration projects: PySpark targets for SQL-based sources, analysis and lineage for legacy source code.
+Experimental features in migration projects: PySpark targets for SQL-based sources, analysis and lineage for legacy source code, and Informatica PowerCenter as an ETL source.
 
 ```json
 {"boolean_val": {"value": true}}
@@ -2826,7 +2908,7 @@ Ingest from PagerDuty using a simple and efficient connector
 ### `palantir_connector`
 
 - **Display name:** Palantir Federation
-- **Phase:** PUBLIC_PREVIEW
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Palantir Federation lets customers govern Palantir Iceberg tables in UC and read them using DBR
@@ -2874,7 +2956,7 @@ Ingest from Pendo using a simple and efficient connector
 ### `personalized_genie_one_starter_questions`
 
 - **Display name:** Personalized Genie One Starter Questions
-- **Phase:** BETA
+- **Phase:** GA
 - **Status:** ✅ 200
 
 Show starter questions in Genie One related to popular and recently viewed assets in your workspace. 
@@ -3081,7 +3163,7 @@ Function allows users to execute query in remote engine syntax using credentials
 - **Phase:** GA
 - **Status:** ✅ 200
 
-Controls whether users can commit .ipynb notebook outputs to remote Git repositories in the workspace.
+Controls whether users can commit .ipynb notebook outputs to remote Git repositories in the workspace. Allowed values are `ALLOW` (permit committing notebook outputs) and `DISABLE` (prevent committing notebook outputs). Values are case-sensitive.
 
 ```json
 {"string_val": {"value": "string"}}
@@ -3543,6 +3625,18 @@ Lets admins centrally manage configuration in Unity Gateway.
 {"boolean_val": {"value": true}}
 ```
 
+### `user_isolation_ws_enable`
+
+- **Display name:** Enforce user isolation
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Prevents creating or starting clusters that use the No isolation shared access mode. Changes take effect when a cluster is started or restarted. This setting cannot be disabled on workspaces subject to Unity Catalog-only enforcement.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `variant_shredding`
 
 - **Display name:** Variant Shredding for Optimized Read Performance on Semi-Structured Data
@@ -3603,6 +3697,18 @@ Ingest from Verkada with a simple and efficient connector
 {"boolean_val": {"value": true}}
 ```
 
+### `vimeo_connector`
+
+- **Display name:** Lakeflow Connect for Vimeo
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Vimeo with a simple and efficient connector
+
+```json
+{"boolean_val": {"value": true}}
+```
+
 ### `vs_autoeval`
 
 - **Display name:** AI Search: Quality Evaluation
@@ -3630,7 +3736,7 @@ Users can create pure full-text indexes and run full-text search queries directl
 ### `warehouse_stmt_tmout`
 
 - **Display name:** Warehouse Statement Timeout
-- **Phase:** BETA
+- **Phase:** PUBLIC_PREVIEW
 - **Status:** ✅ 200
 
 Warehouse Statement Timeouts allow users to set a configurable value that automatically terminates queries
@@ -3733,6 +3839,30 @@ A custom label and color badge displayed next to the workspace name in the Datab
 - **Status:** ✅ 200
 
 You can now run Git CLI commands against Git folders in the Web Terminal and from notebooks. Previously, there was only support for Git operations via the UI.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `wt_ws_enable`
+
+- **Display name:** Web terminal
+- **Phase:** GA
+- **Status:** ✅ 200
+
+Controls whether the web terminal is enabled for this workspace. Accepts true or false when the account delegates control to workspaces. When delegation is disabled, only the account-enforced value is accepted: true if enabled, false if disabled. A Boolean value is required. For workspaces associated with an account, updates are rejected if the account's delegation setting is undefined.
+
+```json
+{"boolean_val": {"value": true}}
+```
+
+### `xero_connector`
+
+- **Display name:** Lakeflow Connect for Xero
+- **Phase:** BETA
+- **Status:** ✅ 200
+
+Ingest from Xero with a simple and efficient connector
 
 ```json
 {"boolean_val": {"value": true}}
